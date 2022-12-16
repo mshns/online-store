@@ -1,5 +1,6 @@
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Russo One", sans-serif;
+  color: #336699;
 }
 
 .container {
@@ -10,51 +11,52 @@ body {
 
 .wrapper {
   margin: 0 auto;
-  width: 1440px;
+  width: 100%;
   flex-direction: column;
 }
 
 .header {
-  position: fixed;
   width: 100%;
   height: 120px;
-  background-color: #b5fae3;
+  border-bottom: 1px solid #f8f8f8;
 }
 
 .logo {
   position: relative;
-  padding-left: 0px;
+  text-align: center;
+  margin: 40px;
+  padding-bottom: 8px;
   font-size: 40px;
-  color: #6633cc;
+  color: #336699;
   text-transform: uppercase;
   text-decoration: none;
-  transition: ease-in-out .3s;
+  transition: ease-in-out 0.3s;
 }
 
-.logo span{
+.logo span {
   color: #33cc99;
   padding-left: 60px;
 }
 
 .logo::before {
   position: absolute;
-  content: '';
+  content: "";
   width: 60px;
   height: 60px;
-  left: 140px;
-  top: -10px;
-  background-image: url('logo.svg');
+  left: 155px;
+  top: -15px;
+  background-image: url("logo.svg");
   background-size: contain;
 }
 
 .logo::after {
   position: absolute;
-  content: '';
+  content: "";
   width: 100%;
-  height: 2px;
+  height: 4px;
   left: 0;
-  top: 52px;
-  background-color: #6633cc;
+  top: 48px;
+  background-color: #336699;
 }
 
 .logo:hover {
@@ -63,50 +65,124 @@ body {
 
 .header_search {
   position: relative;
-  width: 400px;
+  width: 40%;
   background-color: #f8f8f8;
-  padding: 10px 20px;
-  font-size: 24px;
+  padding: 10px 15px;
   border: none;
   border-radius: 10px;
+  opacity: 0.75;
+  transition: ease-in-out 0.2s;
+}
+
+.header_search:hover {
+  opacity: 1;
+}
+
+.header_search::before {
+  position: absolute;
+  content: "search";
+  top: 4px;
+  left: 10px;
+  font-family: "Material Symbols Outlined";
+  font-size: 32px;
+  font-weight: 400;
+  color: #336699;
+}
+
+.search-input {
+  width: 100%;
+  padding-left: 40px;
+  font-family: "Russo One", sans-serif;
+  color: #336699;
+  background-color: transparent;
+  font-weight: 100;
+  font-size: 18px;
+  border: none;
   outline: none;
 }
 
-.header_search::after {
-  position: absolute;
-  content: 'shopping_cart';
-  font-family: 'Material Symbols Outlined';
-  top: 100px;
-  right: 32px;
-  font-size: 30px;
-  color: #33cc99;
+.search-input::placeholder {
+  color: #336699;
 }
 
 .header_cart {
+  width: 30%;
+  justify-content: center;
   font-size: 24px;
-  color: #000;
+  color: #336699;
 }
 
-.cart_count,
-.cart_sum {
+.cart-count,
+.cart-sum {
   position: relative;
   display: inline-block;
-  width: 150px;
+  width: 120px;
+  font-size: 18px;
 }
 
-.cart_count::after,
-.cart_sum::after {
+.cart-count_value::after,
+.cart-sum_value::after {
   position: absolute;
-  content: 'shopping_cart';
-  top: 0;
+  content: "shopping_cart";
+  top: -8px;
   left: -32px;
-  font-family: 'Material Symbols Outlined';
-  font-size: 30px;
+  font-family: "Material Symbols Outlined";
+  font-size: 32px;
   color: #33cc99;
 }
 
-.cart_sum::after {
-  content: 'paid';
-  top: 0;
-  left: -32px;
+.cart-sum_value::after {
+  content: "payments";
+  left: -36px;
+}
+
+.cart-count_value,
+.cart-sum_value {
+  color: #33cc99;
+}
+
+.footer {
+  justify-content: space-around;
+  width: 100%;
+  height: 120px;
+  margin-top: 20px;
+  border-top: 1px solid #f8f8f8;
+}
+
+.footer_authors {
+  text-align: center;
+  transition: ease-in-out .2s;
+}
+
+.footer_authors a {
+  color: #33cc99;
+}
+
+.footer_copyright {
+  position: relative;
+  padding-left: 36px;
+}
+
+.footer_copyright::before {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  content: 'copyright';
+  font-family: "Material Symbols Outlined";
+  font-size: 32px;
+  color: #33cc99;
+}
+
+.footer_school {
+  width: 80px;
+  height: 40px;
+  transition: ease-in-out .3s;
+}
+
+.footer_school:hover path {
+  fill: #33cc99;
+}
+
+.footer_school:hover {
+  transform: scale(1.1);
 }
