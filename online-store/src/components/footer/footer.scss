@@ -1,0 +1,63 @@
+.footer {
+  justify-content: space-around;
+  width: 100%;
+  height: 120px;
+  margin-top: 20px;
+  border-top: 1px solid #f8f8f8;
+  background: rgb(51, 204, 153);
+  background: radial-gradient(
+    circle,
+    rgba(51, 204, 153, 0.5) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+
+.footer_authors {
+  text-align: center;
+  transition: ease-in-out 0.2s;
+}
+
+.footer_authors a {
+  color: #33cc99;
+}
+
+.footer_copyright {
+  position: relative;
+  padding-left: 36px;
+}
+
+.footer_copyright::before {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  content: "copyright";
+  font-family: "Material Symbols Outlined";
+  font-size: 32px;
+  color: #33cc99;
+}
+
+.footer_school {
+  width: 80px;
+  height: 40px;
+  transition: ease-in-out 0.3s;
+}
+
+.footer_school:hover path {
+  fill: #33cc99;
+}
+
+.footer_school:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 640px) {
+  .footer {
+    flex-direction: column;
+    height: auto;
+    padding-top: 20px;
+  }
+
+  .footer_authors {
+    order: 1;
+  }
+}

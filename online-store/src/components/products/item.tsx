@@ -1,4 +1,4 @@
-import { ProductObject } from "../types";
+import { ProductObject } from "../../types";
 
 function Item(item: ProductObject) {
   return (
