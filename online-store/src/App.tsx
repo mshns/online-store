@@ -1,6 +1,7 @@
-import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Item from './components/item';
+import { iphone } from './merchants/product';
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
           Learn React
         </a>
       </header>
+      <main>
+        {Item(iphone)}
+      </main>
     </div>
   );
 }
