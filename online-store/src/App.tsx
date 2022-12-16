@@ -24,7 +24,14 @@ function App() {
           </p>
         </div>
       </header>
-      <main></main>
+      <main className="container main">
+        <section className="container filter">
+
+        </section>
+        <section className="container content">
+
+        </section>
+      </main>
       <footer className="container footer">
         <p className="footer_authors">
           Created by <a href="https://github.com/ErkhanDV/">ErkhanDV</a> <br />
@@ -33,7 +40,7 @@ function App() {
         <p>
           Online Store <span className="footer_copyright">2023</span>{" "}
         </p>
-        <a href="https://github.https://rs.school/js/" title="">
+        <a href="https://rs.school/js/" title="">
           <svg
             className="footer_school"
             version="1.1"
