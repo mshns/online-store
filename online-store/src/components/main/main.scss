@@ -27,10 +27,23 @@
 .aside_fieldset {
   flex-direction: column;
   width: calc(100% - 22px);
+  max-height: 185px;
   margin: 0;
   margin-bottom: 20px;
   padding: 10px;
   border: 1px dotted rgb(51, 204, 153, 0.5);
+  overflow-y: auto;
+}
+
+.aside_fieldset::-webkit-scrollbar {
+  width: 5px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.aside_fieldset::-webkit-scrollbar-thumb {
+  background-color: rgb(51, 204, 153, .5);
+  border-radius: 4px;
 }
 
 .fieldset_legend {
@@ -41,18 +54,25 @@
 }
 
 .fieldset_item__checkbox {
-  width: 100%;
-  margin: 5px 0;
+  width: calc(100% - 10px);
+  margin: 2px 0;
+  padding: 5px;
+  border-bottom: 1px dotted rgb(51, 204, 153, 0.25);
 }
 
-.span {
+.fieldset_item__checkbox label,
+.fieldset_item__checkbox input {
+  cursor: pointer;
+}
+
+.item-count {
   margin-left: auto;
 }
 
 .fieldset_item__range {
   position: relative;
   margin: 0 4px;
-  width: 100%;
+  width: calc(100% - 10px);
   height: 24px;
   .range__lower,
   .range__upper {
@@ -69,10 +89,10 @@
   margin-bottom: 10px;
 }
 
-.range-value_min__price,
-.range-value_max__price,
-.range-value_min__stock,
-.range-value_max__stock {
+.range-value_price__min,
+.range-value_price__max,
+.range-value_stock__min,
+.range-value_stock__max {
   color: #33cc99;
   margin-left: 5px;
 }
