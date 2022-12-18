@@ -1,10 +1,18 @@
 import "./main.scss";
+import tableProducts from "./icons/table.svg";
+import listProducts from "./icons/list.svg";
 
 export function Main() {
   return (
     <main className="container main">
       <aside className="container aside">
-        <h2 className="aside_title">Filters</h2>
+        <div className="container aside_header">
+          <h2 className="aside_title">Filters</h2>
+          <div className="container aside_buttons">
+            <button className="aside_buttons__reset">Reset</button>
+            <button className="aside_buttons__copy">Copy</button>
+          </div>
+        </div>
 
         <fieldset className="container aside_fieldset">
           <legend className="fieldset_legend">Categories</legend>
@@ -136,9 +144,98 @@ export function Main() {
             />
           </div>
         </fieldset>
-
       </aside>
-      <div className="container content">🐖💨</div>
+
+      <div className="container content">
+        <div className="container content_header">
+          <select className="content-select">
+            <option className="content-select_option" disabled selected>
+              Sort goods
+            </option>
+            <option className="content-select_option">by price: lower</option>
+            <option className="content-select_option">by price: higher</option>
+            <option className="content-select_option">by rating: lower</option>
+            <option className="content-select_option">by rating: higher</option>
+          </select>
+          <div className="content-found">
+            <span className="content-found_title">Found </span>
+            <span className="content-found_value">100</span>
+          </div>
+          <div className="container content-header_buttons">
+            <img className="content-header_buttons__table active" src={tableProducts} alt="Display Table" />
+            <img className="content-header_buttons__list" src={listProducts} alt="Display List" />
+          </div>
+        </div>
+
+        <div className="container content_products">
+          <div className="container product">
+            <h3 className="product_title">iPhone 9</h3>
+            <img
+              className="product_thumbnail"
+              src="https://i.dummyjson.com/data/products/1/3.jpg"
+              alt="iPhone 9"
+            />
+            <h3 className="product_price">$549</h3>
+            <div className="container product_buttons">
+              <button className="product_buttons__cart">Add to cart</button>
+              <button className="product_buttons__details">Details</button>
+            </div>
+          </div>
+
+          <div className="container product">
+            <h3 className="product_title">iPhone 9</h3>
+            <img
+              className="product_thumbnail"
+              src="https://i.dummyjson.com/data/products/1/3.jpg"
+              alt="iPhone 9"
+            />
+            <h3 className="product_price">$549</h3>
+            <div className="container product_buttons">
+              <button className="product_buttons__cart">Add to cart</button>
+              <button className="product_buttons__details">Details</button>
+            </div>
+          </div>
+          <div className="container product">
+            <h3 className="product_title">iPhone 9</h3>
+            <img
+              className="product_thumbnail"
+              src="https://i.dummyjson.com/data/products/1/3.jpg"
+              alt="iPhone 9"
+            />
+            <h3 className="product_price">$549</h3>
+            <div className="container product_buttons">
+              <button className="product_buttons__cart">Add to cart</button>
+              <button className="product_buttons__details">Details</button>
+            </div>
+          </div>
+          <div className="container product">
+            <h3 className="product_title">iPhone 9</h3>
+            <img
+              className="product_thumbnail"
+              src="https://i.dummyjson.com/data/products/1/3.jpg"
+              alt="iPhone 9"
+            />
+            <h3 className="product_price">$549</h3>
+            <div className="container product_buttons">
+              <button className="product_buttons__cart">Add to cart</button>
+              <button className="product_buttons__details">Details</button>
+            </div>
+          </div>
+          <div className="container product">
+            <h3 className="product_title">iPhone 9</h3>
+            <img
+              className="product_thumbnail"
+              src="https://i.dummyjson.com/data/products/1/3.jpg"
+              alt="iPhone 9"
+            />
+            <h3 className="product_price">$549</h3>
+            <div className="container product_buttons">
+              <button className="product_buttons__cart">Add to cart</button>
+              <button className="product_buttons__details">Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }
