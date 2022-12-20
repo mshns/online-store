@@ -1,7 +1,7 @@
 import './categories.scss';
 import React from 'react';
 
-function Categories(categories: string[]) {
+function Categories(allCategories: string[]) {
 
   const [activeCategory, setActiveCategory] = React.useState(0);
 
@@ -11,7 +11,7 @@ function Categories(categories: string[]) {
 
   return (
     <ul>
-      {categories.map((category: string, index: number) => (
+      {allCategories.map((category: string, index: number) => (
         <li
           key = {index}>
             <button

@@ -1,8 +1,8 @@
 import Item from "./item";
-import React from "react";
 import { ProductObject } from "../../types";
 
 function ItemsBlock(items: ProductObject[]) {
+  console.log(items);
   return (
     <>
       {items.map((item: ProductObject) => (
