@@ -1,12 +1,13 @@
 import '../main/main.scss';
 import './header.scss';
+import { Link } from 'react-router-dom';
 
 export function Header() {
   return(
   <header className="container header">
-    <a className="logo" href="/" title="Online Store">
+    <Link className="logo" to="/" title="Online Store">
       Online<span>Store</span>
-    </a>
+    </Link>
     <form className="header_search">
       <input
         className="search-input"
