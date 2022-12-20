@@ -1,13 +1,10 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .main {
   width: 100%;
-}
-
-.filter {
-  width: 24%;
-}
-
-.content {
-  // width: 74%;
-  min-height: 80vh;
-  border-left: 1px solid #f8f8f8;
+  align-items: flex-start;
 }

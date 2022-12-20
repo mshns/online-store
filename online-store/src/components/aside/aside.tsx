@@ -1,3 +1,5 @@
+import "./aside.scss";
+
 const Aside = () => {
   return (
     <aside className="container aside">
@@ -136,7 +138,7 @@ const Aside = () => {
         </div>
       </fieldset>
     </aside>
-  )
-}
+  );
+};
 
 export default Aside;

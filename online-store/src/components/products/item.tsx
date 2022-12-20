@@ -1,5 +1,5 @@
 import { ProductObject } from "../../types";
-import './item.scss'
+import "./item.scss";
 
 function Item(item: ProductObject) {
   return (
@@ -10,15 +10,13 @@ function Item(item: ProductObject) {
         src={item.thumbnail}
         alt={item.title}
       />
-      <h3 className="product_price">
-        ${item.price}
-        </h3>
+      <h3 className="product_price">${item.price}</h3>
       <div className="container product_buttons">
         <button className="product_buttons__cart">Add to cart</button>
         <button className="product_buttons__details">Details</button>
       </div>
     </div>
-  )
+  );
 }
 
 export default Item;

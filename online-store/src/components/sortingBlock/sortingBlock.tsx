@@ -2,8 +2,9 @@ import tableProducts from "./icons/table.svg";
 import listProducts from "./icons/list.svg";
 import ItemsBlock from "../products/itemsBlock";
 import { ProductObject } from "../../types";
+import "./sortingBlock.scss";
 
-const SortingBlock = (items: ProductObject[]) => {
+function SortingBlock(items: { items: ProductObject[] }) {
   return (
     <div className="container content">
       <div className="container content_header">
@@ -21,15 +22,23 @@ const SortingBlock = (items: ProductObject[]) => {
           <span className="content-found_value">100</span>
         </div>
         <div className="container content-header_buttons">
-          <img className="content-header_buttons__table active" src={tableProducts} alt="Display Table" />
-          <img className="content-header_buttons__list" src={listProducts} alt="Display List" />
+          <img
+            className="content-header_buttons__table active"
+            src={tableProducts}
+            alt="Display Table"
+          />
+          <img
+            className="content-header_buttons__list"
+            src={listProducts}
+            alt="Display List"
+          />
         </div>
       </div>
       <div className="container content_products">
-          {ItemsBlock(items)}
+        <ItemsBlock items={items.items} />
       </div>
     </div>
-  )
+  );
 }
 
 export default SortingBlock;

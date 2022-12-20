@@ -1,15 +1,14 @@
 import Item from "./item";
 import { ProductObject } from "../../types";
 
-function ItemsBlock(items: ProductObject[]) {
-  console.log(items);
+function ItemsBlock(items: { items: ProductObject[] }) {
   return (
     <>
-      {items.map((item: ProductObject) => (
-          <Item {...item} key = {item.id} />
+      {items.items.map((item: ProductObject) => (
+        <Item {...item} key={item.id} />
       ))}
     </>
-  )
+  );
 }
 
 export default ItemsBlock;
