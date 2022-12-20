@@ -30,7 +30,7 @@
 
 .logo::before {
   position: absolute;
-  content: "";
+  content: '';
   width: 60px;
   height: 60px;
   left: 155px;
@@ -113,7 +113,7 @@
 .cart-count_value::after,
 .cart-sum_value::after {
   position: absolute;
-  content: "shopping_cart";
+  content: 'shopping_cart';
   top: -8px;
   left: -32px;
   font-family: 'Material Symbols Outlined';
