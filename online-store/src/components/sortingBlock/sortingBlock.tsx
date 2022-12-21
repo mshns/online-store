@@ -12,8 +12,8 @@ function SortingBlock(props: {
     <div className="container content">
       <SortingHeader
         sortType={props.sortType}
-        onChangeType={props.onChangeType}
         items={props.items}
+        onChangeType={props.onChangeType}
       />
       <ItemsBlock items={props.items} />
     </div>
