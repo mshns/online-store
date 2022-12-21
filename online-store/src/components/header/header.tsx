@@ -1,4 +1,3 @@
-import "../main/main.scss";
 import "./header.scss";
 import { Link } from "react-router-dom";
 

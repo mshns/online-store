@@ -1,4 +1,5 @@
 import "./aside.scss";
+import Categories from "../categories/categories";
 
 const Aside = () => {
   return (
@@ -13,36 +14,7 @@ const Aside = () => {
 
       <fieldset className="container aside_fieldset">
         <legend className="fieldset_legend">Categories</legend>
-        <div className="container fieldset_item__checkbox">
-          <input type="checkbox" id="smartphones" />
-          <label htmlFor="smartphones">Smartphones</label>
-          <span className="item-count">(5/5)</span>
-        </div>
-        <div className="container fieldset_item__checkbox">
-          <input type="checkbox" id="laptops" />
-          <label htmlFor="laptops">Laptops</label>
-          <span className="item-count">(5/5)</span>
-        </div>
-        <div className="container fieldset_item__checkbox">
-          <input type="checkbox" id="fragrances" />
-          <label htmlFor="fragrances">Fragrances</label>
-          <span className="item-count">(5/5)</span>
-        </div>
-        <div className="container fieldset_item__checkbox">
-          <input type="checkbox" id="skincare" />
-          <label htmlFor="skincare">Skincare</label>
-          <span className="item-count">(5/5)</span>
-        </div>
-        <div className="container fieldset_item__checkbox">
-          <input type="checkbox" id="groceries" />
-          <label htmlFor="groceries">Groceries</label>
-          <span className="item-count">(5/5)</span>
-        </div>
-        <div className="container fieldset_item__checkbox">
-          <input type="checkbox" id="home-decoration" />
-          <label htmlFor="home-decoration">Home Decoration</label>
-          <span className="item-count">(5/5)</span>
-        </div>
+        <Categories />
       </fieldset>
 
       <fieldset className="container aside_fieldset">

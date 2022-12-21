@@ -1,8 +1,7 @@
-import '../main/main.scss';
-import './footer.scss';
+import "./footer.scss";
 
 export function Footer() {
-  return(
+  return (
     <footer className="container footer">
       <p className="footer_authors">
         Created by <a href="https://github.com/ErkhanDV/">ErkhanDV</a> <br />
@@ -28,5 +27,5 @@ export function Footer() {
         </svg>
       </a>
     </footer>
-  )
+  );
 }
