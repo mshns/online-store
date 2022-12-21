@@ -1,9 +1,8 @@
-import '../main/main.scss';
 import './footer.scss';
 
 export function Footer() {
   return(
-    <footer className="container footer">
+    <footer className="footer">
       <p className="footer_authors">
         Created by <a href="https://github.com/ErkhanDV/">ErkhanDV</a> <br />
         and <a href="https://github.com/mshns/">mshns</a>

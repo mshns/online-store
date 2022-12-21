@@ -8,8 +8,6 @@
 .aside_header {
   width: 100%;
   margin-bottom: 20px;
-  font-size: 32px;
-  font-weight: 100;
   text-transform: uppercase;
   color: #33cc99;
   border-bottom: 1px dotted #33cc99;
@@ -153,3 +151,10 @@
     pointer-events: all;
   }
 }
+
+@media (max-width: 640px) {
+  .aside_title {
+    font-size: 24px;
+  }
+}
+

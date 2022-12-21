@@ -67,3 +67,27 @@
 .content-header_buttons__list.active {
   background-color: #33cc99;
 }
+
+@media (max-width: 1280px) {
+  .content {
+    width: calc(100% - 80px);
+    margin: 0 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .content {
+    width: calc(100% - 80px);
+    margin: 0 40px;
+  }
+
+  .content_header {
+    flex-wrap: wrap;
+  }
+
+  .content-found {
+    order: 1;
+    width: 100%;
+    margin-top: 10px;
+  }
+}
