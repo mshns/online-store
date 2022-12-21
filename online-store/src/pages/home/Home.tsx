@@ -8,7 +8,6 @@ import SortingBlock from "../../components/sortingBlock/sortingBlock";
 export const Home = () => {
   const [items, setItems] = React.useState<ProductObject[]>([]);
   const [sortType, setSortType] = React.useState<string>("");
-  console.log(sortType);
 
   React.useEffect(() => {
     fetch("https://639ee5ab5eb8889197ef47ce.mockapi.io/products" + sortType)
@@ -18,7 +17,7 @@ export const Home = () => {
 
   return (
     <main className="container main">
-      <Aside />
+      <Aside items={items}/>
       <SortingBlock
         items={items}
         sortType={sortType}

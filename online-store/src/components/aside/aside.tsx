@@ -1,7 +1,8 @@
 import "./aside.scss";
 import Categories from "../categories/categories";
+import { ProductObject } from "../../types";
 
-const Aside = () => {
+const Aside = (props: { items: ProductObject[] }) => {
   return (
     <aside className="container aside">
       <div className="container aside_header">
@@ -14,7 +15,7 @@ const Aside = () => {
 
       <fieldset className="container aside_fieldset">
         <legend className="fieldset_legend">Categories</legend>
-        <Categories />
+        <Categories items={props.items} />
       </fieldset>
 
       <fieldset className="container aside_fieldset">

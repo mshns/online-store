@@ -10,16 +10,18 @@ export function Header() {
       <form className="header_search">
         <input className="search-input" type="search" placeholder="Search..." />
       </form>
-      <div className="header_cart">
-        <p className="cart-count">
-          <span className="cart-count_title">Cart</span>
-          <span className="cart-count_value">0</span>
-        </p>
-        <p className="cart-sum">
-          <span className="cart-sum_title">Sum</span>
-          <span className="cart-sum_value">$0</span>
-        </p>
-      </div>
+      <Link to="/cart" className="cart-link">
+        <div className="header_cart">
+          <p className="cart-count">
+            <span className="cart-count_title">Cart</span>
+            <span className="cart-count_value">0</span>
+          </p>
+          <p className="cart-sum">
+            <span className="cart-sum_title">Sum</span>
+            <span className="cart-sum_value">$0</span>
+          </p>
+        </div>
+      </Link>
     </header>
   );
 }

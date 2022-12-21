@@ -1,21 +1,20 @@
+import { ProductObject } from "../../types";
 import "./categories.scss";
 
-function Categories() {
-  const categories: string[] = [
-    "Smartphones",
-    "Laptops",
-    "Fragrances",
-    "Skincare",
-    "Groceries",
-    "Home Decoration",
-  ];
+function Categories(props: { items: ProductObject[] }) {
+  const categories: string[] = ["All categories"];
+  props.items.forEach((item) => {
+    if (categories.indexOf(item.category) === -1) {
+      categories.push(item.category);
+    }
+  });
 
   return (
     <>
-      {categories.map((category) => (
-        <div className="container fieldset_item__checkbox">
-          <input type="checkbox" id={category.toLocaleLowerCase()} />
-          <label htmlFor="smartphones">{category}</label>
+      {categories.map((category, index) => (
+        <div className="container fieldset_item__checkbox" key={index}>
+          <input type="checkbox" id={category} />
+          <label htmlFor="smartphones">{category[0].toUpperCase() + category.slice(1)}</label>
           <span className="item-count">(5/5)</span>
         </div>
       ))}
