@@ -10,15 +10,18 @@ function Categories(props: { items: ProductObject[] }) {
   });
 
   return (
-    <>
+    <fieldset className="container aside_fieldset">
+      <legend className="fieldset_legend">Categories</legend>
       {categories.map((category, index) => (
         <div className="container fieldset_item__checkbox" key={index}>
           <input type="checkbox" id={category} />
-          <label htmlFor="smartphones">{category[0].toUpperCase() + category.slice(1)}</label>
+          <label htmlFor="smartphones">
+            {category[0].toUpperCase() + category.slice(1)}
+          </label>
           <span className="item-count">(5/5)</span>
         </div>
       ))}
-    </>
+    </fieldset>
   );
 }
 

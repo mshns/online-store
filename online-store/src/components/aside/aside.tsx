@@ -1,6 +1,7 @@
 import "./aside.scss";
 import Categories from "../categories/categories";
 import { ProductObject } from "../../types";
+import Brands from "../brands/brands";
 
 const Aside = (props: { items: ProductObject[] }) => {
   return (
@@ -13,49 +14,9 @@ const Aside = (props: { items: ProductObject[] }) => {
         </div>
       </div>
 
-      <fieldset className="container aside_fieldset">
-        <legend className="fieldset_legend">Categories</legend>
-        <Categories items={props.items} />
-      </fieldset>
+      <Categories items={props.items} />
 
-      <fieldset className="container aside_fieldset">
-        <legend className="fieldset_legend">Brands</legend>
-        <div className="container fieldset_item__checkbox">
-          <input type="checkbox" id="apple" />
-          <label htmlFor="apple">Apple</label>
-          <span className="item-count">(5/5)</span>
-        </div>
-        <div className="container fieldset_item__checkbox">
-          <input type="checkbox" id="samsung" />
-          <label htmlFor="samsung">Samsung</label>
-          <span className="item-count">(5/5)</span>
-        </div>
-        <div className="container fieldset_item__checkbox">
-          <input type="checkbox" id="oppo" />
-          <label htmlFor="oppo">OPPO</label>
-          <span className="item-count">(5/5)</span>
-        </div>
-        <div className="container fieldset_item__checkbox">
-          <input type="checkbox" id="huawei" />
-          <label htmlFor="huawei">Huawei</label>
-          <span className="item-count">(5/5)</span>
-        </div>
-        <div className="container fieldset_item__checkbox">
-          <input type="checkbox" id="microsoft-surface" />
-          <label htmlFor="microsoft-surface">Microsoft Surface</label>
-          <span className="item-count">(5/5)</span>
-        </div>
-        <div className="container fieldset_item__checkbox">
-          <input type="checkbox" id="infinix" />
-          <label htmlFor="infinix">Infinix</label>
-          <span className="item-count">(5/5)</span>
-        </div>
-        <div className="container fieldset_item__checkbox">
-          <input type="checkbox" id="hp-pavilion" />
-          <label htmlFor="hp-pavilion">HP Pavilion</label>
-          <span className="item-count">(5/5)</span>
-        </div>
-      </fieldset>
+      <Brands items={props.items} />
 
       <fieldset className="container aside_fieldset">
         <legend className="fieldset_legend">Price</legend>
