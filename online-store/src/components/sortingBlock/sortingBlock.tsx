@@ -10,7 +10,11 @@ function SortingBlock(props: {
 }) {
   return (
     <div className="container content">
-      <SortingHeader sortType={props.sortType} onChangeType={props.onChangeType} />
+      <SortingHeader
+        sortType={props.sortType}
+        onChangeType={props.onChangeType}
+        items={props.items}
+      />
       <ItemsBlock items={props.items} />
     </div>
   );

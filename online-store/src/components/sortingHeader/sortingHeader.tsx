@@ -1,8 +1,10 @@
 import tableProducts from "./icons/table.svg";
 import listProducts from "./icons/list.svg";
+import { ProductObject } from "../../types";
 
 const SortingHeader = (props: {
   sortType: string;
+  items: ProductObject[];
   onChangeType: (search: string) => void;
 }) => {
   const sortingList: {
@@ -49,7 +51,7 @@ const SortingHeader = (props: {
       </select>
       <div className="content-found">
         <span className="content-found_title">Found </span>
-        <span className="content-found_value">100</span>
+        <span className="content-found_value">{props.items.length}</span>
       </div>
       <div className="container content-header_buttons">
         <img
