@@ -3,7 +3,11 @@ import Categories from "../categories/categories";
 import { ProductObject } from "../../types";
 import Brands from "../brands/brands";
 
-const Aside = (props: { items: ProductObject[] }) => {
+const Aside = (props: {
+  items: ProductObject[];
+  filter: string;
+  onChangeFilter: (filter: string) => void;
+}) => {
   return (
     <aside className="container aside">
       <div className="container aside_header">
@@ -16,7 +20,11 @@ const Aside = (props: { items: ProductObject[] }) => {
 
       <Categories items={props.items} />
 
-      <Brands items={props.items} />
+      <Brands
+        items={props.items}
+        onChangeFilter={props.onChangeFilter}
+        filter={props.filter}
+      />
 
       <fieldset className="container aside_fieldset">
         <legend className="fieldset_legend">Price</legend>
