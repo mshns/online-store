@@ -3,7 +3,7 @@ import "./item.scss";
 
 function Item(item: ProductObject) {
   return (
-    <div className="container product">
+    <div className="product">
       <h3 className="product_title">{item.title}</h3>
       <img
         className="product_thumbnail"
