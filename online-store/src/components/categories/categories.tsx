@@ -11,11 +11,15 @@ function Categories() {
   ];
 
   return (
-    <div className="container fieldset_item__checkbox">
-      <input type="checkbox" id={categories[0].toLocaleLowerCase()} />
-      <label htmlFor="smartphones">{categories[0]}</label>
-      <span className="item-count">(5/5)</span>
-    </div>
+    <>
+      {categories.map((category) => (
+        <div className="container fieldset_item__checkbox">
+          <input type="checkbox" id={category.toLocaleLowerCase()} />
+          <label htmlFor="smartphones">{category}</label>
+          <span className="item-count">(5/5)</span>
+        </div>
+      ))}
+    </>
   );
 }
 
