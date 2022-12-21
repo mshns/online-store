@@ -7,25 +7,23 @@ import SortingBlock from "../../components/sortingBlock/sortingBlock";
 
 export const Home = () => {
   const [items, setItems] = React.useState<ProductObject[]>([]);
-  const [category, setCategory] = React.useState<string>("");
-
-  const allCategories: string[] = ["All categories"];
-  items.forEach((item) => {
-    if (allCategories.indexOf(item.category) === -1) {
-      allCategories.push(item.category);
-    }
-  });
+  const [sortType, setSortType] = React.useState<string>("");
+  console.log(sortType);
 
   React.useEffect(() => {
-    fetch("https://639ee5ab5eb8889197ef47ce.mockapi.io/products" + category)
+    fetch("https://639ee5ab5eb8889197ef47ce.mockapi.io/products" + sortType)
       .then((response) => response.json())
       .then((json) => setItems(json));
-  }, [category]);
+  }, [sortType]);
 
   return (
     <main className="container main">
       <Aside />
-      <SortingBlock items={items} />
+      <SortingBlock
+        items={items}
+        sortType={sortType}
+        onChangeType={(search: string) => setSortType(search)}
+      />
     </main>
   );
 };
