@@ -8,7 +8,7 @@ import CartPage from "./pages/cart/cartPage";
 
 function App() {
   return (
-    <div className="container wrapper">
+    <div className="wrapper">
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
