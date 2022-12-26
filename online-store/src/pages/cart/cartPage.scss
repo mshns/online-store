@@ -1,0 +1,95 @@
+.cart {
+  display: flex;
+  width: 100%;
+}
+
+.cart_list {
+  display: flex;
+  flex-direction: column;
+  width: calc(70% - 40px);
+  margin-left: 40px;
+}
+
+.cart_header {
+  width: 100%;
+  border-bottom: 1px dotted #33cc99;
+}
+
+.cart_title {
+  width: 40%;
+  margin: 0;
+  font-size: 32px;
+  font-weight: 100;
+  text-transform: uppercase;
+  color: #33cc99;
+}
+
+.cart_sum {
+  display: flex;
+  flex-direction: column;
+  width: calc(30% - 80px);
+  margin: 0 40px;
+}
+
+
+
+
+.cart_subtitle {
+  width: 100%;
+  margin: 0;
+  font-size: 32px;
+  font-weight: 100;
+  text-transform: uppercase;
+  color: #33cc99;
+  border-bottom: 1px dotted #33cc99;
+}
+
+.cart-sum_field {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 10px;
+  border-bottom: 1px dotted rgb(51, 204, 153, .2);
+  text-transform: uppercase;
+}
+
+.products-count,
+.total-price {
+  margin-left: auto;
+  font-size: 24px;
+  color: #33cc99;
+}
+
+.cart-sum_input {
+  width: 50%;
+  margin-left: auto;
+  border: 1px dotted rgb(51, 204, 153);
+  outline: none;
+  font-family: 'Russo One';
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #33cc99;
+}
+
+.cart-sum_input::placeholder {
+  color: rgb(51, 102, 153, .75);
+}
+
+.cart-sum_button {
+  font-family: 'Russo One';
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 20px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(51, 204, 153, .75);
+  cursor: pointer;
+  transition: ease-in-out .2s;
+}
+
+.cart-sum_button:hover {
+
+  background-color: #336699;
+}
