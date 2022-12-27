@@ -1,12 +1,14 @@
-.content_products {
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
 .content {
+  display: flex;
   flex-direction: column;
   width: 75%;
   margin-right: 40px;
+}
+
+.content_products {
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
 }
 
 .content_header {

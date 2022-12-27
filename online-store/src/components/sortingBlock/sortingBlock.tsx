@@ -9,7 +9,7 @@ function SortingBlock(props: {
   onChangeType: (search: string) => void;
 }) {
   return (
-    <div className="container content">
+    <div className="content">
       <SortingHeader
         sortType={props.sortType}
         items={props.items}
