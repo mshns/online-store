@@ -1,12 +1,11 @@
 import "./aside.scss";
-import Categories from "../categories/categories";
+import CategoriesList from "../categories/CategoriesList";
 import { ProductObject } from "../../types";
 import Brands from "../brands/brands";
 
 const Aside = (props: {
   items: ProductObject[];
-  filter: string;
-  onChangeFilter: (filter: string) => void;
+  setItems: (items: ProductObject[]) => void;
 }) => {
   return (
     <aside className="container aside">
@@ -18,13 +17,9 @@ const Aside = (props: {
         </div>
       </div>
 
-      <Categories items={props.items} />
+      <CategoriesList items={props.items} setItems={props.setItems} />
 
-      <Brands
-        items={props.items}
-        onChangeFilter={props.onChangeFilter}
-        filter={props.filter}
-      />
+      <Brands items={props.items} />
 
       <fieldset className="container aside_fieldset">
         <legend className="fieldset_legend">Price</legend>

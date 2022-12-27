@@ -1,7 +1,7 @@
 import Item from "./item";
 import { ProductObject } from "../../types";
 
-function ItemsBlock(items: { items: ProductObject[] }) {
+const ProductsList = (items: { items: ProductObject[] }) => {
   return (
     <div className="container content_products">
       {items.items.map((item: ProductObject) => (
@@ -11,4 +11,4 @@ function ItemsBlock(items: { items: ProductObject[] }) {
   );
 }
 
-export default ItemsBlock;
+export default ProductsList;

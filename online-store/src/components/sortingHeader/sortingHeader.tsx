@@ -2,11 +2,7 @@ import tableProducts from "./icons/table.svg";
 import listProducts from "./icons/list.svg";
 import { ProductObject } from "../../types";
 
-const SortingHeader = (props: {
-  sortType: string;
-  items: ProductObject[];
-  onChangeType: (search: string) => void;
-}) => {
+const SortingHeader = (props: { items: ProductObject[] }) => {
   const sortingList: {
     title: string;
     searchURL: string;
@@ -31,11 +27,7 @@ const SortingHeader = (props: {
 
   return (
     <div className="container content_header">
-      <select
-        className="content-select"
-        defaultValue={props.sortType}
-        onChange={(event) => props.onChangeType(event.target.value)}
-      >
+      <select className="content-select">
         <>
           {sortingList.map((sortObject, index) => (
             <option

@@ -1,16 +1,39 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import { BrowserRouter } from 'react-router-dom';
+import React, { createContext, ReactNode, useContext, useState } from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import { BrowserRouter } from "react-router-dom";
+import { SortingProps, ISortContext } from "./types";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
+
+const sortingProps: SortingProps = {
+  brand: [],
+  category: [],
+  price: [],
+  stock: [],
+};
+
+const SortProvider = ({ children }: { children: ReactNode }) => {
+  const [sort, setSort] = useState<SortingProps>(sortingProps);
+
+  return (
+    <SortContext.Provider value={{ sort, setSort }}>
+      {children}
+    </SortContext.Provider>
+  );
+};
+
+export const SortContext = createContext<ISortContext | null>(null);
+
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <SortProvider>
+        <App />
+      </SortProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
