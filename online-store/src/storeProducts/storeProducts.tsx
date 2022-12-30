@@ -1,6 +1,6 @@
-import { ProductObject } from "../types";
+import { IProductItem } from "../types";
 
-const storeItems: ProductObject[] = [
+const storeItems: IProductItem[] = [
   {
     id: 1,
     title: "iPhone 9",

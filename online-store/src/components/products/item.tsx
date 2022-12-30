@@ -1,7 +1,7 @@
-import { ProductObject } from "../../types";
+import { IProductItem } from "../../types";
 import "./item.scss";
 
-function Item(item: ProductObject) {
+function Item(item: IProductItem) {
   return (
     <div className="product">
       <h3 className="product_title">{item.title}</h3>

@@ -1,4 +1,4 @@
-export type ProductObject = {
+export interface IProductItem {
   id: number;
   title: string;
   description: string;
@@ -10,16 +10,21 @@ export type ProductObject = {
   category: string;
   thumbnail: string;
   images: string[];
-};
+}
 
 export type SortingProps = {
   brand: string[];
   category: string[];
-  price: string[];
-  stock: string[];
+  price: number[];
+  stock: number[];
 };
 
 export interface ISortContext {
   sort: SortingProps;
   setSort: React.Dispatch<React.SetStateAction<SortingProps>>;
+}
+
+export interface IProps {
+  items: IProductItem[];
+  setItems: (items: IProductItem[]) => void;
 }
