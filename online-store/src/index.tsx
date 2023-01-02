@@ -12,8 +12,10 @@ const root = ReactDOM.createRoot(
 const sortingProps: SortingProps = {
   brand: [],
   category: [],
-  price: [],
-  stock: [],
+  minPrice: 0,
+  maxPrice: 1800,
+  minStock: 0,
+  maxStock: 142,
 };
 
 const SortProvider = ({ children }: { children: ReactNode }) => {

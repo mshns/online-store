@@ -15,8 +15,10 @@ export interface IProductItem {
 export type SortingProps = {
   brand: string[];
   category: string[];
-  price: number[];
-  stock: number[];
+  minPrice: number;
+  maxPrice: number;
+  minStock: number;
+  maxStock: number;
 };
 
 export interface ISortContext {

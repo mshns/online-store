@@ -2,6 +2,8 @@ import "./aside.scss";
 import CategoriesList from "../categories/CategoriesList";
 import { IProductItem } from "../../types";
 import Brands from "../brands/brands";
+import PriceField from "./components/price";
+import StockField from "./components/stock";
 
 const Aside = (props: {
   items: IProductItem[];
@@ -18,62 +20,9 @@ const Aside = (props: {
       </div>
 
       <CategoriesList items={props.items} setItems={props.setItems} />
-
       <Brands />
-
-      <fieldset className="container aside_fieldset">
-        <legend className="fieldset_legend">Price</legend>
-        <div className="container range-value">
-          <span>MIN</span>
-          <span className="range-value_price__min">$100</span>
-          <span className="material-icons">sync_alt</span>
-          <span>MAX</span>
-          <span className="range-value_price__max">$1800</span>
-        </div>
-        <div className="fieldset_item__range">
-          <input
-            className="range__lower"
-            type="range"
-            id="lower"
-            min="0"
-            max="2000"
-          />
-          <input
-            className="range__upper"
-            type="range"
-            id="upper"
-            min="0"
-            max="2000"
-          />
-        </div>
-      </fieldset>
-
-      <fieldset className="container aside_fieldset">
-        <legend className="fieldset_legend">Stock</legend>
-        <div className="container range-value">
-          <span>MIN</span>
-          <span className="range-value_stock__min">2</span>
-          <span className="material-icons">sync_alt</span>
-          <span>MAX</span>
-          <span className="range-value_stock__max">140</span>
-        </div>
-        <div className="fieldset_item__range">
-          <input
-            className="range__lower"
-            type="range"
-            id="lower"
-            min="0"
-            max="200"
-          />
-          <input
-            className="range__upper"
-            type="range"
-            id="upper"
-            min="0"
-            max="200"
-          />
-        </div>
-      </fieldset>
+      <PriceField items={props.items} />
+      <StockField items={props.items} />
     </aside>
   );
 };

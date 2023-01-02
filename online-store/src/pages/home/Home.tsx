@@ -12,18 +12,33 @@ const Home = () => {
   const { sort } = useSort();
 
   useEffect(() => {
-    setItems(() =>
-      storeItems.filter((item) => {
-        if (sort.category.length) {
-          return sort.category.includes(item.category);
+    setItems(() => {
+      const filtredItems: IProductItem[] = storeItems.filter((item) => {
+        if (sort.category.length || sort.brand.length) {
+          if (sort.category.length && sort.brand.length) {
+            return (
+              sort.category.includes(item.category) &&
+              sort.brand.includes(item.brand)
+            );
+          } else if (sort.category.length) {
+            return sort.category.includes(item.category);
+          } else {
+            return sort.brand.includes(item.brand);
+          }
         } else {
           return storeItems;
         }
-      })
-    );
+      });
+      return filtredItems.filter((item) => {
+        return (
+          item.price >= sort.minPrice &&
+          item.price <= sort.maxPrice &&
+          item.stock >= sort.minStock &&
+          item.stock <= sort.maxStock
+        );
+      });
+    });
   }, [sort]);
-  console.log(sort);
-  console.log(items);
 
   return (
     <main className="container main">
