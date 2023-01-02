@@ -31,13 +31,13 @@ const PriceField = ({ items }: { items: IProductItem[] }) => {
           max={maxPrice(storeItems)}
           defaultValue={minPrice(items)}
           onChange={(evt) => {
-            if (Number(evt.target.value) <= sort.maxPrice) {
+            if (Number(evt.target.value) < sort.maxPrice - 100) {
               setSort((prev) => ({
                 ...prev,
                 minPrice: Number(evt.target.value),
               }));
             } else {
-              evt.target.value = sort.maxPrice.toString();
+              evt.target.value = (sort.maxPrice - 100).toString();
             }
           }}
         />
@@ -49,13 +49,13 @@ const PriceField = ({ items }: { items: IProductItem[] }) => {
           max={maxPrice(storeItems)}
           defaultValue={maxPrice(items)}
           onChange={(evt) => {
-            if (Number(evt.target.value) >= sort.minPrice) {
+            if (Number(evt.target.value) > sort.minPrice + 100) {
               setSort((prev) => ({
                 ...prev,
                 maxPrice: Number(evt.target.value),
               }));
             } else {
-              evt.target.value = sort.minPrice.toString();
+              evt.target.value = (sort.minPrice + 100).toString();
             }
           }}
         />
