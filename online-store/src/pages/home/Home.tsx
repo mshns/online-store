@@ -39,16 +39,32 @@ const Home = () => {
       });
       if (sort.sortBy === "") {
         return newList;
+      }
+      return newList.sort((a, b) => {
+        if (sort.sortBy === "priceToLower") {
+          return b.price - a.price;
+        } else if (sort.sortBy === "priceToHigher") {
+          return a.price - b.price;
+        } else if (sort.sortBy === "ratingToLower") {
+          return b.rating - a.rating;
+        }
+        return a.rating - b.rating;
+      });
+    });
+    setItems((prev) => {
+      if (sort.search === "") {
+        return prev;
       } else {
-        return newList.sort((a, b) => {
-          if (sort.sortBy === "priceToLower") {
-            return b.price - a.price;
-          } else if (sort.sortBy === "priceToHigher") {
-            return a.price - b.price;
-          } else if (sort.sortBy === "ratingToLower") {
-            return b.rating - a.rating;
-          }
-          return a.rating - b.rating;
+        return prev.filter((item) => {
+          return (
+            item.title.toLowerCase().includes(sort.search) ||
+            item.description.toLowerCase().includes(sort.search) ||
+            item.price.toString().includes(sort.search) ||
+            item.rating.toString().includes(sort.search) ||
+            item.stock.toString().includes(sort.search) ||
+            item.brand.toLowerCase().includes(sort.search) ||
+            item.category.toLowerCase().includes(sort.search)
+          );
         });
       }
     });

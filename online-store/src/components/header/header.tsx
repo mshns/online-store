@@ -1,14 +1,26 @@
 import "./header.scss";
 import { Link } from "react-router-dom";
+import useSort from "../../hooks/useSort";
 
 export function Header() {
+  const { setSort } = useSort();
   return (
     <header className="header">
       <Link className="logo" to="/" title="Online Store">
         Online<span>Store</span>
       </Link>
       <form className="header_search">
-        <input className="search-input" type="search" placeholder="Search..." />
+        <input
+          className="search-input"
+          type="search"
+          placeholder="Search..."
+          onChange={(evt) => {
+            setSort((prev) => ({
+              ...prev,
+              search: evt.target.value,
+            }));
+          }}
+        />
       </form>
       <Link to="/cart" className="cart-link">
         <div className="header_cart">
