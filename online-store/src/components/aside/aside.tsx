@@ -1,11 +1,11 @@
 import "./aside.scss";
 import CategoriesList from "../categories/CategoriesList";
-import { ProductObject } from "../../types";
+import { IProductItem } from "../../types";
 import Brands from "../brands/brands";
 
 const Aside = (props: {
-  items: ProductObject[];
-  setItems: (items: ProductObject[]) => void;
+  items: IProductItem[];
+  setItems: (items: IProductItem[]) => void;
 }) => {
   return (
     <aside className="container aside">
@@ -19,7 +19,7 @@ const Aside = (props: {
 
       <CategoriesList items={props.items} setItems={props.setItems} />
 
-      <Brands items={props.items} />
+      <Brands />
 
       <fieldset className="container aside_fieldset">
         <legend className="fieldset_legend">Price</legend>

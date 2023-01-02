@@ -1,8 +1,9 @@
-import { ProductObject } from "../../types";
+import storeItems from "../../storeProducts/storeProducts";
+import Brand from "./components/Brand";
 
-const Brands = (props: { items: ProductObject[] }) => {
+const Brands = () => {
   const brands: string[] = [];
-  props.items.forEach((item) => {
+  storeItems.forEach((item) => {
     if (brands.indexOf(item.brand) === -1) {
       brands.push(item.brand);
     }
@@ -12,13 +13,7 @@ const Brands = (props: { items: ProductObject[] }) => {
     <fieldset className="container aside_fieldset">
       <legend className="fieldset_legend">Brands</legend>
       {brands.map((brand, index) => (
-        <div className="container fieldset_item__checkbox" key={index}>
-          <input type="checkbox" id={brand} />
-          <label htmlFor={brand}>
-            {brand[0].toUpperCase() + brand.slice(1)}
-          </label>
-          <span className="item-count">(5/5)</span>
-        </div>
+        <Brand brand={brand} key={index} />
       ))}
     </fieldset>
   );

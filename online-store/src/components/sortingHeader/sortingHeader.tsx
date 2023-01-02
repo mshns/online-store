@@ -1,8 +1,8 @@
 import tableProducts from "./icons/table.svg";
 import listProducts from "./icons/list.svg";
-import { ProductObject } from "../../types";
+import { IProductItem } from "../../types";
 
-const SortingHeader = (props: { items: ProductObject[] }) => {
+const SortingHeader = (props: { items: IProductItem[] }) => {
   const sortingList: {
     title: string;
     searchURL: string;

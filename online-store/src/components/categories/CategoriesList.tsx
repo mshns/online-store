@@ -1,19 +1,13 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 
-import { ProductObject, SortingProps } from "../../types";
+import { IProps, IProductItem } from "../../types";
 import "./categories.scss";
 import Category from "./components/Category";
 
-interface IProps {
-  items: ProductObject[];
-  setItems: (items: ProductObject[]) => void;
-}
-
-const CategoriesList = ({ items, setItems }: IProps) => {
+const CategoriesList = ({ items }: IProps) => {
   const [categories, setCategories] = useState<string[]>([]);
 
-
-  items.map((item: ProductObject) => {
+  items.forEach((item: IProductItem) => {
     if (categories.indexOf(item.category) === -1) {
       setCategories([...categories, item.category].sort());
     }
