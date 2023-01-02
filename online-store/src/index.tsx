@@ -15,7 +15,8 @@ const sortingProps: SortingProps = {
   minPrice: 0,
   maxPrice: 1800,
   minStock: 0,
-  maxStock: 142,
+  maxStock: 150,
+  sortBy: "",
 };
 
 const SortProvider = ({ children }: { children: ReactNode }) => {
