@@ -1,9 +1,9 @@
-import { IProps } from "../../types";
+import storeItems from "../../storeProducts/storeProducts";
 import Brand from "./components/Brand";
 
-const Brands = ({ items }: IProps) => {
+const Brands = () => {
   const brands: string[] = [];
-  items.forEach((item) => {
+  storeItems.forEach((item) => {
     if (brands.indexOf(item.brand) === -1) {
       brands.push(item.brand);
     }

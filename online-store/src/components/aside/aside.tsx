@@ -19,7 +19,7 @@ const Aside = (props: {
 
       <CategoriesList items={props.items} setItems={props.setItems} />
 
-      <Brands items={props.items} setItems={props.setItems} />
+      <Brands />
 
       <fieldset className="container aside_fieldset">
         <legend className="fieldset_legend">Price</legend>
