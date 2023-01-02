@@ -29,7 +29,7 @@ const Home = () => {
           return storeItems;
         }
       });
-      return filtredItems.filter((item) => {
+      const newList: IProductItem[] = filtredItems.filter((item) => {
         return (
           item.price >= sort.minPrice &&
           item.price <= sort.maxPrice &&
@@ -37,6 +37,20 @@ const Home = () => {
           item.stock <= sort.maxStock
         );
       });
+      if (sort.sortBy === "") {
+        return newList;
+      } else {
+        return newList.sort((a, b) => {
+          if (sort.sortBy === "priceToLower") {
+            return b.price - a.price;
+          } else if (sort.sortBy === "priceToHigher") {
+            return a.price - b.price;
+          } else if (sort.sortBy === "ratingToLower") {
+            return b.rating - a.rating;
+          }
+          return a.rating - b.rating;
+        });
+      }
     });
   }, [sort]);
 
