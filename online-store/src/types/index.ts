@@ -20,6 +20,7 @@ export type SortingProps = {
   minStock: number;
   maxStock: number;
   sortBy: string;
+  search: string;
 };
 
 export interface ISortContext {

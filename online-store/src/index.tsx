@@ -17,6 +17,7 @@ const sortingProps: SortingProps = {
   minStock: 0,
   maxStock: 150,
   sortBy: "",
+  search: "",
 };
 
 const SortProvider = ({ children }: { children: ReactNode }) => {

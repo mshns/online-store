@@ -26,7 +26,7 @@ const SortingHeader = (props: { items: IProductItem[] }) => {
     },
   ];
 
-  const { sort, setSort } = useSort();
+  const { setSort } = useSort();
 
   return (
     <div className="container content_header">
