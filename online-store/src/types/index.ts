@@ -28,6 +28,11 @@ export interface ISortContext {
   setSort: React.Dispatch<React.SetStateAction<SortingProps>>;
 }
 
+export interface ICartListContext {
+  cartList: IProductItem[];
+  setCartList: (cartList: IProductItem[]) => void;
+}
+
 export interface IProps {
   items: IProductItem[];
   setItems: (items: IProductItem[]) => void;

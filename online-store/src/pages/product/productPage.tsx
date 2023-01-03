@@ -2,10 +2,24 @@ import "./productPage.scss";
 import storeItems from "../../storeProducts/storeProducts";
 import { useParams } from "react-router-dom";
 import ThumbnailList from "./components/thumbnailList";
+import useCart from "../../hooks/useCart";
+import { useState } from "react";
+import { IProductItem } from "../../types";
 
 function ProductPage() {
   const { id } = useParams();
   const [product] = [...storeItems.filter((item) => item.id === Number(id))];
+  const { cartList, setCartList } = useCart();
+  const isAddedToCart = (item: IProductItem): Boolean => {
+    return cartList.find((product) => item.id === product.id) !== undefined
+      ? true
+      : false;
+  };
+  const [isAdded, setAdded] = useState(isAddedToCart(product));
+  const buttonText = {
+    notAdd: "Add to cart",
+    added: "Drop",
+  };
   return (
     <main className="card">
       <section className="card_breadcrumbs">
@@ -21,7 +35,21 @@ function ProductPage() {
             <span className="card_price__value">${product.price}</span>
           </h2>
           <div className="card_buttons">
-            <button className="card-button_cart">Add to cart</button>
+            <button
+              className="card-button_cart"
+              onClick={() => {
+                if (!isAdded) {
+                  setCartList([...cartList, product]);
+                } else {
+                  setCartList(
+                    cartList.filter((item) => product.id !== item.id)
+                  );
+                }
+                setAdded(!isAdded);
+              }}
+            >
+              {isAdded ? buttonText.added : buttonText.notAdd}
+            </button>
             <button className="card-button_buy">Buy now</button>
           </div>
           <ThumbnailList product={product} />

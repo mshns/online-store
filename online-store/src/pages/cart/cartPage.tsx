@@ -1,4 +1,5 @@
 import "./cartPage.scss";
+import CartList from "./components/cartList";
 
 const CartPage = () => {
   return (
@@ -28,37 +29,7 @@ const CartPage = () => {
             </div>
           </div>
         </div>
-        <div className="cart_list">
-          <div className="cart-item">
-            <span className="cart-item_number">1</span>
-            <img
-              className="cart-item_image"
-              src="https://i.dummyjson.com/data/products/3/thumbnail.jpg"
-              alt="Product Name"
-            ></img>
-            <div className="cart-item_info">
-              <h3 className="item-info_title">Samsung Universe 9</h3>
-              <p className="item-info_description">
-                Samsung's new variant which goes beyond Galaxy to the Universe
-              </p>
-              <div className="item-info_rating">Rating: 4.09</div>
-              <div className="item-info_discount">Discount: 15.46%</div>
-            </div>
-            <div className="cart-item_amount">
-              <div className="item-amount_stock">Stock: 36</div>
-              <div className="item-amount_count">
-                <span className="amount-count_button__remove">
-                  remove_circle_outline
-                </span>
-                <span className="amount-count_value">10</span>
-                <span className="amount-count_button__add">
-                  add_circle_outline
-                </span>
-              </div>
-              <div className="item-amount_sum">$1246</div>
-            </div>
-          </div>
-        </div>
+        <CartList />
       </section>
       <section className="cart_sum">
         <h2 className="cart_subtitle">Summary</h2>
