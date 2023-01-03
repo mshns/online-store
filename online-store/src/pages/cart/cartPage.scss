@@ -37,7 +37,7 @@
   padding-left: 5px;
   border: 1px dotted rgb(51, 204, 153);
   outline: none;
-  font-family: 'Russo One';
+  font-family: "Russo One";
   font-size: 16px;
   text-transform: uppercase;
   color: #33cc99;
@@ -62,7 +62,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-  border-bottom: 1px dotted rgb(51, 204, 153, .2);
+  border-bottom: 1px dotted rgb(51, 204, 153, 0.2);
 }
 
 .cart-item_number {
@@ -114,6 +114,7 @@
   font-size: 32px;
   color: #33cc99;
   cursor: pointer;
+  user-select: none;
 }
 
 .amount-count_value {
@@ -144,12 +145,12 @@
   align-items: center;
   height: 50px;
   padding: 0 10px;
-  border-bottom: 1px dotted rgb(51, 204, 153, .2);
+  border-bottom: 1px dotted rgb(51, 204, 153, 0.2);
   text-transform: uppercase;
 }
 
 .cart-sum_field:nth-child(3) {
-  background-color: rgb(51, 204, 153, .1);
+  background-color: rgb(51, 204, 153, 0.1);
 }
 
 .products-count,
@@ -164,7 +165,7 @@
   padding-left: 5px;
   border: 1px dotted rgb(51, 204, 153);
   outline: none;
-  font-family: 'Russo One';
+  font-family: "Russo One";
   font-size: 16px;
   text-transform: uppercase;
   color: #33cc99;
@@ -172,7 +173,7 @@
 
 .cart-sum_submit {
   width: 50px;
-  font-family: 'Russo One';
+  font-family: "Russo One";
   font-size: 16px;
   padding: 4px;
   border-radius: 4px;
@@ -182,16 +183,16 @@
   border: none;
   outline: none;
   cursor: pointer;
-  transition: ease-in-out .2s;
+  transition: ease-in-out 0.2s;
 }
 
 .cart-sum_input::placeholder {
   text-transform: none;
-  color: rgb(51, 204, 153, .5);
+  color: rgb(51, 204, 153, 0.5);
 }
 
 .cart-sum_button {
-  font-family: 'Russo One';
+  font-family: "Russo One";
   font-size: 16px;
   text-transform: uppercase;
   color: #fff;
@@ -199,9 +200,9 @@
   padding: 10px;
   border: none;
   border-radius: 10px;
-  background-color: rgb(51, 204, 153, .75);
+  background-color: rgb(51, 204, 153, 0.75);
   cursor: pointer;
-  transition: ease-in-out .2s;
+  transition: ease-in-out 0.2s;
 }
 
 .cart-sum_submit:hover,
@@ -223,7 +224,6 @@
     width: calc(100% - 80px);
   }
 }
-
 
 @media (max-width: 760px) {
   .cart_header {

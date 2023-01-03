@@ -11,7 +11,7 @@ function ProductPage() {
   const [product] = [...storeItems.filter((item) => item.id === Number(id))];
   const { cartList, setCartList } = useCart();
   const isAddedToCart = (item: IProductItem): Boolean => {
-    return cartList.find((product) => item.id === product.id) !== undefined
+    return cartList.find((product) => item.id === product.item.id) !== undefined
       ? true
       : false;
   };
@@ -39,10 +39,10 @@ function ProductPage() {
               className="card-button_cart"
               onClick={() => {
                 if (!isAdded) {
-                  setCartList([...cartList, product]);
+                  setCartList([...cartList, { item: product, amount: 1 }]);
                 } else {
                   setCartList(
-                    cartList.filter((item) => product.id !== item.id)
+                    cartList.filter((item) => product.id !== item.item.id)
                   );
                 }
                 setAdded(!isAdded);
