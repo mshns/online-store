@@ -6,7 +6,6 @@ import Category from "./components/Category";
 
 const CategoriesList = ({ items }: IProps) => {
   const [categories, setCategories] = useState<string[]>([]);
-
   items.forEach((item: IProductItem) => {
     if (categories.indexOf(item.category) === -1) {
       setCategories([...categories, item.category].sort());

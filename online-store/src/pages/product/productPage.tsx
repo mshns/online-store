@@ -1,7 +1,7 @@
 import "./productPage.scss";
 import storeItems from "../../storeProducts/storeProducts";
 import { useParams } from "react-router-dom";
-import { IProductItem } from "../../types";
+import ThumbnailList from "./components/thumbnailList";
 
 function ProductPage() {
   const { id } = useParams();
@@ -14,7 +14,6 @@ function ProductPage() {
         <span className="breadcrumbs-item">{product.brand}</span>
       </section>
       <section className="card_wrapper">
-        
         <div className="card-info">
           <h1 className="card_title">{product.title}</h1>
           <h2 className="card_price">
@@ -25,7 +24,7 @@ function ProductPage() {
             <button className="card-button_cart">Add to cart</button>
             <button className="card-button_buy">Buy now</button>
           </div>
-
+          <ThumbnailList product={product} />
           <p className="card_discription">
             <span className="card_discription__value">
               {product.description}

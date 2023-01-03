@@ -1,28 +1,29 @@
-const ThumbnailList = () => {
+import { useState } from "react";
+import { IProductItem } from "../../../types";
+
+const ThumbnailList = ({ product }: { product: IProductItem }) => {
+  const [imageNumber, setImageNumber] = useState(0);
+
   return (
     <div className="card-image">
       <img
         className="card-image_active"
-        src={product.images[0]}
+        src={product.images[imageNumber]}
         alt={product.title}
       ></img>
       <div className="thumbnail-list">
-        <img
-          className="thumbnail-list_item active"
-          src={product.images[0]}
-          alt={product.title}
-        ></img>
-        <img
-          className="thumbnail-list_item"
-          src={product.images[1]}
-          alt={product.title}
-        ></img>
-        <img
-          className="thumbnail-list_item"
-          src={product.images[2]}
-          alt={product.title}
-        ></img>
+        {product.images.map((_, index) => (
+          <img
+            key={index}
+            className="thumbnail-list_item active"
+            src={product.images[index]}
+            alt={product.title}
+            onClick={() => setImageNumber(index)}
+          ></img>
+        ))}
       </div>
     </div>
   );
 };
+
+export default ThumbnailList;
