@@ -2,11 +2,18 @@ import "./header.scss";
 import { Link } from "react-router-dom";
 import useSort from "../../hooks/useSort";
 import useCart from "../../hooks/useCart";
+import { useEffect, useState } from "react";
+import { ICartItem } from "../../types";
 
 const Header = () => {
   const { setSort } = useSort();
   const { cartList } = useCart();
-  const totalSum = cartList.reduce((acc, curr) => acc + curr.price, 0);
+  const getTotalSum = (itemsList: ICartItem[]) =>
+    itemsList.reduce((acc, curr) => acc + curr.item.price * curr.amount, 0);
+  const [totalSum, changeTotalSum] = useState(getTotalSum(cartList));
+  useEffect(() => {
+    changeTotalSum(getTotalSum(cartList));
+  }, [cartList]);
 
   return (
     <header className="header">

@@ -28,9 +28,14 @@ export interface ISortContext {
   setSort: React.Dispatch<React.SetStateAction<SortingProps>>;
 }
 
+export interface ICartItem {
+  item: IProductItem;
+  amount: number;
+}
+
 export interface ICartListContext {
-  cartList: IProductItem[];
-  setCartList: (cartList: IProductItem[]) => void;
+  cartList: ICartItem[];
+  setCartList: (cartList: ICartItem[]) => void;
 }
 
 export interface IProps {

@@ -7,7 +7,7 @@ import "./item.scss";
 const Item = (item: IProductItem) => {
   const { cartList, setCartList } = useCart();
   const isAddedToCart = (item: IProductItem): Boolean => {
-    return cartList.find((product) => item.id === product.id) !== undefined
+    return cartList.find((product) => item.id === product.item.id) !== undefined
       ? true
       : false;
   };
@@ -30,9 +30,11 @@ const Item = (item: IProductItem) => {
           className="product_buttons__cart"
           onClick={() => {
             if (!isAdded) {
-              setCartList([...cartList, item]);
+              setCartList([...cartList, { item: item, amount: 1 }]);
             } else {
-              setCartList(cartList.filter((product) => product.id !== item.id));
+              setCartList(
+                cartList.filter((product) => product.item.id !== item.id)
+              );
             }
             setAdded(!isAdded);
           }}
