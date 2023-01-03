@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { SortContext } from "..";
+import { SortContext } from "../contexts/sortContext/SortContext";
 import { ISortContext } from "../types";
 
 const useSort = (): ISortContext => {
