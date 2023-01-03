@@ -12,11 +12,11 @@ const ThumbnailList = ({ product }: { product: IProductItem }) => {
         alt={product.title}
       ></img>
       <div className="thumbnail-list">
-        {product.images.map((_, index) => (
+        {product.images.map((image, index) => (
           <img
             key={index}
             className="thumbnail-list_item active"
-            src={product.images[index]}
+            src={image}
             alt={product.title}
             onClick={() => setImageNumber(index)}
           ></img>
