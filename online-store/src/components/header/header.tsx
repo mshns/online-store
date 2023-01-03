@@ -1,9 +1,13 @@
 import "./header.scss";
 import { Link } from "react-router-dom";
 import useSort from "../../hooks/useSort";
+import useCart from "../../hooks/useCart";
 
-export function Header() {
+const Header = () => {
   const { setSort } = useSort();
+  const { cartList } = useCart();
+  const totalSum = cartList.reduce((acc, curr) => acc + curr.price, 0);
+
   return (
     <header className="header">
       <Link className="logo" to="/" title="Online Store">
@@ -26,14 +30,16 @@ export function Header() {
         <div className="header_cart">
           <p className="cart-count">
             <span className="cart-count_title">Cart</span>
-            <span className="cart-count_value">0</span>
+            <span className="cart-count_value">{cartList.length}</span>
           </p>
           <p className="cart-sum">
             <span className="cart-sum_title">Sum</span>
-            <span className="cart-sum_value">$0</span>
+            <span className="cart-sum_value">${totalSum}</span>
           </p>
         </div>
       </Link>
     </header>
   );
-}
+};
+
+export default Header;
