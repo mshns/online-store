@@ -34,7 +34,7 @@ const Brand = ({ brand }: { brand: string }) => {
         }}
       />
       <label htmlFor={brand}>{brand}</label>
-      <span className="item-count">({itemCountAll})</span>
+      <span className="item-count">(/{itemCountAll})</span>
     </div>
   );
 };

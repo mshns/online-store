@@ -36,7 +36,7 @@ const Category = ({ category }: { category: string }) => {
         }}
       />
       <label htmlFor={category}>{category}</label>
-      <span className="item-count">({itemCountAll})</span>
+      <span className="item-count">(/{itemCountAll})</span>
     </div>
   );
 };
