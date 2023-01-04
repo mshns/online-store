@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 import useSort from "../../../hooks/useSort";
 
@@ -7,6 +8,10 @@ import storeItems from "../../../storeProducts/storeProducts";
 const Category = ({ category }: { category: string }) => {
   const [isChecked, setChecked] = useState(false);
   const { setSort } = useSort();
+
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const categoryQuery = searchParams.get('category') || '';
 
   const itemCountAll = storeItems.filter(
     (item) => item.category === category
@@ -33,6 +38,7 @@ const Category = ({ category }: { category: string }) => {
             }));
           }
           setChecked(!isChecked);
+          setSearchParams({category: category});
         }}
       />
       <label htmlFor={category}>{category}</label>
