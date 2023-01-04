@@ -42,7 +42,7 @@ const Aside = (props: {
       </div>
 
       <CategoriesList items={props.items} setItems={props.setItems} />
-      <Brands />
+      <Brands items={props.items} setItems={props.setItems} />
       <PriceField items={props.items} />
       <StockField items={props.items} />
     </aside>

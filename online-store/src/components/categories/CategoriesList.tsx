@@ -16,7 +16,7 @@ const CategoriesList = ({ items }: IProps) => {
     <fieldset className="container aside_fieldset">
       <legend className="fieldset_legend">Categories</legend>
       {categories.map((category, index) => (
-        <Category category={category} key={index} />
+        <Category category={category} key={index} items={items}/>
       ))}
     </fieldset>
   );

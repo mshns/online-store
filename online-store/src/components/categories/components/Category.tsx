@@ -1,18 +1,21 @@
 import { useState } from "react";
-import { useSearchParams } from "react-router-dom";
 
 import useSort from "../../../hooks/useSort";
 
 import storeItems from "../../../storeProducts/storeProducts";
+import { IProductItem } from "../../../types";
 
-const Category = ({ category }: { category: string }) => {
+const Category = ({
+  category,
+  items,
+}: {
+  category: string;
+  items: IProductItem[];
+}) => {
   const [isChecked, setChecked] = useState(false);
   const { setSort } = useSort();
 
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  const categoryQuery = searchParams.get('category') || '';
-
+  const itemCount = items.filter((item) => item.category === category).length;
   const itemCountAll = storeItems.filter(
     (item) => item.category === category
   ).length;
@@ -38,11 +41,12 @@ const Category = ({ category }: { category: string }) => {
             }));
           }
           setChecked(!isChecked);
-          setSearchParams({category: category});
         }}
       />
       <label htmlFor={category}>{category}</label>
-      <span className="item-count">(/{itemCountAll})</span>
+      <span className="item-count">
+        ({itemCount}/{itemCountAll})
+      </span>
     </div>
   );
 };

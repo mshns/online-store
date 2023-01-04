@@ -3,11 +3,13 @@ import { useState } from "react";
 import useSort from "../../../hooks/useSort";
 
 import storeItems from "../../../storeProducts/storeProducts";
+import { IProductItem } from "../../../types";
 
-const Brand = ({ brand }: { brand: string }) => {
+const Brand = ({ brand, items }: { brand: string, items: IProductItem[] }) => {
   const [isChecked, setChecked] = useState(false);
   const { setSort } = useSort();
 
+  const itemCount = items.filter((item) => item.brand === brand).length;
   const itemCountAll = storeItems.filter((item) => item.brand === brand).length;
 
   return (
@@ -34,7 +36,7 @@ const Brand = ({ brand }: { brand: string }) => {
         }}
       />
       <label htmlFor={brand}>{brand}</label>
-      <span className="item-count">(/{itemCountAll})</span>
+      <span className="item-count">({itemCount}/{itemCountAll})</span>
     </div>
   );
 };
