@@ -5,7 +5,7 @@ import "./sortingBlock.scss";
 
 function SortingBlock(props: { items: IProductItem[] }) {
   return (
-    <div className="container content">
+    <div className="content">
       <SortingHeader items={props.items} />
       <ProductsList items={props.items} />
     </div>
