@@ -11,6 +11,8 @@ const Home = () => {
   const [items, setItems] = useState<IProductItem[]>(storeItems);
   const { sort } = useSort();
 
+  console.log(sort);
+
   useEffect(() => {
     setItems(() => {
       const filtredItems: IProductItem[] = storeItems.filter((item) => {
