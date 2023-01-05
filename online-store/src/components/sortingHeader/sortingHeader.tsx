@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import tableProducts from "./icons/table.svg";
 import listProducts from "./icons/list.svg";
 import { IProductItem } from "../../types";
@@ -27,6 +29,7 @@ const SortingHeader = (props: { items: IProductItem[] }) => {
   ];
 
   const { setSort } = useSort();
+  const [tableState, setTableState] = useState(true);
 
   return (
     <div className="container content_header">
@@ -59,16 +62,28 @@ const SortingHeader = (props: { items: IProductItem[] }) => {
         <span className="content-found_title">Found </span>
         <span className="content-found_value">{props.items.length}</span>
       </div>
-      <div className="container content-header_buttons">
+      <div className="content-header_buttons">
         <img
-          className="content-header_buttons__table active"
+          className={`content-header_buttons__table ${
+            tableState ? "active" : ""
+          }`}
+          onClick={(evt) => {
+            setTableState(() => true);
+          }}
           src={tableProducts}
           alt="Display Table"
+          title="Display Table"
         />
         <img
-          className="content-header_buttons__list"
+          className={`content-header_buttons__list ${
+            tableState ? "" : "active"
+          }`}
+          onClick={(evt) => {
+            setTableState(() => false);
+          }}
           src={listProducts}
           alt="Display List"
+          title="Display List"
         />
       </div>
     </div>

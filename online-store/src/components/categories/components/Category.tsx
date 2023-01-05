@@ -1,7 +1,5 @@
 import { useState } from "react";
-
 import useSort from "../../../hooks/useSort";
-
 import storeItems from "../../../storeProducts/storeProducts";
 import { IProductItem } from "../../../types";
 

@@ -12,6 +12,10 @@
   margin-bottom: 40px;
 }
 
+.content_products.list {
+  flex-direction: column;
+}
+
 .content_header {
   width: 100%;
   padding: 9px 0;
@@ -52,6 +56,8 @@
 }
 
 .content-header_buttons {
+  display: flex;
+  justify-content: space-between;
   width: 44px;
 }
 

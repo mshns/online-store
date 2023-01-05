@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
 
 import "./home.scss";
 import { IProductItem } from "../../types";
@@ -12,22 +11,7 @@ const Home = () => {
   const [items, setItems] = useState<IProductItem[]>(storeItems);
   const { sort } = useSort();
 
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  console.log(searchParams.entries())
-
   useEffect(() => {
-    setSearchParams({
-      category: sort.category,
-      brand: sort.brand,
-      minPrice: sort.minPrice.toString(),
-      maxPrice: sort.maxPrice.toString(),
-      minStock: sort.minStock.toString(),
-      maxStock: sort.maxStock.toString(),
-      sortBy: sort.sortBy,
-      search: sort.search,
-    });
-
     setItems(() => {
       const filtredItems: IProductItem[] = storeItems.filter((item) => {
         if (sort.category.length || sort.brand.length) {
