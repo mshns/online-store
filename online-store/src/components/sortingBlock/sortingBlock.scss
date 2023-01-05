@@ -6,9 +6,14 @@
 }
 
 .content_products {
+  display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   margin-bottom: 40px;
+}
+
+.content_products.list {
+  flex-direction: column;
 }
 
 .content_header {
@@ -51,6 +56,8 @@
 }
 
 .content-header_buttons {
+  display: flex;
+  justify-content: space-between;
   width: 44px;
 }
 

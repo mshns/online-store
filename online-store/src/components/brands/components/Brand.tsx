@@ -2,9 +2,15 @@ import { useState } from "react";
 
 import useSort from "../../../hooks/useSort";
 
-const Brand = ({ brand }: { brand: string }) => {
+import storeItems from "../../../storeProducts/storeProducts";
+import { IProductItem } from "../../../types";
+
+const Brand = ({ brand, items }: { brand: string, items: IProductItem[] }) => {
   const [isChecked, setChecked] = useState(false);
   const { setSort } = useSort();
+
+  const itemCount = items.filter((item) => item.brand === brand).length;
+  const itemCountAll = storeItems.filter((item) => item.brand === brand).length;
 
   return (
     <div className="container fieldset_item__checkbox">
@@ -30,7 +36,7 @@ const Brand = ({ brand }: { brand: string }) => {
         }}
       />
       <label htmlFor={brand}>{brand}</label>
-      <span className="item-count">(5/5)</span>
+      <span className="item-count">({itemCount}/{itemCountAll})</span>
     </div>
   );
 };
