@@ -4,36 +4,37 @@ import useCart from "../../hooks/useCart";
 import { IProductItem } from "../../types";
 import "./item.scss";
 
-const Item = (item: IProductItem) => {
+const Item = (props: { item: IProductItem; tableState: boolean }) => {
   const { cartList, setCartList } = useCart();
   const isAddedToCart = (item: IProductItem): Boolean => {
     return cartList.find((product) => item.id === product.item.id) !== undefined
       ? true
       : false;
   };
-  const [isAdded, setAdded] = useState(isAddedToCart(item));
+  const [isAdded, setAdded] = useState(isAddedToCart(props.item));
   const buttonText = {
     notAdd: "Add to cart",
     added: "Drop",
   };
+
   return (
-    <div className="product">
-      <h3 className="product_title">{item.title}</h3>
+    <div className={`product ${props.tableState ? "" : "list"}`}>
+      <h3 className={`product_title ${props.tableState ? "" : "list"}`}>{props.item.title}</h3>
       <img
-        className="product_thumbnail"
-        src={item.thumbnail}
-        alt={item.title}
+        className={`product_thumbnail ${props.tableState ? "" : "list"}`}
+        src={props.item.thumbnail}
+        alt={props.item.title}
       />
-      <h3 className="product_price">${item.price}</h3>
-      <div className="container product_buttons">
+      <h3 className={`product_price ${props.tableState ? "" : "list"}`}>${props.item.price}</h3>
+      <div className={`product_buttons ${props.tableState ? "" : "list"}`}>
         <button
-          className="product_buttons__cart"
+          className={`product_buttons__cart ${props.tableState ? "" : "list"}`}
           onClick={() => {
             if (!isAdded) {
-              setCartList([...cartList, { item: item, amount: 1 }]);
+              setCartList([...cartList, { item: props.item, amount: 1 }]);
             } else {
               setCartList(
-                cartList.filter((product) => product.item.id !== item.id)
+                cartList.filter((product) => product.item.id !== props.item.id)
               );
             }
             setAdded(!isAdded);
@@ -42,7 +43,7 @@ const Item = (item: IProductItem) => {
           {isAdded ? buttonText.added : buttonText.notAdd}
         </button>
         <Link
-          to={`/products/${item.category}/${item.brand}/${item.id}`}
+          to={`/products/${props.item.category}/${props.item.brand}/${props.item.id}`}
           className="product_buttons__details"
         >
           Details

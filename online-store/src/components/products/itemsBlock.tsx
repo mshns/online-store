@@ -1,11 +1,14 @@
 import Item from "./item";
 import { IProductItem } from "../../types";
 
-const ProductsList = (items: { items: IProductItem[] }) => {
+const ProductsList = (props: {
+  items: IProductItem[];
+  tableState: boolean;
+}) => {
   return (
-    <div className={`content_products`}>
-      {items.items.map((item: IProductItem) => (
-        <Item {...item} key={item.id} />
+    <div className={`content_products ${props.tableState ? "" : "list"}`}>
+      {props.items.map((item: IProductItem) => (
+        <Item item={item} key={item.id} tableState={props.tableState} />
       ))}
     </div>
   );

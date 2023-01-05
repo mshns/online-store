@@ -1,11 +1,13 @@
-import { useState } from "react";
-
 import tableProducts from "./icons/table.svg";
 import listProducts from "./icons/list.svg";
 import { IProductItem } from "../../types";
 import useSort from "../../hooks/useSort";
 
-const SortingHeader = (props: { items: IProductItem[] }) => {
+const SortingHeader = (props: {
+  items: IProductItem[];
+  tableState: boolean;
+  setTableState: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const sortingList: {
     title: string;
     searchURL: string;
@@ -29,7 +31,8 @@ const SortingHeader = (props: { items: IProductItem[] }) => {
   ];
 
   const { setSort } = useSort();
-  const [tableState, setTableState] = useState(true);
+
+  console.log(props.tableState);
 
   return (
     <div className="container content_header">
@@ -65,10 +68,10 @@ const SortingHeader = (props: { items: IProductItem[] }) => {
       <div className="content-header_buttons">
         <img
           className={`content-header_buttons__table ${
-            tableState ? "active" : ""
+            props.tableState ? "active" : ""
           }`}
           onClick={(evt) => {
-            setTableState(() => true);
+            props.setTableState(() => true);
           }}
           src={tableProducts}
           alt="Display Table"
@@ -76,10 +79,10 @@ const SortingHeader = (props: { items: IProductItem[] }) => {
         />
         <img
           className={`content-header_buttons__list ${
-            tableState ? "" : "active"
+            props.tableState ? "" : "active"
           }`}
           onClick={(evt) => {
-            setTableState(() => false);
+            props.setTableState(() => false);
           }}
           src={listProducts}
           alt="Display List"
