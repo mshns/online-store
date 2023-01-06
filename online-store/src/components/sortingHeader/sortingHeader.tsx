@@ -32,8 +32,6 @@ const SortingHeader = (props: {
 
   const { setSort } = useSort();
 
-  console.log(props.tableState);
-
   return (
     <div className="container content_header">
       <select

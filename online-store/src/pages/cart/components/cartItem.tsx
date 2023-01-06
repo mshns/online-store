@@ -27,7 +27,11 @@ const CartItem = ({ item, index }: { item: ICartItem; index: number }) => {
           <span
             className="amount-count_button__remove"
             onClick={() => {
-              if (amount !== 1) {
+              if (amount === 1) {
+                setCartList(
+                  cartList.filter((product) => product.item.id !== item.item.id)
+                );
+              } else {
                 setAmount(amount - 1);
                 item.amount -= 1;
                 setCartList([...cartList]);

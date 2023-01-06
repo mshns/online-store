@@ -1,11 +1,10 @@
-import useCart from "../../../hooks/useCart";
+import { ICartItem } from "../../../types";
 import CartItem from "./cartItem";
 
-const CartList = () => {
-  const { cartList } = useCart();
+const CartList = ({ items }: { items: ICartItem[] }) => {
   return (
     <div className="cart_list">
-      {cartList.map((item, index) => (
+      {items.map((item, index) => (
         <CartItem item={item} index={index} key={index} />
       ))}
     </div>

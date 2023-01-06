@@ -8,8 +8,6 @@ import "./sortingBlock.scss";
 function SortingBlock(props: { items: IProductItem[] }) {
   const [tableState, setTableState] = useState(true);
 
-  console.log(tableState);
-
   return (
     <div className="content">
       <SortingHeader
@@ -17,10 +15,7 @@ function SortingBlock(props: { items: IProductItem[] }) {
         tableState={tableState}
         setTableState={setTableState}
       />
-      <ProductsList
-        items={props.items}
-        tableState={tableState}
-      />
+      <ProductsList items={props.items} tableState={tableState} />
     </div>
   );
 }

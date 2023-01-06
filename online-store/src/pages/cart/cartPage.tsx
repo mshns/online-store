@@ -1,36 +1,51 @@
 import "./cartPage.scss";
 import CartList from "./components/cartList";
 import CartSumBlock from "./components/cartSum";
+import CartHeader from "./components/cartHeader";
+import { ICartItem } from "../../types";
+import { useEffect, useState } from "react";
+import useCart from "../../hooks/useCart";
 
 const CartPage = () => {
+  const { cartList } = useCart();
+  const [visibilityValue, setVisibilityValue] = useState(10);
+  const [page, setPage] = useState(1);
+
+  const getVisibleItems = (
+    items: ICartItem[],
+    amountOfVisibleItems: number
+  ) => {
+    return items.filter(
+      (_, index) =>
+        index >= amountOfVisibleItems * (page - 1) &&
+        index < amountOfVisibleItems * page
+    );
+  };
+
+  const getPagesAmount = (items: ICartItem[], itemsAmount: number) => {
+    return Math.ceil(items.length / itemsAmount);
+  };
+
+  const visibleCartItems = getVisibleItems(cartList, visibilityValue);
+  const [cartVisibleItems, setVisibleItems] =
+    useState<ICartItem[]>(visibleCartItems);
+
+  const pagesAmount = getPagesAmount(cartList, visibilityValue);
+  useEffect(() => {
+    setVisibleItems(visibleCartItems);
+    getVisibleItems(cartList, visibilityValue);
+  }, [cartList, visibilityValue, visibleCartItems]);
+
   return (
     <main className="cart">
       <section className="cart_products">
-        <div className="cart_header">
-          <h1 className="cart_title">Cart</h1>
-          <div className="cart_pagination">
-            <label htmlFor="pagination-items">Items</label>
-            <input
-              className="pagination_items"
-              type="number"
-              defaultValue="10"
-              id="pagination-items"
-            />
-            <div className="pagination_pages">
-              <span>Page</span>
-              <div className="pages_number">
-                <span className="amount-count_button__remove">
-                  keyboard_arrow_left
-                </span>
-                <span>1</span>
-                <span className="amount-count_button__remove">
-                  keyboard_arrow_right
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <CartList />
+        <CartHeader
+          handler={setVisibilityValue}
+          setPage={setPage}
+          page={page}
+          pagesAmount={pagesAmount}
+        />
+        <CartList items={cartVisibleItems} />
       </section>
       <CartSumBlock />
     </main>
