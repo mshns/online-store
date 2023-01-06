@@ -22,19 +22,26 @@ const CartPage = () => {
     );
   };
 
+  const changePage = (pageNumber: number, pagesAmount: number) => {
+    if (pageNumber > pagesAmount) {
+      return pagesAmount;
+    } else {
+      return pageNumber;
+    }
+  };
+
   const getPagesAmount = (items: ICartItem[], itemsAmount: number) => {
     return Math.ceil(items.length / itemsAmount);
   };
-
-  const visibleCartItems = getVisibleItems(cartList, visibilityValue);
+  let visibleCartItems = getVisibleItems(cartList, visibilityValue);
   const [cartVisibleItems, setVisibleItems] =
     useState<ICartItem[]>(visibleCartItems);
 
   const pagesAmount = getPagesAmount(cartList, visibilityValue);
   useEffect(() => {
     setVisibleItems(visibleCartItems);
-    getVisibleItems(cartList, visibilityValue);
-  }, [cartList, visibilityValue, visibleCartItems]);
+    setPage(changePage(page, pagesAmount));
+  }, [cartList, visibilityValue, visibleCartItems, page, pagesAmount]);
 
   return (
     <main className="cart">
