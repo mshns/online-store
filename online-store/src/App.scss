@@ -1,5 +1,5 @@
 body {
-  font-family: 'Russo One', sans-serif;
+  font-family: "Russo One", sans-serif;
   color: #336699;
 }
 
@@ -16,4 +16,117 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+// payment
+
+.shadow {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0, 0, 0, 0);
+  z-index: -100;
+  transition: ease-in-out 0.1s;
+}
+
+.shadow.visible {
+  background-color: rgb(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.payment {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  height: 480px;
+  padding: 20px;
+  top: -200vh;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 10px;
+  z-index: -200;
+  transition: ease-in-out 0.2s;
+}
+
+.payment.visible {
+  top: 0;
+  background-color: #fff;
+  z-index: 200;
+}
+
+.payment_title {
+  font-weight: 100;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgb(51, 102, 153);
+}
+
+.payment_name,
+.payment_phone,
+.payment_address,
+.payment_email,
+.card_number,
+.card_valid,
+.card_cvv {
+  font-family: "Russo One", sans-serif;
+  font-size: 14px;
+  color: #336699;
+  margin-bottom: 10px;
+  padding-left: 5px;
+  border: none;
+  border-bottom: 1px dashed rgb(51, 102, 153, 0.5);
+  outline: none;
+}
+
+.payment_name::placeholder,
+.payment_phone::placeholder,
+.payment_address::placeholder,
+.payment_email::placeholder,
+.card_number::placeholder,
+.card_valid::placeholder,
+.card_cvv::placeholder {
+  color: rgb(51, 102, 153, 0.75);
+}
+
+.payment_card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  width: 80%;
+  height: 120px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid rgb(51, 102, 153, 0.25);
+  background-image: url(./assets/svg/credit-card.svg);
+  background-repeat: no-repeat;
+  background-position: 95% 5%;
+  background-size: 16%;
+}
+
+.card_number {
+  width: 100%;
+}
+
+.card_valid,
+.card_cvv {
+  width: 40%;
+}
+
+.payment_button {
+  font-family: "Russo One";
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #fff;
+  margin-top: 26px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: #336899;
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
 }
