@@ -36,7 +36,7 @@ const CartPage = (props: {
     if (visibilityItems.length === 0 && cartList.length !== 0) {
       setPage(page - 1);
     }
-  }, [cartList.length, page, visibilityItems]);
+  }, [visibilityItems]);
 
   const getPagesAmount = (items: ICartItem[], itemsAmount: number) => {
     return Math.ceil(items.length / itemsAmount);
