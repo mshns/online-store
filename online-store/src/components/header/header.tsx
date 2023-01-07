@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { ICartItem } from "../../types";
 
 const Header = () => {
-  const { setSort } = useSort();
+  const { sort, setSort } = useSort();
   const { cartList } = useCart();
   const getTotalSum = (itemsList: ICartItem[]) =>
     itemsList.reduce((acc, curr) => acc + curr.item.price * curr.amount, 0);
@@ -15,6 +15,7 @@ const Header = () => {
     changeTotalSum(getTotalSum(cartList));
   }, [cartList]);
 
+  console.log(sort.search);
   return (
     <header className="header">
       <Link className="logo" to="/" title="Online Store">
@@ -22,6 +23,7 @@ const Header = () => {
       </Link>
       <form className="header_search">
         <input
+          defaultValue={`${sort.search}`}
           className="search-input"
           type="search"
           placeholder="Search..."

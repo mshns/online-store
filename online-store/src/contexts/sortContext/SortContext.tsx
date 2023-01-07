@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { ISortContext, SortingProps } from "../../types";
 
 const SortProvider = ({ children }: { children: ReactNode }) => {
@@ -12,6 +13,30 @@ const SortProvider = ({ children }: { children: ReactNode }) => {
     sortBy: "",
     search: "",
   };
+
+  const [searchParams] = useSearchParams();
+
+  const brandsQueryParams = searchParams.get("brand");
+  if (brandsQueryParams) {
+    const brandsParams = brandsQueryParams.split("%");
+    sortingProps.brand = brandsParams;
+  }
+
+  const categoriesQueryParams = searchParams.get("category");
+  if (categoriesQueryParams) {
+    const categoriesParams = categoriesQueryParams.split("%");
+    sortingProps.category = categoriesParams;
+  }
+
+  const searchQueryParams = searchParams.get("search");
+  if (searchQueryParams) {
+    sortingProps.search = searchQueryParams;
+  }
+
+  const sortByQueryParams = searchParams.get("sortBy");
+  if (sortByQueryParams) {
+    sortingProps.sortBy = sortByQueryParams;
+  }
 
   const [sort, setSort] = useState<SortingProps>(sortingProps);
 
