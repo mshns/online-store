@@ -16,9 +16,11 @@ const Brand = ({ brand, items }: { brand: string; items: IProductItem[] }) => {
 
   const itemCount = items.filter((item) => item.brand === brand).length;
   const itemCountAll = storeItems.filter((item) => item.brand === brand).length;
+  const classNameFor: string =
+    itemCount > 0 ? "activity_input_class" : "non-active_input_class";
 
   return (
-    <div className="container fieldset_item__checkbox">
+    <div className={`container fieldset_item__checkbox ${classNameFor}`}>
       <input
         type="checkbox"
         id={brand}

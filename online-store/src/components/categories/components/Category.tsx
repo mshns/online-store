@@ -22,9 +22,11 @@ const Category = ({
   const itemCountAll = storeItems.filter(
     (item) => item.category === category
   ).length;
+  const classNameFor: string =
+    itemCount > 0 ? "activity_input_class" : "non-active_input_class";
 
   return (
-    <div className="container fieldset_item__checkbox">
+    <div className={`container fieldset_item__checkbox ${classNameFor}`}>
       <input
         type="checkbox"
         id={category}
