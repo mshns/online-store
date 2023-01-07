@@ -18,12 +18,28 @@ const Header = () => {
   console.log(sort.search);
   return (
     <header className="header">
-      <Link className="logo" to="/" title="Online Store">
+      <Link
+        className="logo"
+        to="/"
+        title="Online Store"
+        onClick={() => {
+          setSort({
+            brand: [],
+            category: [],
+            minPrice: 0,
+            maxPrice: 1800,
+            minStock: 0,
+            maxStock: 150,
+            sortBy: "",
+            search: "",
+          });
+        }}
+      >
         Online<span>Store</span>
       </Link>
       <form className="header_search">
         <input
-          defaultValue={`${sort.search}`}
+          value={`${sort.search}`}
           className="search-input"
           type="search"
           placeholder="Search..."
