@@ -12,7 +12,7 @@ const CartSumBlock = (props: {
     itemsList.reduce((acc, curr) => acc + curr.amount, 0);
   const [totalSum, changeTotalSum] = useState(getTotalSum(cartList));
   const [totalItems, changeTotalItems] = useState(getTotalItems(cartList));
-  
+
   useEffect(() => {
     changeTotalSum(getTotalSum(cartList));
     changeTotalItems(getTotalItems(cartList));

@@ -56,9 +56,7 @@ const CartPage = (props: {
         />
         <CartList items={cartVisibleItems} />
       </section>
-      <CartSumBlock
-        setPaymentVisible={props.setPaymentVisible}
-      />
+      <CartSumBlock setPaymentVisible={props.setPaymentVisible} />
     </main>
   );
 };

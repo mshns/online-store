@@ -118,6 +118,15 @@ body {
   width: 40%;
 }
 
+.card_number::-webkit-outer-spin-button,
+.card_number::-webkit-inner-spin-button,
+.card_valid::-webkit-outer-spin-button,
+.card_valid::-webkit-inner-spin-button,
+.card_cvv::-webkit-outer-spin-button,
+.card_cvv::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
 .payment_button {
   font-family: "Russo One";
   font-size: 16px;
