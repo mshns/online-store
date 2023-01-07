@@ -5,14 +5,12 @@ import Brands from "../brands/brands";
 import PriceSlider from "./components/price";
 import StockField from "./components/stock";
 import useSort from "../../hooks/useSort";
-import { useState } from "react";
 
 const Aside = (props: {
   items: IProductItem[];
   setItems: (items: IProductItem[]) => void;
 }) => {
   const { setSort } = useSort();
-  const [state, setState] = useState(1);
   const handleClick = () => {
     setSort({
       brand: [],
@@ -24,7 +22,6 @@ const Aside = (props: {
       sortBy: "",
       search: "",
     });
-    setState(state + 1);
   };
   return (
     <aside className="container aside">
