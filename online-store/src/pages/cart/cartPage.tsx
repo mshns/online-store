@@ -22,7 +22,19 @@ const CartPage = (props: {
   };
 
   const { cartList } = useCart();
-  const [visibilityValue, setVisibilityValue] = useState(10);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartList));
+  }, [cartList]);
+
+  const [visibilityValue, setVisibilityValue] = useState(
+    Number(localStorage.getItem("cartVisibilityValue")) || 10
+  );
+
+  useEffect(() => {
+    localStorage.setItem("cartVisibilityValue", visibilityValue.toString());
+  }, [visibilityValue]);
+
   const [page, setPage] = useState(1);
   const [visibilityItems, setVisibilityItems] = useState(
     getVisibleItems(cartList, visibilityValue, page)
@@ -32,6 +44,7 @@ const CartPage = (props: {
     const visiblItems = getVisibleItems(cartList, visibilityValue, page);
     setVisibilityItems(visiblItems);
   }, [page, cartList, visibilityValue]);
+
   useEffect(() => {
     if (visibilityItems.length === 0 && cartList.length !== 0) {
       setPage(page - 1);
@@ -48,6 +61,7 @@ const CartPage = (props: {
     <main className="cart">
       <section className="cart_products">
         <CartHeader
+          visibilityValue={visibilityValue}
           handler={setVisibilityValue}
           setPage={setPage}
           page={page}
