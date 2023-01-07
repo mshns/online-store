@@ -17,15 +17,20 @@ const Payment = (props: {
     reset();
   };
 
-  const [value, setValue] = useState("");
+  const [cardValidValue, setValidValue] = useState("");
 
   const inputHandler = (value: string) => {
-    if (value.length === 3) {
-      setValue(`${value.slice(0, 2)}/${value.slice(2)}`);
+    const delSeparator = value.replace(/\//g, "");
+    if (delSeparator.length < 2) {
+      setValidValue(delSeparator);
+    } else if (delSeparator.length === 2 && value.slice(-1) !== "/") {
+      setValidValue(`${delSeparator}`);
     } else {
-      setValue(value);
+      setValidValue(`${delSeparator.slice(0, 2)}/${delSeparator.slice(2)}`);
     }
   };
+
+  const [cardNumberValue, setNumberValue] = useState("");
 
   return (
     <div>
@@ -36,7 +41,7 @@ const Payment = (props: {
         <h3 className="payment_title">Personal details</h3>
         <input
           {...register("paymentName", {
-            pattern: /[a-zA-ZА-Яа-я]{3,}.[a-zA-ZА-Яа-я]{3,}/,
+            pattern: /^[a-zA-ZА-Яа-я]{3,} [a-zA-ZА-Яа-я]{3,}$/,
             required: true,
           })}
           className="payment_name"
@@ -54,9 +59,8 @@ const Payment = (props: {
             pattern: /^\+\d{9}/,
             required: true,
           })}
-          pattern="[0-9]{3}"
           className="payment_phone"
-          type="tel"
+          type="text"
           placeholder="Phone number"
         />
         <div className="payment_error">
@@ -68,7 +72,7 @@ const Payment = (props: {
         <input
           {...register("paymentAddress", {
             pattern:
-              /[a-zA-Z0-9А-Яа-я]{5,}.[a-zA-Z0-9А-Яа-я]{5,}.[a-zA-Z0-9А-Яа-я]{5,}/,
+              /^[a-zA-Z0-9А-Яа-я]{5,} [a-zA-Z0-9А-Яа-я]{5,} [a-zA-Z0-9А-Яа-я]{5,}/,
             required: true,
           })}
           className="payment_address"
@@ -95,7 +99,17 @@ const Payment = (props: {
           {errors?.paymentEmail && <span>Error!</span>}
         </div>
         <h3 className="payment_title">Payment details</h3>
-        <div className="payment_card">
+        <div
+          className={`payment_card ${
+            cardNumberValue === "4"
+              ? "visa"
+              : cardNumberValue === "5"
+              ? "master"
+              : cardNumberValue === "6"
+              ? "union"
+              : ""
+          }`}
+        >
           <input
             {...register("paymentCardNumber", {
               pattern: /^[0-9]{16}$/,
@@ -104,6 +118,7 @@ const Payment = (props: {
             className="card_number"
             type="number"
             placeholder="Card number"
+            onChange={(evt) => setNumberValue((evt.target.value + "")[0])}
           />
           <div className="payment_error">
             <span className="error_description">
@@ -114,18 +129,17 @@ const Payment = (props: {
           <input
             {...register("paymentValid", {
               validate: {
-                fourDigits: (v: string) => v.length === 5,
-                month: (v: { slice: (arg0: number, arg1: number) => number }) =>
-                  Number(v.slice(0, 2)) <= 12,
+                fourDigits: (v) => v.length === 5,
+                month: (v) => v.slice(0, 2) <= 12,
               },
               required: true,
             })}
             className="card_valid"
             type="text"
             placeholder="Valid thru"
-            value={value}
-            maxLength={5}
+            value={cardValidValue}
             onChange={(evt) => inputHandler(evt.target.value)}
+            maxLength={5}
           />
           <div className="payment_error">
             <span className="error_description">

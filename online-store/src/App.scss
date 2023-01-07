@@ -105,6 +105,7 @@ body {
 .error_description {
   color: rgb(51, 102, 153, 0.25);
 }
+
 .payment_card {
   display: flex;
   justify-content: space-between;
@@ -121,6 +122,19 @@ body {
   background-position: 95% 5%;
   background-size: 16%;
 }
+
+.payment_card.visa {
+  background-image: url(./assets/svg/visa-card.svg);
+}
+
+.payment_card.master {
+  background-image: url(./assets/svg/master-card.svg);
+}
+
+.payment_card.union {
+  background-image: url(./assets/svg/union-card.svg);
+}
+
 .card_number {
   margin-top: 16px;
 }
