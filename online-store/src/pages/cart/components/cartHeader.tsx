@@ -1,11 +1,13 @@
 import { Dispatch, SetStateAction } from "react";
 
 const CartHeader = ({
+  visibilityValue,
   handler,
   page,
   pagesAmount,
   setPage,
 }: {
+  visibilityValue: number;
   handler: Dispatch<SetStateAction<number>>;
   page: number;
   pagesAmount: number;
@@ -19,7 +21,7 @@ const CartHeader = ({
         <input
           className="pagination_items"
           type="number"
-          defaultValue="10"
+          value={visibilityValue}
           id="pagination-items"
           onChange={(evt) => {
             handler(Number(evt.target.value));
