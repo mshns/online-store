@@ -15,7 +15,6 @@ const Header = () => {
     changeTotalSum(getTotalSum(cartList));
   }, [cartList]);
 
-  console.log(sort.search);
   return (
     <header className="header">
       <Link

@@ -20,8 +20,10 @@ const Payment = (props: {
   const [value, setValue] = useState("");
 
   const inputHandler = (value: string) => {
-    if (value.length > 2) {
+    if (value.length === 3) {
       setValue(`${value.slice(0, 2)}/${value.slice(2)}`);
+    } else {
+      setValue(value);
     }
   };
 
@@ -112,14 +114,18 @@ const Payment = (props: {
           <input
             {...register("paymentValid", {
               validate: {
-                fourDigits: (v) => v.length === 4,
-                month: (v) => v.slice(0, 2) <= 12,
+                fourDigits: (v: string) => v.length === 5,
+                month: (v: { slice: (arg0: number, arg1: number) => number }) =>
+                  Number(v.slice(0, 2)) <= 12,
               },
               required: true,
             })}
             className="card_valid"
             type="text"
             placeholder="Valid thru"
+            value={value}
+            maxLength={5}
+            onChange={(evt) => inputHandler(evt.target.value)}
           />
           <div className="payment_error">
             <span className="error_description">
