@@ -24,9 +24,10 @@ body {
   position: fixed;
   width: 100vw;
   height: 100vh;
+  top: 0;
+  left: 0;
   background-color: rgb(0, 0, 0, 0);
   z-index: -100;
-  transition: ease-in-out 0.1s;
 }
 
 .shadow.visible {
@@ -49,7 +50,7 @@ body {
   background-color: #fff;
   border-radius: 10px;
   z-index: -200;
-  transition: ease-in-out 0.2s;
+  transition: ease-in-out 0.3s;
 }
 
 .payment.visible {
@@ -115,6 +116,15 @@ body {
 .card_valid,
 .card_cvv {
   width: 40%;
+}
+
+.card_number::-webkit-outer-spin-button,
+.card_number::-webkit-inner-spin-button,
+.card_valid::-webkit-outer-spin-button,
+.card_valid::-webkit-inner-spin-button,
+.card_cvv::-webkit-outer-spin-button,
+.card_cvv::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 
 .payment_button {
