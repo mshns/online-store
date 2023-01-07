@@ -1,15 +1,20 @@
+import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
+
 import "./App.scss";
 import { Footer } from "./components/footer/footer";
 import Header from "./components/header/header";
 import Home from "./pages/home/Home";
 import { NonFound } from "./pages/nonPage/nonPage";
-import { Route, Routes } from "react-router-dom";
+
 import CartPage from "./pages/cart/cartPage";
 import ProductPage from "./pages/product/productPage";
 import CartListProvider from "./contexts/cartListContext/CartList";
 import Payment from "./components/payment/payment";
 
 function App() {
+  const [paymentVisible, setPaymentVisible] = useState(false);
+
   return (
     <div className="wrapper">
       <CartListProvider>
@@ -20,12 +25,19 @@ function App() {
             path="/products/:category/:brand/:id"
             element={<ProductPage />}
           />
-          <Route path="/cart" element={<CartPage />} />
+          <Route
+            path="/cart"
+            element={
+              <CartPage
+                setPaymentVisible={setPaymentVisible}
+              />
+            }
+          />
           <Route path="*" element={<NonFound />} />
         </Routes>
         <Footer />
       </CartListProvider>
-      {/* <Payment /> */}
+      <Payment paymentVisible={paymentVisible} setPaymentVisible={setPaymentVisible}/>
     </div>
   );
 }

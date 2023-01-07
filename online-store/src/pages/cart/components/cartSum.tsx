@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import useCart from "../../../hooks/useCart";
 import { ICartItem } from "../../../types";
 
-const CartSumBlock = () => {
+const CartSumBlock = (props: {
+  setPaymentVisible: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const { cartList } = useCart();
   const getTotalSum = (itemsList: ICartItem[]) =>
     itemsList.reduce((acc, curr) => acc + curr.item.price * curr.amount, 0);
@@ -10,6 +12,7 @@ const CartSumBlock = () => {
     itemsList.reduce((acc, curr) => acc + curr.amount, 0);
   const [totalSum, changeTotalSum] = useState(getTotalSum(cartList));
   const [totalItems, changeTotalItems] = useState(getTotalItems(cartList));
+  
   useEffect(() => {
     changeTotalSum(getTotalSum(cartList));
     changeTotalItems(getTotalItems(cartList));
@@ -36,7 +39,14 @@ const CartSumBlock = () => {
         />
         <input className="cart-sum_submit" type="submit" value="Add" />
       </form>
-      <button className="cart-sum_button">Buy now</button>
+      <button
+        className="cart-sum_button"
+        onClick={(evt) => {
+          props.setPaymentVisible(() => true);
+        }}
+      >
+        Buy now
+      </button>
     </section>
   );
 };

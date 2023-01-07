@@ -1,7 +1,10 @@
-const Payment = () => {
+const Payment = (props: {
+  paymentVisible: boolean;
+  setPaymentVisible: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   return (
-    <div className="shadow visible">
-      <form className="payment visible">
+    <div>
+      <form className={`payment ${props.paymentVisible ? "visible" : ""}`}>
         <h3 className="payment_title">Personal details</h3>
         <input
           className="payment_name"
@@ -50,6 +53,12 @@ const Payment = () => {
         </div>
         <input type="submit" className="payment_button" value="Confirm" />
       </form>
+      <div
+        className={`shadow ${props.paymentVisible ? "visible" : ""}`}
+        onClick={(evt) => {
+          props.setPaymentVisible(() => false);
+        }}
+      ></div>
     </div>
   );
 };

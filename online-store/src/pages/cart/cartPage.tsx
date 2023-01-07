@@ -6,7 +6,9 @@ import { ICartItem } from "../../types";
 import { useEffect, useState } from "react";
 import useCart from "../../hooks/useCart";
 
-const CartPage = () => {
+const CartPage = (props: {
+  setPaymentVisible: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const { cartList } = useCart();
   const [visibilityValue, setVisibilityValue] = useState(10);
   const [page, setPage] = useState(1);
@@ -54,7 +56,9 @@ const CartPage = () => {
         />
         <CartList items={cartVisibleItems} />
       </section>
-      <CartSumBlock />
+      <CartSumBlock
+        setPaymentVisible={props.setPaymentVisible}
+      />
     </main>
   );
 };
