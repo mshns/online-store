@@ -7,6 +7,7 @@ import { Route, Routes } from "react-router-dom";
 import CartPage from "./pages/cart/cartPage";
 import ProductPage from "./pages/product/productPage";
 import CartListProvider from "./contexts/cartListContext/CartList";
+import Payment from "./components/payment/payment";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         </Routes>
         <Footer />
       </CartListProvider>
+      {/* <Payment /> */}
     </div>
   );
 }
