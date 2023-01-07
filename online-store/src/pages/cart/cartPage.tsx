@@ -22,6 +22,12 @@ const CartPage = (props: {
   };
 
   const { cartList } = useCart();
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartList));
+    console.log(localStorage);
+  }, [cartList]);
+
   const [visibilityValue, setVisibilityValue] = useState(10);
   const [page, setPage] = useState(1);
   const [visibilityItems, setVisibilityItems] = useState(
