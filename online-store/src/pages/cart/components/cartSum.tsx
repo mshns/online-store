@@ -18,6 +18,8 @@ const CartSumBlock = (props: {
     changeTotalItems(getTotalItems(cartList));
   }, [cartList]);
 
+  const isCartEmpty = !cartList.length;
+
   return (
     <section className="cart_sum">
       <h2 className="cart_subtitle">Summary</h2>
@@ -40,9 +42,11 @@ const CartSumBlock = (props: {
         <input className="cart-sum_submit" type="submit" value="Add" />
       </form>
       <button
-        className="cart-sum_button"
-        onClick={(evt) => {
-          props.setPaymentVisible(() => true);
+        className={`cart-sum_button ${isCartEmpty ? "not-active" : ""}`}
+        onClick={() => {
+          if (!isCartEmpty) {
+            props.setPaymentVisible(() => true);
+          }
         }}
       >
         Buy now

@@ -5,12 +5,14 @@ import Brands from "../brands/brands";
 import PriceSlider from "./components/price";
 import StockField from "./components/stock";
 import useSort from "../../hooks/useSort";
+import { useState } from "react";
 
 const Aside = (props: {
   items: IProductItem[];
   setItems: (items: IProductItem[]) => void;
 }) => {
   const { setSort } = useSort();
+  const [btnText, setBtnText] = useState("Copy");
   const handleClick = () => {
     setSort({
       brand: [],
@@ -34,7 +36,19 @@ const Aside = (props: {
           >
             Reset
           </button>
-          <button className="aside_buttons__copy">Copy</button>
+          <button
+            className="aside_buttons__copy"
+            onClick={() => {
+              const copyedURL = window.location.href;
+              navigator.clipboard.writeText(copyedURL);
+              setBtnText("Copied");
+              setTimeout(() => {
+                setBtnText("Copy");
+              }, 1000);
+            }}
+          >
+            {btnText}
+          </button>
         </div>
       </div>
 

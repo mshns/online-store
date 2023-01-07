@@ -8,9 +8,12 @@ import { ICartItem } from "../../types";
 const Header = () => {
   const { sort, setSort } = useSort();
   const { cartList } = useCart();
+
   const URLLocate = window.location.href;
-  const inCart = !!URLLocate.includes("cart");
-  console.log(inCart);
+  const inMainPage = !(
+    URLLocate.includes("cart") || URLLocate.includes("products")
+  );
+
   const getTotalSum = (itemsList: ICartItem[]) =>
     itemsList.reduce((acc, curr) => acc + curr.item.price * curr.amount, 0);
   const [totalSum, changeTotalSum] = useState(getTotalSum(cartList));
@@ -39,7 +42,7 @@ const Header = () => {
       >
         Online<span>Store</span>
       </Link>
-      <form className={`header_search ${inCart ? "display-none" : ""}`}>
+      <form className={`header_search ${inMainPage ? "" : "display-none"}`}>
         <input
           value={`${sort.search}`}
           className="search-input"

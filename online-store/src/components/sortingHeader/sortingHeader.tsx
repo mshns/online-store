@@ -2,6 +2,7 @@ import tableProducts from "./icons/table.svg";
 import listProducts from "./icons/list.svg";
 import { IProductItem } from "../../types";
 import useSort from "../../hooks/useSort";
+import { useEffect, useState } from "react";
 
 const SortingHeader = (props: {
   items: IProductItem[];
@@ -31,6 +32,13 @@ const SortingHeader = (props: {
   ];
 
   const { setSort } = useSort();
+  const { sort } = useSort();
+  const [sortingValue, setSortingValue] = useState(
+    sort.sortBy ? sort.sortBy : ""
+  );
+  useEffect(() => {
+    setSortingValue(sort.sortBy);
+  }, [sort]);
 
   return (
     <div className="container content_header">
@@ -42,7 +50,7 @@ const SortingHeader = (props: {
             sortBy: evt.target.value,
           }));
         }}
-        defaultValue={""}
+        value={sortingValue}
       >
         <>
           <option className="content-select_option" value={""} disabled={true}>
