@@ -1,9 +1,9 @@
 import storeItems from "../../../storeProducts/storeProducts";
 import { IProductItem } from "../../../types";
 import useSort from "../../../hooks/useSort";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-const PriceField = ({ items }: { items: IProductItem[] }) => {
+const PriceSlider = ({ items }: { items: IProductItem[] }) => {
   const minPrice = (itemsList: IProductItem[]): number => {
     return Math.min(...itemsList.map((item) => item.price));
   };
@@ -16,22 +16,18 @@ const PriceField = ({ items }: { items: IProductItem[] }) => {
   const maxPriceValue = maxPrice(items);
 
   const { sort, setSort } = useSort();
-  const [minSliderThumbValue, setMinSliderThumbValue] = useState(minPriceValue);
-  const [maxSliderThumbValue, setMaxSliderThumbValue] = useState(maxPriceValue);
-  // useEffect(() => {
-  //   setMinSliderThumbValue(minPriceValue);
-  //   setMaxSliderThumbValue(maxPriceValue);
-  // }, [maxPriceValue, minPriceValue]);
+  // const [minSliderThumbValue, setMinSliderThumbValue] = useState(minPriceValue);
+  // const [maxSliderThumbValue, setMaxSliderThumbValue] = useState(maxPriceValue);
 
   return (
     <fieldset className="container aside_fieldset">
       <legend className="fieldset_legend">Price</legend>
       <div className="container range-value">
         <span>MIN</span>
-        <span className="range-value_price__min">${minSliderThumbValue}</span>
+        <span className="range-value_price__min">${sort.minPrice}</span>
         <span className="material-icons">sync_alt</span>
         <span>MAX</span>
-        <span className="range-value_price__max">${maxSliderThumbValue}</span>
+        <span className="range-value_price__max">${sort.maxPrice}</span>
       </div>
       <div className="fieldset_item__range">
         <input
@@ -50,7 +46,6 @@ const PriceField = ({ items }: { items: IProductItem[] }) => {
             } else {
               evt.target.value = (sort.maxPrice - 100).toString();
             }
-            setMinSliderThumbValue(Number(evt.target.value));
           }}
         />
         <input
@@ -69,7 +64,6 @@ const PriceField = ({ items }: { items: IProductItem[] }) => {
             } else {
               evt.target.value = (sort.minPrice + 100).toString();
             }
-            setMaxSliderThumbValue(Number(evt.target.value));
           }}
         />
       </div>
@@ -77,4 +71,4 @@ const PriceField = ({ items }: { items: IProductItem[] }) => {
   );
 };
 
-export default PriceField;
+export default PriceSlider;

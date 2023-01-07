@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useSort from "../../../hooks/useSort";
 import storeItems from "../../../storeProducts/storeProducts";
-import { IProductItem } from "../../../types";
+import { IProductItem, SortingProps } from "../../../types";
 
 const Category = ({
   category,
@@ -10,16 +10,23 @@ const Category = ({
   category: string;
   items: IProductItem[];
 }) => {
-  const [isChecked, setChecked] = useState(false);
-  const { setSort } = useSort();
+  const { sort, setSort } = useSort();
+  const isCheckedBySort = (category: string, sortProperty: SortingProps) =>
+    sortProperty.category.includes(category);
+  const [isChecked, setChecked] = useState(isCheckedBySort(category, sort));
+  useEffect(() => {
+    setChecked(isCheckedBySort(category, sort));
+  }, [category, sort]);
 
   const itemCount = items.filter((item) => item.category === category).length;
   const itemCountAll = storeItems.filter(
     (item) => item.category === category
   ).length;
+  const classNameFor: string =
+    itemCount > 0 ? "activity_input_class" : "non-active_input_class";
 
   return (
-    <div className="container fieldset_item__checkbox">
+    <div className={`container fieldset_item__checkbox ${classNameFor}`}>
       <input
         type="checkbox"
         id={category}

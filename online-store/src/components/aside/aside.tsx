@@ -2,7 +2,7 @@ import "./aside.scss";
 import CategoriesList from "../categories/CategoriesList";
 import { IProductItem } from "../../types";
 import Brands from "../brands/brands";
-import PriceField from "./components/price";
+import PriceSlider from "./components/price";
 import StockField from "./components/stock";
 import useSort from "../../hooks/useSort";
 import { useState } from "react";
@@ -43,7 +43,7 @@ const Aside = (props: {
 
       <CategoriesList items={props.items} setItems={props.setItems} />
       <Brands items={props.items} setItems={props.setItems} />
-      <PriceField items={props.items} />
+      <PriceSlider items={props.items} />
       <StockField items={props.items} />
     </aside>
   );
