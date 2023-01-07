@@ -9,41 +9,40 @@ import useCart from "../../hooks/useCart";
 const CartPage = (props: {
   setPaymentVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const { cartList } = useCart();
-  const [visibilityValue, setVisibilityValue] = useState(10);
-  const [page, setPage] = useState(1);
-
   const getVisibleItems = (
     items: ICartItem[],
-    amountOfVisibleItems: number
+    amountOfVisibleItems: number,
+    pageNumber: number
   ) => {
     return items.filter(
       (_, index) =>
-        index >= amountOfVisibleItems * (page - 1) &&
-        index < amountOfVisibleItems * page
+        index >= amountOfVisibleItems * (pageNumber - 1) &&
+        index < amountOfVisibleItems * pageNumber
     );
   };
 
-  const changePage = (pageNumber: number, pagesAmount: number) => {
-    if (pageNumber > pagesAmount) {
-      return pagesAmount;
-    } else {
-      return pageNumber;
+  const { cartList } = useCart();
+  const [visibilityValue, setVisibilityValue] = useState(10);
+  const [page, setPage] = useState(1);
+  const [visibilityItems, setVisibilityItems] = useState(
+    getVisibleItems(cartList, visibilityValue, page)
+  );
+
+  useEffect(() => {
+    const visiblItems = getVisibleItems(cartList, visibilityValue, page);
+    setVisibilityItems(visiblItems);
+  }, [page, cartList, visibilityValue]);
+  useEffect(() => {
+    if (visibilityItems.length === 0 && cartList.length !== 0) {
+      setPage(page - 1);
     }
-  };
+  }, [cartList.length, page, visibilityItems]);
 
   const getPagesAmount = (items: ICartItem[], itemsAmount: number) => {
     return Math.ceil(items.length / itemsAmount);
   };
-  let visibleCartItems = getVisibleItems(cartList, visibilityValue);
-  const [cartVisibleItems, setVisibleItems] =
-    useState<ICartItem[]>(visibleCartItems);
 
   const pagesAmount = getPagesAmount(cartList, visibilityValue);
-  useEffect(() => {
-    setVisibleItems(visibleCartItems);
-    setPage(changePage(page, pagesAmount));
-  }, [cartList, visibilityValue, visibleCartItems, page, pagesAmount]);
 
   return (
     <main className="cart">
@@ -54,7 +53,7 @@ const CartPage = (props: {
           page={page}
           pagesAmount={pagesAmount}
         />
-        <CartList items={cartVisibleItems} />
+        <CartList visibilityItems={visibilityItems} />
       </section>
       <CartSumBlock setPaymentVisible={props.setPaymentVisible} />
     </main>

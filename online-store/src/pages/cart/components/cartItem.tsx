@@ -2,9 +2,16 @@ import { useState } from "react";
 import useCart from "../../../hooks/useCart";
 import { ICartItem } from "../../../types";
 
-const CartItem = ({ item, index }: { item: ICartItem; index: number }) => {
+const CartItem = ({
+  item,
+  index,
+}: {
+  item: ICartItem;
+  index: number;
+}) => {
   const [amount, setAmount] = useState(item.amount);
   const { cartList, setCartList } = useCart();
+
   return (
     <div className="cart-item">
       <span className="cart-item_number">{index + 1}</span>
