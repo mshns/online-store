@@ -40,7 +40,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 320px;
-  height: 480px;
+  height: 540px;
   padding: 20px;
   top: -200vh;
   bottom: 0;
@@ -75,7 +75,6 @@ body {
   font-family: "Russo One", sans-serif;
   font-size: 14px;
   color: #336699;
-  margin-bottom: 10px;
   padding-left: 5px;
   border: none;
   border-bottom: 1px dashed rgb(51, 102, 153, 0.5);
@@ -92,13 +91,27 @@ body {
   color: rgb(51, 102, 153, 0.75);
 }
 
+.payment_error {
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% - 12px);
+  height: 12px;
+  padding: 0 6px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: red;
+}
+
+.error_description {
+  color: rgb(51, 102, 153, 0.25);
+}
 .payment_card {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   flex-wrap: wrap;
   width: 80%;
-  height: 120px;
+  height: 130px;
   margin: 0 auto;
   padding: 20px;
   border-radius: 20px;
@@ -108,14 +121,15 @@ body {
   background-position: 95% 5%;
   background-size: 16%;
 }
-
 .card_number {
-  width: 100%;
+  margin-top: 16px;
 }
 
+
+.card_number,
 .card_valid,
 .card_cvv {
-  width: 40%;
+  width: 100%;
 }
 
 .card_number::-webkit-outer-spin-button,
