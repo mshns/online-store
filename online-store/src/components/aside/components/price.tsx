@@ -1,7 +1,6 @@
 import storeItems from "../../../storeProducts/storeProducts";
 import { IProductItem } from "../../../types";
 import useSort from "../../../hooks/useSort";
-import { useState } from "react";
 
 const PriceSlider = ({ items }: { items: IProductItem[] }) => {
   const minPrice = (itemsList: IProductItem[]): number => {
@@ -16,18 +15,16 @@ const PriceSlider = ({ items }: { items: IProductItem[] }) => {
   const maxPriceValue = maxPrice(items);
 
   const { sort, setSort } = useSort();
-  // const [minSliderThumbValue, setMinSliderThumbValue] = useState(minPriceValue);
-  // const [maxSliderThumbValue, setMaxSliderThumbValue] = useState(maxPriceValue);
 
   return (
     <fieldset className="container aside_fieldset">
       <legend className="fieldset_legend">Price</legend>
       <div className="container range-value">
         <span>MIN</span>
-        <span className="range-value_price__min">${sort.minPrice}</span>
+        <span className="range-value_price__min">${minPriceValue}</span>
         <span className="material-icons">sync_alt</span>
         <span>MAX</span>
-        <span className="range-value_price__max">${sort.maxPrice}</span>
+        <span className="range-value_price__max">${maxPriceValue}</span>
       </div>
       <div className="fieldset_item__range">
         <input
@@ -36,7 +33,7 @@ const PriceSlider = ({ items }: { items: IProductItem[] }) => {
           id="lower"
           min={minPrice(storeItems)}
           max={maxPrice(storeItems)}
-          value={minPriceValue}
+          defaultValue={minPriceValue}
           onChange={(evt) => {
             if (Number(evt.target.value) < sort.maxPrice - 100) {
               setSort((prev) => ({
@@ -54,7 +51,7 @@ const PriceSlider = ({ items }: { items: IProductItem[] }) => {
           id="upper"
           min={minPrice(storeItems)}
           max={maxPrice(storeItems)}
-          value={maxPriceValue}
+          defaultValue={maxPriceValue}
           onChange={(evt) => {
             if (Number(evt.target.value) > sort.minPrice + 100) {
               setSort((prev) => ({
