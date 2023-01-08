@@ -23,7 +23,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route
             path="/products/:category/:brand/:id"
-            element={<ProductPage />}
+            element={<ProductPage setPaymentVisible={setPaymentVisible} />}
           />
           <Route
             path="/cart"
@@ -32,11 +32,11 @@ function App() {
           <Route path="*" element={<NonFound />} />
         </Routes>
         <Footer />
+        <Payment
+          paymentVisible={paymentVisible}
+          setPaymentVisible={setPaymentVisible}
+        />
       </CartListProvider>
-      <Payment
-        paymentVisible={paymentVisible}
-        setPaymentVisible={setPaymentVisible}
-      />
     </div>
   );
 }

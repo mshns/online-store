@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import useCart from "../../hooks/useCart";
 
 const Payment = (props: {
   paymentVisible: boolean;
@@ -13,8 +14,10 @@ const Payment = (props: {
     reset,
   } = useForm({ mode: "onChange" });
 
+  const { setCartList } = useCart();
+
   const onSubmit = (data: any) => {
-    alert(JSON.stringify(data));
+    setCartList([]);
     reset();
     setNotificationState(true);
     setTimeout(() => {
@@ -129,7 +132,9 @@ const Payment = (props: {
               className="card_number"
               type="number"
               placeholder="Card number"
-              onChange={(evt) => setNumberValue((evt.target.value + "")[0])}
+              onChange={(evt) => {
+                setNumberValue((evt.target.value + "")[0]);
+              }}
             />
             <div className="payment_error">
               <span className="error_description">
