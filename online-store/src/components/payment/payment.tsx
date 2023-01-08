@@ -7,6 +7,8 @@ const Payment = (props: {
   paymentVisible: boolean;
   setPaymentVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
+  const { setCartList } = useCart();
+
   const {
     register,
     formState: { errors },
@@ -14,12 +16,12 @@ const Payment = (props: {
     reset,
   } = useForm({ mode: "onChange" });
 
-  const { setCartList } = useCart();
-
   const onSubmit = (data: any) => {
     setCartList([]);
     reset();
     setNotificationState(true);
+    setCardNumberValue("");
+    setValidValue("");
     setTimeout(() => {
       props.setPaymentVisible(false);
       navigate("/");
@@ -27,22 +29,29 @@ const Payment = (props: {
     }, 3000);
   };
 
-  const [cardValidValue, setValidValue] = useState("");
-
-  const inputHandler = (value: string) => {
-    const delSeparator = value.replace(/\//g, "");
-    if (delSeparator.length < 2) {
-      setValidValue(delSeparator);
-    } else if (delSeparator.length === 2 && value.slice(-1) !== "/") {
-      setValidValue(`${delSeparator}`);
+  const [cardNumberValue, setCardNumberValue] = useState("");
+  const inputCardNumber = (value: string) => {
+    const cardNumber = value.replace(/[^\d]/g, "").substring(0, 16);
+    if (cardNumber) {
+      const cardNumberSeparator = cardNumber.match(/.{1,4}/g);
+      cardNumberSeparator && setCardNumberValue(cardNumberSeparator.join(" "));
     } else {
-      setValidValue(`${delSeparator.slice(0, 2)}/${delSeparator.slice(2)}`);
+      setCardNumberValue(cardNumber);
     }
   };
 
-  const [cardNumberValue, setNumberValue] = useState("");
-  const [notificationState, setNotificationState] = useState(false);
+  const [cardValidValue, setValidValue] = useState("");
+  const inputCardValid = (value: string) => {
+    const delSeparator = value.replace(/[^\d]/g, "").substring(0, 4);
+    if (delSeparator) {
+      const cardNumberSeparator = delSeparator.match(/.{1,2}/g);
+      cardNumberSeparator && setValidValue(cardNumberSeparator.join(" / "));
+    } else {
+      setValidValue(delSeparator);
+    }
+  };
 
+  const [notificationState, setNotificationState] = useState(false);
   const navigate = useNavigate();
 
   return (
@@ -55,7 +64,7 @@ const Payment = (props: {
           <h3 className="payment_title">Personal details</h3>
           <input
             {...register("paymentName", {
-              pattern: /^[a-zA-ZА-Яа-я]{3,} [a-zA-ZА-Яа-я]{3,}$/,
+              pattern: /^[^\s]{3,} [^\s]{3,}/,
               required: true,
             })}
             className="payment_name"
@@ -70,7 +79,7 @@ const Payment = (props: {
           </div>
           <input
             {...register("paymentPhone", {
-              pattern: /^\+\d{9}/,
+              pattern: /^\+\d{9}\d+$/,
               required: true,
             })}
             className="payment_phone"
@@ -85,8 +94,7 @@ const Payment = (props: {
           </div>
           <input
             {...register("paymentAddress", {
-              pattern:
-                /^[a-zA-Z0-9А-Яа-я]{5,} [a-zA-Z0-9А-Яа-я]{5,} [a-zA-Z0-9А-Яа-я]{5,}/,
+              pattern: /^[^\s]{5,} [^\s]{5,} [^\s]{5,}/,
               required: true,
             })}
             className="payment_address"
@@ -115,26 +123,28 @@ const Payment = (props: {
           <h3 className="payment_title">Payment details</h3>
           <div
             className={`payment_card ${
-              cardNumberValue === "4"
+              cardNumberValue[0] === "4"
                 ? "visa"
-                : cardNumberValue === "5"
+                : cardNumberValue[0] === "5"
                 ? "master"
-                : cardNumberValue === "6"
+                : cardNumberValue[0] === "6"
                 ? "union"
                 : ""
             }`}
           >
             <input
               {...register("paymentCardNumber", {
-                pattern: /^[0-9]{16}$/,
+                pattern: /^\d{4} \d{4} \d{4} \d{4}$/,
                 required: true,
               })}
               className="card_number"
-              type="number"
+              type="text"
               placeholder="Card number"
+              value={cardNumberValue}
               onChange={(evt) => {
-                setNumberValue((evt.target.value + "")[0]);
+                inputCardNumber(evt.target.value);
               }}
+              maxLength={19}
             />
             <div className="payment_error">
               <span className="error_description">
@@ -145,7 +155,7 @@ const Payment = (props: {
             <input
               {...register("paymentValid", {
                 validate: {
-                  fourDigits: (v) => v.length === 5,
+                  fourDigits: (v) => v.length === 7,
                   month: (v) => v.slice(0, 2) <= 12,
                 },
                 required: true,
@@ -154,8 +164,8 @@ const Payment = (props: {
               type="text"
               placeholder="Valid thru"
               value={cardValidValue}
-              onChange={(evt) => inputHandler(evt.target.value)}
-              maxLength={5}
+              onChange={(evt) => inputCardValid(evt.target.value)}
+              maxLength={7}
             />
             <div className="payment_error">
               <span className="error_description">
