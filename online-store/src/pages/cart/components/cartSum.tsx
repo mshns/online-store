@@ -80,7 +80,7 @@ const CartSumBlock = ({
       </div>
       <div
         className={`cart-sum_field promo_cart-sum ${
-          usagePromoCodes ? "" : "hidden"
+          usagePromoCodes?.length ? "" : "hidden"
         }`}
       >
         <span className="field_title">Total price (added promo)</span>
