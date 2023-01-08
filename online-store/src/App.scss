@@ -35,13 +35,12 @@ body {
   z-index: 100;
 }
 
-.payment {
+.payment-modal {
   position: fixed;
   display: flex;
   flex-direction: column;
   width: 320px;
   height: 540px;
-  padding: 20px;
   top: -200vh;
   bottom: 0;
   left: 0;
@@ -53,10 +52,19 @@ body {
   transition: ease-in-out 0.3s;
 }
 
-.payment.visible {
+.payment-modal.visible {
   top: 0;
   background-color: #fff;
   z-index: 200;
+}
+
+.payment {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
 }
 
 .payment_title {
@@ -105,6 +113,7 @@ body {
 .error_description {
   color: rgb(51, 102, 153, 0.25);
 }
+
 .payment_card {
   display: flex;
   justify-content: space-between;
@@ -121,10 +130,22 @@ body {
   background-position: 95% 5%;
   background-size: 16%;
 }
+
+.payment_card.visa {
+  background-image: url(./assets/svg/visa-card.svg);
+}
+
+.payment_card.master {
+  background-image: url(./assets/svg/master-card.svg);
+}
+
+.payment_card.union {
+  background-image: url(./assets/svg/union-card.svg);
+}
+
 .card_number {
   margin-top: 16px;
 }
-
 
 .card_number,
 .card_valid,
@@ -153,4 +174,33 @@ body {
   background-color: #336899;
   cursor: pointer;
   transition: ease-in-out 0.2s;
+}
+
+.payment-notification {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 540px;
+  font-weight: 100;
+  background-image: url(./assets/img/thanks.jpg);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 80%;
+}
+
+.notification_title {
+  font-size: 20px;
+  font-weight: 100;
+  color: #33cc99;
+  border-bottom: 1px dotted #33cc99;;
+}
+
+.notification_subtitle {
+  font-size: 12px;
+  font-weight: 100;
+}
+
+.hidden {
+  display: none;
 }
