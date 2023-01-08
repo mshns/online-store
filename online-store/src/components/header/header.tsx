@@ -16,9 +16,13 @@ const Header = () => {
 
   const getTotalSum = (itemsList: ICartItem[]) =>
     itemsList.reduce((acc, curr) => acc + curr.item.price * curr.amount, 0);
+  const getTotalItems = (itemsList: ICartItem[]) =>
+    itemsList.reduce((acc, curr) => acc + curr.amount, 0);
   const [totalSum, changeTotalSum] = useState(getTotalSum(cartList));
+  const [totalItems, changeTotalItems] = useState(getTotalItems(cartList));
   useEffect(() => {
     changeTotalSum(getTotalSum(cartList));
+    changeTotalItems(getTotalItems(cartList));
   }, [cartList]);
 
   return (
@@ -60,7 +64,7 @@ const Header = () => {
         <div className="header_cart">
           <p className="cart-count">
             <span className="cart-count_title">Cart</span>
-            <span className="cart-count_value">{cartList.length}</span>
+            <span className="cart-count_value">{totalItems}</span>
           </p>
           <p className="cart-sum">
             <span className="cart-sum_title">Sum</span>

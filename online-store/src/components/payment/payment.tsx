@@ -205,7 +205,7 @@ const Payment = (props: {
       </div>
       <div
         className={`shadow ${props.paymentVisible ? "visible" : ""}`}
-        onClick={(evt) => {
+        onClick={() => {
           props.setPaymentVisible(() => false);
         }}
       ></div>
