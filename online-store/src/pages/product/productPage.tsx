@@ -5,8 +5,13 @@ import ThumbnailList from "./components/thumbnailList";
 import useCart from "../../hooks/useCart";
 import { useState } from "react";
 import { IProductItem } from "../../types";
+import { useNavigate } from "react-router-dom";
 
-function ProductPage() {
+function ProductPage({
+  setPaymentVisible,
+}: {
+  setPaymentVisible: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   const { id } = useParams();
   const [product] = [...storeItems.filter((item) => item.id === Number(id))];
   const { cartList, setCartList } = useCart();
@@ -20,6 +25,9 @@ function ProductPage() {
     notAdd: "Add to cart",
     added: "Drop",
   };
+
+  const navigate = useNavigate();
+
   return (
     <main className="card">
       <section className="card_breadcrumbs">
@@ -51,7 +59,18 @@ function ProductPage() {
             >
               {isAdded ? buttonText.added : buttonText.notAdd}
             </button>
-            <button className="card-button_buy">Buy now</button>
+            <button
+              className="card-button_buy"
+              onClick={() => {
+                navigate("/cart");
+                if (!isAdded) {
+                  setCartList([...cartList, { item: product, amount: 1 }]);
+                }
+                setPaymentVisible(true);
+              }}
+            >
+              Buy now
+            </button>
           </div>
           <p className="card_discription">
             <span className="card_discription__value">

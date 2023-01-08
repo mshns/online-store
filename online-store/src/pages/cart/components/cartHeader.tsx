@@ -24,7 +24,10 @@ const CartHeader = ({
           value={visibilityValue}
           id="pagination-items"
           onChange={(evt) => {
-            handler(Number(evt.target.value));
+            const numberValue = Number(evt.target.value);
+            if (numberValue > 0) {
+              handler(numberValue);
+            }
           }}
         />
         <div className="pagination_pages">
