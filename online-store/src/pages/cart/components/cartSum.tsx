@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useCart from "../../../hooks/useCart";
 import { ICartItem } from "../../../types";
+import UsagePromos from "./usagePromos";
 
 const CartSumBlock = ({
   setPaymentVisible,
@@ -27,7 +28,18 @@ const CartSumBlock = ({
     return promoList.some((promo) => promo === promoCode);
   };
 
-  const [usagePromoCodes, setUsagePromoCodes] = useState<string[] | null>(null);
+  const getPromosFromLocalStorage = () => {
+    if (localStorage.getItem("promos")) {
+      const stringyPromos: string = localStorage.getItem("promos") || "";
+      return stringyPromos.split(",");
+    }
+    return [];
+  };
+
+  const [usagePromoCodes, setUsagePromoCodes] = useState<string[] | null>(
+    getPromosFromLocalStorage() || null
+  );
+
   const [currentPromo, setCurrentPromo] = useState("");
 
   const isUsedPromo = (promoValue: string) => {
@@ -48,6 +60,9 @@ const CartSumBlock = ({
 
   useEffect(() => {
     setPromoSum(getPromoSum(totalSum, percentSum));
+    if (usagePromoCodes) {
+      localStorage.setItem("promos", usagePromoCodes.join(","));
+    }
   }, [usagePromoCodes]);
 
   const isCartEmpty = !cartList.length;
@@ -65,7 +80,7 @@ const CartSumBlock = ({
       </div>
       <div
         className={`cart-sum_field promo_cart-sum ${
-          usagePromoCodes ? "" : "hidden"
+          usagePromoCodes?.length ? "" : "hidden"
         }`}
       >
         <span className="field_title">Total price (added promo)</span>
@@ -111,11 +126,14 @@ const CartSumBlock = ({
           }}
         />
       </form>
-      <div className={`${usagePromoCodes ? "" : "hidden"}`}>
+      <div className={`${usagePromoCodes?.length ? "" : "hidden"}`}>
         <span className="field_title">Usage promos:</span>
-        <span className="total-price">
-          {usagePromoCodes ? usagePromoCodes.map((promo) => promo) : ""}
-        </span>
+        <div className="total-price">
+          <UsagePromos
+            usagePromoCodes={usagePromoCodes}
+            setUsagePromoCodes={setUsagePromoCodes}
+          />
+        </div>
       </div>
       <div>
         <span className="field_title">Promo: mshns, erkhan</span>
