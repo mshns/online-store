@@ -5,6 +5,7 @@ import CartHeader from "./components/cartHeader";
 import { ICartItem } from "../../types";
 import { useEffect, useState } from "react";
 import useCart from "../../hooks/useCart";
+import { useSearchParams } from "react-router-dom";
 
 const CartPage = (props: {
   setPaymentVisible: React.Dispatch<React.SetStateAction<boolean>>;
@@ -27,15 +28,25 @@ const CartPage = (props: {
     localStorage.setItem("cart", JSON.stringify(cartList));
   }, [cartList]);
 
+  const setQueryParams = (key: string | number) => {
+    const cartPaginationParams = localStorage.getItem("cartPaginationParams");
+    if (cartPaginationParams) {
+      const params = JSON.parse(cartPaginationParams);
+      return Number(params[key]);
+    }
+    return key === "itemsDisplayCount" ? 10 : 1;
+  };
+  console.log(setQueryParams("page"));
+
   const [visibilityValue, setVisibilityValue] = useState(
-    Number(localStorage.getItem("cartVisibilityValue")) || 10
+    setQueryParams("itemsDisplayCount")
   );
 
   useEffect(() => {
     localStorage.setItem("cartVisibilityValue", visibilityValue.toString());
   }, [visibilityValue]);
 
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(setQueryParams("page"));
   const [visibilityItems, setVisibilityItems] = useState(
     getVisibleItems(cartList, visibilityValue, page)
   );
@@ -57,29 +68,20 @@ const CartPage = (props: {
 
   const pagesAmount = getPagesAmount(cartList, visibilityValue);
 
-  // const [, setSearchParams] = useSearchParams();
-  // useEffect(() => {
-  //   const params: {
-  //     brand?: string;
-  //     category?: string;
-  //     search?: string;
-  //     sortBy?: string;
-  //   } = {};
+  const [, setSearchParams] = useSearchParams();
+  useEffect(() => {
+    const params: {
+      page: string;
+      itemsDisplayCount: string;
+    } = {
+      page: page.toString(),
+      itemsDisplayCount: visibilityValue.toString(),
+    };
 
-  //   if (sort.brand.length) {
-  //     params.brand = sort.brand.join("%");
-  //   }
-  //   if (sort.category.length) {
-  //     params.category = sort.category.join("%");
-  //   }
-  //   if (sort.search) {
-  //     params.search = sort.search;
-  //   }
-  //   if (sort.sortBy) {
-  //     params.sortBy = sort.sortBy;
-  //   }
-  //   setSearchParams(params);
-  // }, [setSearchParams, sort]);
+    const stringifyPaginationParams = JSON.stringify(params);
+    localStorage.setItem("cartPaginationParams", stringifyPaginationParams);
+    setSearchParams(params);
+  }, [page, visibilityValue]);
 
   return (
     <main className="cart">
