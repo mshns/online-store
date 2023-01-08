@@ -14,7 +14,7 @@ const Payment = (props: {
     formState: { errors },
     handleSubmit,
     reset,
-  } = useForm({ mode: "onChange" });
+  } = useForm({ mode: "onBlur" });
 
   const onSubmit = (data: any) => {
     setCartList([]);
@@ -30,6 +30,7 @@ const Payment = (props: {
   };
 
   const [cardNumberValue, setCardNumberValue] = useState("");
+
   const inputCardNumber = (value: string) => {
     const cardNumber = value.replace(/[^\d]/g, "").substring(0, 16);
     if (cardNumber) {
@@ -41,6 +42,7 @@ const Payment = (props: {
   };
 
   const [cardValidValue, setValidValue] = useState("");
+
   const inputCardValid = (value: string) => {
     const delSeparator = value.replace(/[^\d]/g, "").substring(0, 4);
     if (delSeparator) {
@@ -52,6 +54,7 @@ const Payment = (props: {
   };
 
   const [notificationState, setNotificationState] = useState(false);
+
   const navigate = useNavigate();
 
   return (
