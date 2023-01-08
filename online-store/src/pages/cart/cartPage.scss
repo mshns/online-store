@@ -215,6 +215,10 @@
   background-color: #336699;
 }
 
+.hidden {
+  display: none;
+}
+
 .not-active {
   background-color: rgba(195, 215, 209, 0.75);
   &:hover {
