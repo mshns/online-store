@@ -183,13 +183,10 @@ body {
   align-items: center;
   height: 540px;
   font-weight: 100;
-  background-image: url(./assets/img/thanks.jpg);
-  background-repeat: no-repeat;
-  background-position: 50%;
-  background-size: 80%;
 }
 
 .notification_title {
+  margin: 50px auto;
   font-size: 20px;
   font-weight: 100;
   color: #33cc99;
@@ -197,6 +194,7 @@ body {
 }
 
 .notification_subtitle {
+  margin: 50px auto;
   font-size: 12px;
   font-weight: 100;
 }

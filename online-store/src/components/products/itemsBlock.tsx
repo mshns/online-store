@@ -16,8 +16,9 @@ const ProductsList = (props: {
     );
   } else {
     return (
-      <div>
-        <h1>Nothing</h1>
+      <div className="notice">
+        <h2 className="notice_title">Products not found</h2>
+        <span className="notice_image ">production_quantity_limits</span>
       </div>
     );
   }
