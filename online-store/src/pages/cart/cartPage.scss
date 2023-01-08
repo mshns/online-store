@@ -120,6 +120,12 @@
   color: #33cc99;
   cursor: pointer;
   user-select: none;
+  transition: ease-in-out 0.2s;
+}
+
+.amount-count_button__remove:hover,
+.amount-count_button__add:hover {
+  color: #336699;
 }
 
 .amount-count_value {
@@ -154,8 +160,23 @@
   text-transform: uppercase;
 }
 
-.cart-sum_field:nth-child(3) {
+.cart-sum_field.accent {
   background-color: rgb(51, 204, 153, 0.1);
+}
+
+.cart-sum_field.outdated {
+  position: relative;
+}
+
+.cart-sum_field.outdated::after {
+  position: absolute;
+  content: "";
+  width: 100px;
+  height: 2px;
+  right: -5px;
+  top: 50%;
+  background-color: rgb(255, 0, 0, 0.75);
+  transform: rotate(175deg);
 }
 
 .products-count,
@@ -196,6 +217,51 @@
   color: rgb(51, 204, 153, 0.5);
 }
 
+.cart-sum_promo {
+  font-size: 14px;
+  padding: 0 10px;
+  text-align: right;
+  color: rgb(51, 102, 153, 0.5);
+}
+
+.promo-list_title {
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 1px dotted rgb(51, 204, 153, 0.25);
+}
+
+.promo-list_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  border: 1px dotted rgb(51, 102, 153, 0.25);
+  border-radius: 10px;
+  text-transform: uppercase;
+  color: #33cc99;
+  background-color: rgb(51, 102, 153, 0.05);
+}
+
+.promo-item_button {
+  width: 54px;
+  font-family: "Russo One";
+  font-size: 14px;
+  padding: 4px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #336699;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
+}
+
+.promo-item_button:hover {
+  background-color: #33cc99;
+}
+
 .cart-sum_button {
   font-family: "Russo One";
   font-size: 16px;
@@ -220,12 +286,52 @@
 }
 
 .not-active {
-  background-color: rgba(195, 215, 209, 0.75);
+  background-color: rgb(51, 204, 153, 0.5);
   &:hover {
     cursor: default;
-    background-color: rgba(195, 215, 209, 0.75);
+    background-color: rgb(51, 204, 153, 0.5);
   }
 }
+
+.notice {
+  display: flex;
+  flex-direction: column;
+  margin: 50px auto;
+  align-items: center;
+}
+
+.notice_title {
+  font-size: 32px;
+  text-transform: uppercase;
+}
+
+.notice_image {
+  font-family: "Material Symbols Outlined";
+  font-size: 240px;
+  font-weight: 400;
+  color: rgb(51, 204, 153, 0.5);
+}
+
+.notice_button {
+  width: 200px;
+  font-size: 16px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  background-color: #336699;
+  cursor: pointer;
+  z-index: 100;
+  transition: ease-in-out 0.2s;
+}
+
+.notice_button:hover {
+  transform: scale(1.1);
+  background-color: #33cc99;
+}
+
 
 @media (max-width: 1280px) {
   .cart {

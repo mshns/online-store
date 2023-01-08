@@ -8,9 +8,9 @@ const PromoElement = ({
   setUsagePromoCodes: React.Dispatch<React.SetStateAction<string[] | null>>;
 }) => {
   return (
-    <div>
-      <span>{promoCode}</span>
-      <button
+    <div className="promo-list_item">
+      <span>{promoCode} -10%</span>
+      <button className="promo-item_button"
         onClick={() => {
           if (usagePromoCodes) {
             setUsagePromoCodes(
@@ -19,9 +19,10 @@ const PromoElement = ({
           }
         }}
       >
-        Delete
+        Drop
       </button>
     </div>
   );
 };
+
 export default PromoElement;

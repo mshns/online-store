@@ -74,16 +74,18 @@ const CartSumBlock = ({
         <span className="field_title">Products</span>
         <span className="products-count">{totalItems}</span>
       </div>
-      <div className="cart-sum_field main_cart-sum">
+      <div className={`cart-sum_field accent ${
+          usagePromoCodes?.length ? "outdated" : ""
+        }`}>
         <span className="field_title">Total price</span>
         <span className="total-price">${totalSum}</span>
       </div>
       <div
-        className={`cart-sum_field promo_cart-sum ${
+        className={`cart-sum_field accent ${
           usagePromoCodes?.length ? "" : "hidden"
         }`}
       >
-        <span className="field_title">Total price (added promo)</span>
+        <span className="field_title">Bonus price</span>
         <span className="total-price">${promoSum}</span>
       </div>
       <form className="cart-sum_field">
@@ -93,6 +95,7 @@ const CartSumBlock = ({
           type="text"
           placeholder="Enter code"
           id="promo-code"
+          value={currentPromo}
           onChange={(evt) => {
             const promoValue = evt.target.value;
             if (
@@ -103,7 +106,7 @@ const CartSumBlock = ({
               setCurrentPromo(promoValue);
             } else {
               setPromo(false);
-              setCurrentPromo("");
+              setCurrentPromo(promoValue);
             }
           }}
         />
@@ -123,20 +126,19 @@ const CartSumBlock = ({
               });
               setPromo(false);
             }
+            setCurrentPromo("");
           }}
         />
       </form>
+      <span className="cart-sum_promo">Promo codes: mshns, erkhan</span>
       <div className={`${usagePromoCodes?.length ? "" : "hidden"}`}>
-        <span className="field_title">Usage promos:</span>
-        <div className="total-price">
+        <p className="promo-list_title">Applied promo codes</p>
+        <div className="">
           <UsagePromos
             usagePromoCodes={usagePromoCodes}
             setUsagePromoCodes={setUsagePromoCodes}
           />
         </div>
-      </div>
-      <div>
-        <span className="field_title">Promo: mshns, erkhan</span>
       </div>
       <button
         className={`cart-sum_button ${isCartEmpty ? "not-active" : ""}`}
