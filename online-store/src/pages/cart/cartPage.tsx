@@ -57,6 +57,30 @@ const CartPage = (props: {
 
   const pagesAmount = getPagesAmount(cartList, visibilityValue);
 
+  // const [, setSearchParams] = useSearchParams();
+  // useEffect(() => {
+  //   const params: {
+  //     brand?: string;
+  //     category?: string;
+  //     search?: string;
+  //     sortBy?: string;
+  //   } = {};
+
+  //   if (sort.brand.length) {
+  //     params.brand = sort.brand.join("%");
+  //   }
+  //   if (sort.category.length) {
+  //     params.category = sort.category.join("%");
+  //   }
+  //   if (sort.search) {
+  //     params.search = sort.search;
+  //   }
+  //   if (sort.sortBy) {
+  //     params.sortBy = sort.sortBy;
+  //   }
+  //   setSearchParams(params);
+  // }, [setSearchParams, sort]);
+
   return (
     <main className="cart">
       <section className="cart_products">
