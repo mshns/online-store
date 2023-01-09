@@ -94,8 +94,27 @@
 }
 
 .item-info_description {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 100;
+}
+
+.item-info_catalog {
+  position: relative;
+  padding-left: 14px;
   font-size: 14px;
   font-weight: 100;
+}
+
+.item-info_catalog::before {
+  position: absolute;
+  left: -6px;
+  top: -4px;
+  content: "stop";
+  font-family: "Material Symbols Outlined";
+  font-size: 20px;
+  font-weight: 200;
+  color: #33cc99;
 }
 
 .cart-item_amount {

@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import { IProductItem } from "../../../types";
 
 const ThumbnailList = ({ product }: { product: IProductItem }) => {
@@ -15,7 +16,7 @@ const ThumbnailList = ({ product }: { product: IProductItem }) => {
         {product.images.map((image, index) => (
           <img
             key={index}
-            className="thumbnail-list_item active"
+            className="thumbnail-list_item"
             src={image}
             alt={product.title}
             onClick={() => setImageNumber(index)}

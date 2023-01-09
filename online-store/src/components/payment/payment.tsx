@@ -16,7 +16,7 @@ const Payment = (props: {
     reset,
   } = useForm({ mode: "onBlur" });
 
-  const onSubmit = (data: any) => {
+  const onSubmit = () => {
     setCartList([]);
     reset();
     setNotificationState(true);
