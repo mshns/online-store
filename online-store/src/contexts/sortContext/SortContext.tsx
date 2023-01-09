@@ -12,7 +12,7 @@ const SortProvider = ({ children }: { children: ReactNode }) => {
     maxStock: 150,
     sortBy: "",
     search: "",
-    itemsView: "",
+    itemsView: "table",
   };
 
   const [searchParams] = useSearchParams();
