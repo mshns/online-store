@@ -24,7 +24,7 @@ const StockField = ({ items }: { items: IProductItem[] }) => {
           id="lower"
           min={minStock(storeItems)}
           max={maxStock(storeItems)}
-          defaultValue={minStock(items)}
+          value={minStock(items)}
           onChange={(evt) => {
             if (Number(evt.target.value) < sort.maxStock - 10) {
               setSort((prev) => ({
@@ -42,7 +42,7 @@ const StockField = ({ items }: { items: IProductItem[] }) => {
           id="upper"
           min={minStock(storeItems)}
           max={maxStock(storeItems)}
-          defaultValue={maxStock(items)}
+          value={maxStock(items)}
           onChange={(evt) => {
             if (Number(evt.target.value) > sort.minStock + 10) {
               setSort((prev) => ({

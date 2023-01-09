@@ -25,7 +25,7 @@ const PriceSlider = ({ items }: { items: IProductItem[] }) => {
           id="lower"
           min={minPrice(storeItems)}
           max={maxPrice(storeItems)}
-          value={sort.minPrice}
+          value={minPrice(items)}
           onChange={(evt) => {
             if (Number(evt.target.value) < sort.maxPrice - 100) {
               setSort((prev) => ({
@@ -43,7 +43,7 @@ const PriceSlider = ({ items }: { items: IProductItem[] }) => {
           id="upper"
           min={minPrice(storeItems)}
           max={maxPrice(storeItems)}
-          value={sort.maxPrice}
+          value={maxPrice(items)}
           onChange={(evt) => {
             if (Number(evt.target.value) > sort.minPrice + 100) {
               setSort((prev) => ({
