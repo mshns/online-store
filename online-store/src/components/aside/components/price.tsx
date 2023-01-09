@@ -1,6 +1,7 @@
 import storeItems from "../../../storeProducts/storeProducts";
 import { IProductItem } from "../../../types";
 import useSort from "../../../hooks/useSort";
+import PriceLabel from "./priceLabel";
 
 const PriceSlider = ({ items }: { items: IProductItem[] }) => {
   const minPrice = (itemsList: IProductItem[]): number => {
@@ -11,21 +12,12 @@ const PriceSlider = ({ items }: { items: IProductItem[] }) => {
     return Math.max(...itemsList.map((item) => item.price));
   };
 
-  const minPriceValue = minPrice(items);
-  const maxPriceValue = maxPrice(items);
-
   const { sort, setSort } = useSort();
 
   return (
     <fieldset className="container aside_fieldset">
       <legend className="fieldset_legend">Price</legend>
-      <div className="container range-value">
-        <span>MIN</span>
-        <span className="range-value_price__min">${minPriceValue}</span>
-        <span className="material-icons">sync_alt</span>
-        <span>MAX</span>
-        <span className="range-value_price__max">${maxPriceValue}</span>
-      </div>
+      <PriceLabel items={items} />
       <div className="fieldset_item__range">
         <input
           className="range__lower"
@@ -33,7 +25,7 @@ const PriceSlider = ({ items }: { items: IProductItem[] }) => {
           id="lower"
           min={minPrice(storeItems)}
           max={maxPrice(storeItems)}
-          defaultValue={minPriceValue}
+          value={sort.minPrice}
           onChange={(evt) => {
             if (Number(evt.target.value) < sort.maxPrice - 100) {
               setSort((prev) => ({
@@ -51,7 +43,7 @@ const PriceSlider = ({ items }: { items: IProductItem[] }) => {
           id="upper"
           min={minPrice(storeItems)}
           max={maxPrice(storeItems)}
-          defaultValue={maxPriceValue}
+          value={sort.maxPrice}
           onChange={(evt) => {
             if (Number(evt.target.value) > sort.minPrice + 100) {
               setSort((prev) => ({

@@ -19,6 +19,10 @@ const Home = () => {
       search?: string;
       sortBy?: string;
       itemsView?: string;
+      minPrice?: string;
+      maxPrice?: string;
+      minStock?: string;
+      maxStock?: string;
     } = {};
 
     if (sort.brand.length) {
@@ -36,8 +40,19 @@ const Home = () => {
     if (sort.itemsView) {
       params.itemsView = sort.itemsView;
     }
+    if (sort.minPrice) {
+      params.minPrice = sort.minPrice.toString();
+    }
+    if (sort.itemsView) {
+      params.maxPrice = sort.maxPrice.toString();
+    }
+    if (sort.minStock) {
+      params.minStock = sort.minStock.toString();
+    }
+    if (sort.maxStock) {
+      params.maxStock = sort.maxStock.toString();
+    }
     setSearchParams(params);
-    console.log(sort);
   }, [setSearchParams, sort]);
 
   useEffect(() => {

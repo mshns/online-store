@@ -1,6 +1,7 @@
 import { IProductItem } from "../../../types";
 import storeItems from "../../../storeProducts/storeProducts";
 import useSort from "../../../hooks/useSort";
+import StockLabel from "./stockLabel";
 
 const StockField = ({ items }: { items: IProductItem[] }) => {
   const minStock = (itemsList: IProductItem[]): number => {
@@ -15,17 +16,7 @@ const StockField = ({ items }: { items: IProductItem[] }) => {
   return (
     <fieldset className="container aside_fieldset">
       <legend className="fieldset_legend">Stock</legend>
-      <div className="container range-value">
-        <span>MIN</span>
-        <span className="range-value_stock__min">
-          {Math.min(...storeItems.map((item) => item.stock))}
-        </span>
-        <span className="material-icons">sync_alt</span>
-        <span>MAX</span>
-        <span className="range-value_stock__max">
-          {Math.max(...storeItems.map((item) => item.stock))}
-        </span>
-      </div>
+      <StockLabel items={items} />
       <div className="fieldset_item__range">
         <input
           className="range__lower"
