@@ -14,6 +14,10 @@
   transition: ease-in-out 0.2s;
 }
 
+.product.active {
+  background-color: rgb(51, 204, 153, .25);
+}
+
 .product.list {
   flex-direction: row;
   justify-content: flex-start;
@@ -95,7 +99,8 @@
 }
 
 .product_buttons__cart:hover,
-.product_buttons__details:hover {
+.product_buttons__details:hover,
+.product_buttons__cart.active {
   background-color: #33cc99;
 }
 

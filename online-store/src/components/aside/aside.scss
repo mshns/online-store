@@ -153,6 +153,10 @@
   }
 }
 
+.unshow {
+  opacity: .6;
+}
+
 @media (max-width: 640px) {
   .aside_title {
     font-size: 24px;

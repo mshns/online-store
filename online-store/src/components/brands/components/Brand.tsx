@@ -42,7 +42,7 @@ const Brand = ({ brand, items }: { brand: string; items: IProductItem[] }) => {
           setChecked(!isChecked);
         }}
       />
-      <label htmlFor={brand}>{brand}</label>
+      <label className={`${itemCount ? "" : "unshow"}`} htmlFor={brand}>{brand}</label>
       <span className="item-count">
         ({itemCount}/{itemCountAll})
       </span>
