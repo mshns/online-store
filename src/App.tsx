@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import "./App.scss";
-import { Footer } from "./components/footer/footer";
 import Header from "./components/header/header";
 import Home from "./pages/home/Home";
 import { NonFound } from "./pages/nonPage/nonPage";
-
+import { Footer } from "./components/footer/footer";
 import CartPage from "./pages/cart/cartPage";
 import ProductPage from "./pages/product/productPage";
 import CartListProvider from "./contexts/cartListContext/CartList";
 import Payment from "./components/payment/payment";
+
+import "./App.scss";
 
 function App() {
   const [paymentVisible, setPaymentVisible] = useState(false);
