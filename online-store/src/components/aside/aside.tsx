@@ -23,7 +23,7 @@ const Aside = (props: {
       maxStock: 150,
       sortBy: "",
       search: "",
-      itemsView: "",
+      itemsView: "table",
     });
   };
   return (
