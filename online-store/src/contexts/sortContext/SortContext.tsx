@@ -44,6 +44,26 @@ const SortProvider = ({ children }: { children: ReactNode }) => {
     sortingProps.itemsView = itemsViewQueryParams;
   }
 
+  const minPriceQueryParams = searchParams.get("minPrice");
+  if (minPriceQueryParams) {
+    sortingProps.minPrice = Number(minPriceQueryParams);
+  }
+
+  const maxPriceQueryParams = searchParams.get("maxPrice");
+  if (maxPriceQueryParams) {
+    sortingProps.maxPrice = Number(maxPriceQueryParams);
+  }
+
+  const minStockQueryParams = searchParams.get("minStock");
+  if (minStockQueryParams) {
+    sortingProps.minStock = Number(minStockQueryParams);
+  }
+
+  const maxStockQueryParams = searchParams.get("maxStock");
+  if (maxStockQueryParams) {
+    sortingProps.maxStock = Number(maxStockQueryParams);
+  }
+
   const [sort, setSort] = useState<SortingProps>(sortingProps);
 
   return (
