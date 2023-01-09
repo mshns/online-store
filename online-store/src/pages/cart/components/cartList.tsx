@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import useCart from "../../../hooks/useCart";
 import { ICartItem } from "../../../types";
 import CartItem from "./cartItem";
@@ -13,7 +14,15 @@ const CartList = ({ visibilityItems }: { visibilityItems: ICartItem[] }) => {
       </div>
     );
   } else {
-    return <h2>Nothing</h2>;
+    return (
+      <div className="notice">
+        <h2 className="notice_title">Cart is empty</h2>
+        <span className="notice_image ">production_quantity_limits</span>
+        <Link to="/" className="notice_button">
+          Back to store
+        </Link>
+      </div>
+    );
   }
 };
 

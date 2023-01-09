@@ -198,6 +198,7 @@ const Payment = (props: {
           }`}
         >
           <h2 className="notification_title">Thanks for your order!</h2>
+          <span className="notice_image ">local_mall</span>
           <h3 className="notification_subtitle">
             Redirect to store after 3 seconds
           </h3>

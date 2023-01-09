@@ -36,7 +36,6 @@ const CartPage = (props: {
     }
     return key === "itemsDisplayCount" ? 10 : 1;
   };
-  console.log(setQueryParams("page"));
 
   const [visibilityValue, setVisibilityValue] = useState(
     setQueryParams("itemsDisplayCount")

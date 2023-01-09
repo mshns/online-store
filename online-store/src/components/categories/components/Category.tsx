@@ -48,7 +48,7 @@ const Category = ({
           setChecked(!isChecked);
         }}
       />
-      <label htmlFor={category}>{category}</label>
+      <label className={`${itemCount ? "" : "unshow"}`} htmlFor={category}>{category}</label>
       <span className="item-count">
         ({itemCount}/{itemCountAll})
       </span>
