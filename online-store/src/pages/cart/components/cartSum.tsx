@@ -63,7 +63,7 @@ const CartSumBlock = ({
     if (usagePromoCodes) {
       localStorage.setItem("promos", usagePromoCodes.join(","));
     }
-  }, [usagePromoCodes]);
+  }, [percentSum, totalSum, usagePromoCodes]);
 
   const isCartEmpty = !cartList.length;
 
