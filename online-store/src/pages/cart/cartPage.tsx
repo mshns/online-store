@@ -6,6 +6,7 @@ import { ICartItem } from "../../types";
 import { useEffect, useState } from "react";
 import useCart from "../../hooks/useCart";
 import { useSearchParams } from "react-router-dom";
+import EmptyCart from "./components/EmptyCart";
 
 const CartPage = (props: {
   setPaymentVisible: React.Dispatch<React.SetStateAction<boolean>>;
@@ -82,21 +83,28 @@ const CartPage = (props: {
     setSearchParams(params);
   }, [page, visibilityValue]);
 
-  return (
-    <main className="cart">
-      <section className="cart_products">
-        <CartHeader
-          visibilityValue={visibilityValue}
-          handler={setVisibilityValue}
-          setPage={setPage}
-          page={page}
-          pagesAmount={pagesAmount}
-        />
-        <CartList visibilityItems={visibilityItems} />
-      </section>
-      <CartSumBlock setPaymentVisible={props.setPaymentVisible} />
-    </main>
-  );
+  if (cartList.length) {
+    return (
+      <main className="cart">
+        <section className="cart_products">
+          <CartHeader
+            visibilityValue={visibilityValue}
+            handler={setVisibilityValue}
+            setPage={setPage}
+            page={page}
+            pagesAmount={pagesAmount}
+          />
+          <CartList visibilityItems={visibilityItems} />
+        </section>
+        <CartSumBlock setPaymentVisible={props.setPaymentVisible} />
+      </main>
+    );
+  } else {
+    return (
+      <EmptyCart />
+    )
+  }
+
 };
 
 export default CartPage;
