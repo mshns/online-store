@@ -41,13 +41,16 @@ const Header = () => {
             maxStock: 150,
             sortBy: "",
             search: "",
-            itemsView: 'table',
+            itemsView: "table",
           });
         }}
       >
         Online<span>Store</span>
       </Link>
-      <form className={`header_search ${inMainPage ? "" : "display-none"}`}>
+      <form
+        className={`header_search ${inMainPage ? "" : "display-none"}`}
+        onSubmit={(evt) => evt.preventDefault()}
+      >
         <input
           value={`${sort.search}`}
           className="search-input"
@@ -56,7 +59,7 @@ const Header = () => {
           onChange={(evt) => {
             setSort((prev) => ({
               ...prev,
-              search: evt.target.value,
+              search: evt.target.value.toLowerCase(),
             }));
           }}
         />
