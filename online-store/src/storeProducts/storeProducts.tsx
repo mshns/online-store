@@ -746,7 +746,7 @@ const storeItems: IProductItem[] = [
     id: 40,
     title: "Sony SRS-XB33",
     description:
-      "women winter clothes thick fleece hoodie top with sweat pantjogger women sweatsuit set joggers pants two piece pants set",
+      "The newly developed Sony X-Balanced speaker delivers high sound quality and powerful sound pressure for a richer, deeper and more enjoyable sound experience. The non-circular shape of the device increases the area of the diaphragm, which increases the sound pressure for richer bass.",
     price: 199,
     discountPercentage: 13.39,
     rating: 4.91,
