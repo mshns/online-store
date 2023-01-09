@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import useCart from "../../hooks/useCart";
@@ -22,6 +22,10 @@ const Item = (props: { item: IProductItem; tableState: boolean }) => {
     notAdd: "Add to cart",
     added: "Drop",
   };
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartList));
+  }, [cartList]);
 
   return (
     <div className={`product ${isAdded ? "active" : ""} ${props.tableState ? "" : "list"}`}>
