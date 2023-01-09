@@ -12,6 +12,7 @@ const SortProvider = ({ children }: { children: ReactNode }) => {
     maxStock: 150,
     sortBy: "",
     search: "",
+    itemsView: "",
   };
 
   const [searchParams] = useSearchParams();
@@ -36,6 +37,11 @@ const SortProvider = ({ children }: { children: ReactNode }) => {
   const sortByQueryParams = searchParams.get("sortBy");
   if (sortByQueryParams) {
     sortingProps.sortBy = sortByQueryParams;
+  }
+
+  const itemsViewQueryParams = searchParams.get("itemsView");
+  if (itemsViewQueryParams) {
+    sortingProps.itemsView = itemsViewQueryParams;
   }
 
   const [sort, setSort] = useState<SortingProps>(sortingProps);

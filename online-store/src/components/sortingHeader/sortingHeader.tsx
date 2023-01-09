@@ -38,7 +38,7 @@ const SortingHeader = (props: {
   );
   useEffect(() => {
     setSortingValue(sort.sortBy);
-  }, [sort]);
+  }, [sort]);  
 
   return (
     <div className="container content_header">
@@ -77,7 +77,11 @@ const SortingHeader = (props: {
             props.tableState ? "active" : ""
           }`}
           onClick={(evt) => {
-            props.setTableState(() => true);
+            props.setTableState(true);
+            setSort((prev) => ({
+              ...prev,
+              itemsView: 'table'
+            }))
           }}
           src={tableProducts}
           alt="Display Table"
@@ -88,7 +92,11 @@ const SortingHeader = (props: {
             props.tableState ? "" : "active"
           }`}
           onClick={(evt) => {
-            props.setTableState(() => false);
+            props.setTableState(false);
+            setSort((prev) => ({
+              ...prev,
+              itemsView: 'rows'
+            }))
           }}
           src={listProducts}
           alt="Display List"

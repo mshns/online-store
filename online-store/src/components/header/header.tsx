@@ -41,6 +41,7 @@ const Header = () => {
             maxStock: 150,
             sortBy: "",
             search: "",
+            itemsView: 'table',
           });
         }}
       >

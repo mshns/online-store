@@ -21,6 +21,7 @@ export type SortingProps = {
   maxStock: number;
   sortBy: string;
   search: string;
+  itemsView: string
 };
 
 export interface ISortContext {

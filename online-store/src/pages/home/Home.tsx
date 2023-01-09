@@ -18,6 +18,7 @@ const Home = () => {
       category?: string;
       search?: string;
       sortBy?: string;
+      itemsView?: string;
     } = {};
 
     if (sort.brand.length) {
@@ -32,7 +33,11 @@ const Home = () => {
     if (sort.sortBy) {
       params.sortBy = sort.sortBy;
     }
+    if (sort.itemsView) {
+      params.itemsView = sort.itemsView;
+    }
     setSearchParams(params);
+    console.log(sort);
   }, [setSearchParams, sort]);
 
   useEffect(() => {
