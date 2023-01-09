@@ -1,11 +1,13 @@
-import "./productPage.scss";
+import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+
 import storeItems from "../../storeProducts/storeProducts";
-import { useParams } from "react-router-dom";
 import ThumbnailList from "./components/thumbnailList";
 import useCart from "../../hooks/useCart";
-import { useState } from "react";
+
 import { IProductItem } from "../../types";
-import { useNavigate } from "react-router-dom";
+
+import "./productPage.scss";
 
 function ProductPage({
   setPaymentVisible,
@@ -13,14 +15,19 @@ function ProductPage({
   setPaymentVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const { id } = useParams();
+
   const [product] = [...storeItems.filter((item) => item.id === Number(id))];
+
   const { cartList, setCartList } = useCart();
+
   const isAddedToCart = (item: IProductItem): Boolean => {
     return cartList.find((product) => item.id === product.item.id) !== undefined
       ? true
       : false;
   };
+
   const [isAdded, setAdded] = useState(isAddedToCart(product));
+
   const buttonText = {
     notAdd: "Add to cart",
     added: "Drop",
@@ -41,11 +48,11 @@ function ProductPage({
           <h1 className="card_title">{product.title}</h1>
           <h2 className="card_price">
             <span className="card_price__subtitle">Price: </span>
-            <span className="card_price__value">${product.price}</span>
+            <span className="card_info__value">${product.price}</span>
           </h2>
           <div className="card_buttons">
             <button
-              className="card-button_cart"
+              className={`card-button_cart ${isAdded ? "active" : ""}`}
               onClick={() => {
                 if (!isAdded) {
                   setCartList([...cartList, { item: product, amount: 1 }]);
@@ -77,19 +84,27 @@ function ProductPage({
               {product.description}
             </span>
           </p>
-          <p className="card_discount">
-            <span className="card_discount__subtitle">Discount: </span>
-            <span className="card_discount__value">
+          <p className="card_info">
+            <span className="card_info__subtitle">Category: </span>
+            <span className="card_info__value">{product.category}</span>
+          </p>
+          <p className="card_info">
+            <span className="card_info__subtitle">Brand: </span>
+            <span className="card_info__value">{product.brand}</span>
+          </p>
+          <p className="card_info">
+            <span className="card_info__subtitle">Discount: </span>
+            <span className="card_info__value">
               {product.discountPercentage}%
             </span>
           </p>
-          <p className="card_rating">
-            <span className="card_rating__subtitle">Rating: </span>
-            <span className="card_rating__value">{product.rating}</span>
+          <p className="card_info">
+            <span className="card_info__subtitle">Rating: </span>
+            <span className="card_info__value">{product.rating}</span>
           </p>
-          <p className="card_stock">
-            <span className="card_stock__subtitle">Stock: </span>
-            <span className="card_stock__value">{product.stock}</span>
+          <p className="card_info">
+            <span className="card_info__subtitle">Stock: </span>
+            <span className="card_info__value">{product.stock}</span>
           </p>
         </div>
       </section>

@@ -2,14 +2,12 @@ import { useState } from "react";
 import useCart from "../../../hooks/useCart";
 import { ICartItem } from "../../../types";
 
-const CartItem = ({
-  item,
-}: {
-  item: ICartItem;
-}) => {
+const CartItem = ({ item }: { item: ICartItem }) => {
   const [amount, setAmount] = useState(item.amount);
   const { cartList, setCartList } = useCart();
-  const index = cartList.findIndex((product) => item.item.id === product.item.id);
+  const index = cartList.findIndex(
+    (product) => item.item.id === product.item.id
+  );
 
   return (
     <div className="cart-item">
@@ -22,10 +20,14 @@ const CartItem = ({
       <div className="cart-item_info">
         <h3 className="item-info_title">{item.item.title}</h3>
         <p className="item-info_description">{item.item.description}</p>
-        <div className="item-info_rating">Rating: {item.item.rating}</div>
-        <div className="item-info_discount">
+        <span className="item-info_catalog">
+          Category: {item.item.category}
+        </span>
+        <span className="item-info_catalog">Brand: {item.item.brand}</span>
+        <span className="item-info_catalog">Rating: {item.item.rating}</span>
+        <span className="item-info_catalog">
           Discount: {item.item.discountPercentage}%
-        </div>
+        </span>
       </div>
       <div className="cart-item_amount">
         <div className="item-amount_stock">Stock: {item.item.stock}</div>
