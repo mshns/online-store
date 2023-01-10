@@ -115,7 +115,7 @@ const Home = () => {
   }, [sort]);
 
   return (
-    <main className="container main">
+    <main className="main">
       <Aside items={items} setItems={setItems} />
       <SortingBlock items={items} />
     </main>

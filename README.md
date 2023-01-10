@@ -3,7 +3,7 @@ Online store of electronic equipment
 
 ---
 
-Deploy: https://erkhandv-mshns-online-store.netlify.app/
+### Deploy: https://erkhandv-mshns-online-store.netlify.app/
 
 ---
 

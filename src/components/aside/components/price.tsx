@@ -15,7 +15,7 @@ const PriceSlider = ({ items }: { items: IProductItem[] }) => {
   const { sort, setSort } = useSort();
 
   return (
-    <fieldset className="container aside_fieldset">
+    <fieldset className="aside_fieldset">
       <legend className="fieldset_legend">Price</legend>
       <PriceLabel items={items} />
       <div className="fieldset_item__range">

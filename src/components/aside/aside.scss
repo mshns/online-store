@@ -1,5 +1,7 @@
 .aside {
+  display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: flex-start;
   width: 25%;
   margin: 0 40px;
@@ -108,8 +110,11 @@
 }
 
 .range-value {
-  width: 100%;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 28px;
   margin-bottom: 10px;
 }
 
@@ -157,7 +162,27 @@
   opacity: .6;
 }
 
+@media (max-width: 1280px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .aside {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: calc(100% - 80px);
+  }
+
+  .aside_fieldset {
+    width: calc(50% - 40px);
+  }
+}
+
 @media (max-width: 640px) {
+  .aside_fieldset {
+    width: calc(100% - 20px);
+  }
+
   .aside_title {
     font-size: 24px;
   }

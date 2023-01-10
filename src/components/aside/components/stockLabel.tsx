@@ -10,7 +10,7 @@ const StockLabel = ({ items }: { items: IProductItem[] }) => {
 
   if (items.length) {
     return (
-      <div className="container range-value">
+      <div className="range-value">
         <span>MIN</span>
         <span className="range-value_stock__min">{minStock(items)}</span>
         <span className="material-icons">sync_alt</span>
@@ -20,7 +20,7 @@ const StockLabel = ({ items }: { items: IProductItem[] }) => {
     );
   } else {
     return (
-      <div className="container range-value">
+      <div className="range-value">
         <span className="range-value_price__min">NOT FOUND ITEMS</span>
       </div>
     );

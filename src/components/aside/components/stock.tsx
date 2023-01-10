@@ -14,7 +14,7 @@ const StockField = ({ items }: { items: IProductItem[] }) => {
   const { sort, setSort } = useSort();
 
   return (
-    <fieldset className="container aside_fieldset">
+    <fieldset className="aside_fieldset">
       <legend className="fieldset_legend">Stock</legend>
       <StockLabel items={items} />
       <div className="fieldset_item__range">
