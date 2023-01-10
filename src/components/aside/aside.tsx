@@ -15,7 +15,9 @@ const Aside = (props: {
   setItems: (items: IProductItem[]) => void;
 }) => {
   const { setSort } = useSort();
-  const [btnText, setBtnText] = useState("Copy");
+
+  const [buttonCopyText, setButtonCopyText] = useState("Copy");
+
   const handleClick = () => {
     setSort({
       brand: [],
@@ -29,6 +31,7 @@ const Aside = (props: {
       itemsView: "table",
     });
   };
+
   return (
     <aside className="aside">
       <div className="container aside_header">
@@ -45,13 +48,13 @@ const Aside = (props: {
             onClick={() => {
               const copyedURL = window.location.href;
               navigator.clipboard.writeText(copyedURL);
-              setBtnText("Copied");
+              setButtonCopyText("Copied");
               setTimeout(() => {
-                setBtnText("Copy");
+                setButtonCopyText("Copy");
               }, 1000);
             }}
           >
-            {btnText}
+            {buttonCopyText}
           </button>
         </div>
       </div>
