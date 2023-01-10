@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-import storeItems from "../../storeProducts/storeProducts";
+import storeItems from "../../StoreProducts/StoreProducts";
 import ThumbnailList from "./components/thumbnailList";
 import useCart from "../../hooks/useCart";
 

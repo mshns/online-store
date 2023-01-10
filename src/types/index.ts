@@ -43,3 +43,7 @@ export interface IProps {
   items: IProductItem[];
   setItems: (items: IProductItem[]) => void;
 }
+
+export interface IProductList {
+  items: IProductItem[];
+}

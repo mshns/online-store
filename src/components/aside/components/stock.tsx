@@ -1,5 +1,5 @@
 import { IProductItem } from "../../../types";
-import storeItems from "../../../storeProducts/storeProducts";
+import storeItems from "../../../StoreProducts/StoreProducts";
 import useSort from "../../../hooks/useSort";
 import StockLabel from "./stockLabel";
 

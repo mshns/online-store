@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import useSort from "../../../hooks/useSort";
 
-import storeItems from "../../../storeProducts/storeProducts";
+import storeItems from "../../../StoreProducts/StoreProducts";
 import { IProductItem, SortingProps } from "../../../types";
 
 const Brand = ({ brand, items }: { brand: string; items: IProductItem[] }) => {
@@ -42,7 +42,9 @@ const Brand = ({ brand, items }: { brand: string; items: IProductItem[] }) => {
           setChecked(!isChecked);
         }}
       />
-      <label className={`${itemCount ? "" : "unshow"}`} htmlFor={brand}>{brand}</label>
+      <label className={`${itemCount ? "" : "unshow"}`} htmlFor={brand}>
+        {brand}
+      </label>
       <span className="item-count">
         ({itemCount}/{itemCountAll})
       </span>

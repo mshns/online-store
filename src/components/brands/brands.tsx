@@ -1,4 +1,4 @@
-import storeItems from "../../storeProducts/storeProducts";
+import storeItems from "../../StoreProducts/StoreProducts";
 import { IProps } from "../../types";
 import Brand from "./components/Brand";
 

@@ -4,7 +4,7 @@ import "./home.scss";
 import { IProductItem } from "../../types";
 import Aside from "../../components/aside/aside";
 import SortingBlock from "../../components/sortingBlock/sortingBlock";
-import storeItems from "../../storeProducts/storeProducts";
+import storeItems from "../../StoreProducts/StoreProducts";
 import useSort from "../../hooks/useSort";
 import { useSearchParams } from "react-router-dom";
 

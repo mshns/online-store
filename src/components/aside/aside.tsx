@@ -10,7 +10,7 @@ import "./aside.scss";
 
 import { IProps } from "../../types";
 
-const Aside = ({items, setItems}: IProps) => {
+const Aside = ({ items, setItems }: IProps) => {
   const { setSort } = useSort();
 
   const [buttonCopyText, setButtonCopyText] = useState("Copy");
