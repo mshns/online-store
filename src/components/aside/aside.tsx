@@ -8,17 +8,14 @@ import StockField from "./components/stock";
 
 import "./aside.scss";
 
-import { IProductItem } from "../../types";
+import { IProps } from "../../types";
 
-const Aside = (props: {
-  items: IProductItem[];
-  setItems: (items: IProductItem[]) => void;
-}) => {
+const Aside = ({items, setItems}: IProps) => {
   const { setSort } = useSort();
 
   const [buttonCopyText, setButtonCopyText] = useState("Copy");
 
-  const handleClick = () => {
+  const handleResetSort = () => {
     setSort({
       brand: [],
       category: [],
@@ -32,36 +29,32 @@ const Aside = (props: {
     });
   };
 
+  const handleCopySort = () => {
+    const copyedURL = window.location.href;
+    navigator.clipboard.writeText(copyedURL);
+    setButtonCopyText("Copied");
+    setTimeout(() => {
+      setButtonCopyText("Copy");
+    }, 1000);
+  };
+
   return (
     <aside className="aside">
       <div className="container aside_header">
         <h2 className="aside_title">Filters</h2>
         <div className="container aside_buttons">
-          <button
-            className="aside_buttons__reset"
-            onClick={() => handleClick()}
-          >
+          <button className="aside_buttons__reset" onClick={handleResetSort}>
             Reset
           </button>
-          <button
-            className="aside_buttons__copy"
-            onClick={() => {
-              const copyedURL = window.location.href;
-              navigator.clipboard.writeText(copyedURL);
-              setButtonCopyText("Copied");
-              setTimeout(() => {
-                setButtonCopyText("Copy");
-              }, 1000);
-            }}
-          >
+          <button className="aside_buttons__copy" onClick={handleCopySort}>
             {buttonCopyText}
           </button>
         </div>
       </div>
-      <CategoriesList items={props.items} setItems={props.setItems} />
-      <Brands items={props.items} setItems={props.setItems} />
-      <PriceSlider items={props.items} />
-      <StockField items={props.items} />
+      <CategoriesList items={items} setItems={setItems} />
+      <Brands items={items} setItems={setItems} />
+      <PriceSlider items={items} />
+      <StockField items={items} />
     </aside>
   );
 };
