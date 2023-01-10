@@ -1,13 +1,14 @@
 import { useState } from "react";
 
+import useSort from "../../hooks/useSort";
 import CategoriesList from "../categories/CategoriesList";
-import { IProductItem } from "../../types";
 import Brands from "../brands/brands";
 import PriceSlider from "./components/price";
 import StockField from "./components/stock";
-import useSort from "../../hooks/useSort";
 
 import "./aside.scss";
+
+import { IProductItem } from "../../types";
 
 const Aside = (props: {
   items: IProductItem[];
