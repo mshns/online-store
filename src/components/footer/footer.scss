@@ -12,44 +12,41 @@
     rgba(51, 204, 153, 0.5) 0%,
     rgba(255, 255, 255, 1) 100%
   );
-}
-
-.footer_authors {
-  text-align: center;
-  transition: ease-in-out 0.2s;
-}
-
-.footer_authors a {
-  color: #33cc99;
-}
-
-.footer_copyright {
-  position: relative;
-  padding-left: 36px;
-}
-
-.footer_copyright::before {
-  position: absolute;
-  top: -10px;
-  left: 0;
-  content: "copyright";
-  font-family: "Material Symbols Outlined";
-  font-size: 32px;
-  color: #33cc99;
-}
-
-.footer_school {
-  width: 80px;
-  height: 40px;
-  transition: ease-in-out 0.3s;
-}
-
-.footer_school:hover path {
-  fill: #33cc99;
-}
-
-.footer_school:hover {
-  transform: scale(1.1);
+  &_authors {
+    text-align: center;
+    transition: ease-in-out 0.2s;
+    & a {
+      color: #33cc99;
+    }
+  }
+  &_copyright {
+    position: relative;
+    padding-left: 36px;
+    &::before {
+      position: absolute;
+      top: -10px;
+      left: 0;
+      content: "copyright";
+      font-family: "Material Symbols Outlined";
+      font-size: 32px;
+      color: #33cc99;
+    }
+  }
+  &_school {
+    width: 80px;
+    height: 40px;
+    transition: ease-in-out 0.3s;
+    & path {
+      fill: #336699;
+      transition: ease-in-out 0.3s;
+    }
+    &:hover {
+      transform: scale(1.1);
+      & path {
+        fill: #33cc99;
+      }
+    }
+  }
 }
 
 @media (max-width: 640px) {

@@ -27,28 +27,30 @@ const Category = ({ category, items }: ICategory) => {
     return itemCount > 0 ? "" : " non-active_input_class";
   };
 
+  const categoryCheckboxHandler = () => {
+    if (!isChecked) {
+      setSort((prev) => ({
+        ...prev,
+        category: prev.category.includes(category)
+          ? [...prev.category]
+          : [...prev.category, category],
+      }));
+    } else {
+      setSort((prev) => ({
+        ...prev,
+        category: prev.category.filter((item) => item !== category),
+      }));
+    }
+    setChecked(!isChecked);
+  };
+
   return (
     <div className={`container fieldset_item__checkbox${isNotActiveClass()}`}>
       <input
         type="checkbox"
         id={category}
         checked={isChecked}
-        onChange={(evt) => {
-          if (!isChecked) {
-            setSort((prev) => ({
-              ...prev,
-              category: prev.category.includes(category)
-                ? [...prev.category]
-                : [...prev.category, category],
-            }));
-          } else {
-            setSort((prev) => ({
-              ...prev,
-              category: prev.category.filter((item) => item !== category),
-            }));
-          }
-          setChecked(!isChecked);
-        }}
+        onChange={categoryCheckboxHandler}
       />
       <label className={`${itemCount ? "" : "unshow"}`} htmlFor={category}>
         {category}
