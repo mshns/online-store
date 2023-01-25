@@ -1,15 +1,10 @@
-import storeItems from "../../StoreProducts/StoreProducts";
-import { IProps } from "../../types";
 import Brand from "./components/Brand";
 
-const Brands = ({ items }: IProps) => {
-  const brands: string[] = [];
-  storeItems.forEach((item) => {
-    if (brands.indexOf(item.brand) === -1) {
-      brands.push(item.brand);
-    }
-  });
+import brands from "../../constants/brands";
 
+import { IProps } from "../../types";
+
+const Brands = ({ items }: IProps) => {
   return (
     <fieldset className="container aside_fieldset">
       <legend className="fieldset_legend">Brands</legend>

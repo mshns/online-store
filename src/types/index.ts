@@ -12,18 +12,6 @@ export interface IProductItem {
   images: string[];
 }
 
-export type SortingProps = {
-  brand: string[];
-  category: string[];
-  minPrice: number;
-  maxPrice: number;
-  minStock: number;
-  maxStock: number;
-  sortBy: string;
-  search: string;
-  itemsView: string
-};
-
 export interface ISortContext {
   sort: SortingProps;
   setSort: React.Dispatch<React.SetStateAction<SortingProps>>;
@@ -44,6 +32,22 @@ export interface IProps {
   setItems: (items: IProductItem[]) => void;
 }
 
-export interface IProductList {
+export interface IProductsList {
   items: IProductItem[];
 }
+
+export type SortingProps = {
+  brand: string[];
+  category: string[];
+  minPrice: number;
+  maxPrice: number;
+  minStock: number;
+  maxStock: number;
+  sortBy: string;
+  search: string;
+  itemsView: string;
+};
+
+export type mathOperator = "min" | "max";
+
+export type itemKey = "stock" | "price";
