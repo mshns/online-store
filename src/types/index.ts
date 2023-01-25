@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface IProductItem {
   id: number;
   title: string;
@@ -74,6 +76,13 @@ export interface ISortingHeader {
   setTableState: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+export interface IChildrenReactNode {
+  children: ReactNode;
+}
+
+export interface IPaymentVisible {
+  setPaymentVisible: React.Dispatch<React.SetStateAction<boolean>>;
+}
 export enum CardIcon {
   visa = 4,
   master,

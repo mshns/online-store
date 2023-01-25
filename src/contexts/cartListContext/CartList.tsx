@@ -1,7 +1,8 @@
-import { createContext, ReactNode, useState } from "react";
-import { ICartItem, ICartListContext } from "../../types";
+import { createContext, useState } from "react";
 
-const CartListProvider = ({ children }: { children: ReactNode }) => {
+import { ICartItem, ICartListContext, IChildrenReactNode } from "../../types";
+
+const CartListProvider = ({ children }: IChildrenReactNode) => {
   const getCartFromLocalStorage = () => {
     if (localStorage.getItem("cart")) {
       const stringyCart: string = localStorage.getItem("cart") || "";

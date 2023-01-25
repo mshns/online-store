@@ -1,5 +1,7 @@
 import { useState } from "react";
+
 import useCart from "../../../hooks/useCart";
+
 import { ICartItem } from "../../../types";
 
 const CartItem = ({ item }: { item: ICartItem }) => {

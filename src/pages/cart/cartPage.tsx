@@ -1,16 +1,18 @@
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+
+import useCart from "../../hooks/useCart";
+
 import "./cartPage.scss";
+
 import CartList from "./components/cartList";
 import CartSumBlock from "./components/cartSum";
 import CartHeader from "./components/cartHeader";
-import { ICartItem } from "../../types";
-import { useEffect, useState } from "react";
-import useCart from "../../hooks/useCart";
-import { useSearchParams } from "react-router-dom";
 import EmptyCart from "./components/EmptyCart";
 
-const CartPage = (props: {
-  setPaymentVisible: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+import { ICartItem, IPaymentVisible } from "../../types";
+
+const CartPage = ({ setPaymentVisible }: IPaymentVisible) => {
   const getVisibleItems = (
     items: ICartItem[],
     amountOfVisibleItems: number,
@@ -60,7 +62,7 @@ const CartPage = (props: {
     if (visibilityItems.length === 0 && cartList.length !== 0) {
       setPage(page - 1);
     }
-  }, [visibilityItems]);
+  }, [cartList.length, page, visibilityItems]);
 
   const getPagesAmount = (items: ICartItem[], itemsAmount: number) => {
     return Math.ceil(items.length / itemsAmount);
@@ -69,6 +71,7 @@ const CartPage = (props: {
   const pagesAmount = getPagesAmount(cartList, visibilityValue);
 
   const [, setSearchParams] = useSearchParams();
+
   useEffect(() => {
     const params: {
       page: string;
@@ -81,7 +84,7 @@ const CartPage = (props: {
     const stringifyPaginationParams = JSON.stringify(params);
     localStorage.setItem("cartPaginationParams", stringifyPaginationParams);
     setSearchParams(params);
-  }, [page, visibilityValue]);
+  }, [page, setSearchParams, visibilityValue]);
 
   if (cartList.length) {
     return (
@@ -96,15 +99,12 @@ const CartPage = (props: {
           />
           <CartList visibilityItems={visibilityItems} />
         </section>
-        <CartSumBlock setPaymentVisible={props.setPaymentVisible} />
+        <CartSumBlock setPaymentVisible={setPaymentVisible} />
       </main>
     );
   } else {
-    return (
-      <EmptyCart />
-    )
+    return <EmptyCart />;
   }
-
 };
 
 export default CartPage;
