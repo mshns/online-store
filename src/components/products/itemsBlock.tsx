@@ -1,16 +1,12 @@
 import Item from "./item";
-import { IProductItem } from "../../types";
+import { IBlockItem, IProductItem } from "../../types";
 
-const ProductsList = (props: {
-  items: IProductItem[];
-  tableState: boolean;
-}) => {
-  const items = props.items;
+const ProductsList = ({ items, tableState }: IBlockItem) => {
   if (items.length) {
     return (
-      <div className={`content_products ${props.tableState ? "" : "list"}`}>
+      <div className={`content_products ${tableState ? "" : "list"}`}>
         {items.map((item: IProductItem) => (
-          <Item item={item} key={item.id} tableState={props.tableState} />
+          <Item item={item} key={item.id} tableState={tableState} />
         ))}
       </div>
     );

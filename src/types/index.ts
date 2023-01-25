@@ -21,7 +21,7 @@ export type SortingProps = {
   maxStock: number;
   sortBy: string;
   search: string;
-  itemsView: string
+  itemsView: string;
 };
 
 export interface ISortContext {
@@ -56,6 +56,22 @@ export interface ICategory {
 export interface IPayment {
   paymentVisible: boolean;
   setPaymentVisible: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface ITableItem {
+  item: IProductItem;
+  tableState: boolean;
+}
+
+export interface IBlockItem {
+  items: IProductItem[];
+  tableState: boolean;
+}
+
+export interface ISortingHeader {
+  items: IProductItem[];
+  tableState: boolean;
+  setTableState: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export enum CardIcon {

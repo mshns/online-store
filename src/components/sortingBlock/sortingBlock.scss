@@ -3,24 +3,21 @@
   flex-direction: column;
   width: 75%;
   margin-right: 40px;
-}
-
-.content_products {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
-}
-
-.content_products.list {
-  flex-direction: column;
-}
-
-.content_header {
-  width: 100%;
-  padding: 9px 0;
-  margin-bottom: 22px;
-  border-bottom: 1px dotted #33cc99;
+  &_products {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    &.list {
+      flex-direction: column;
+    }
+  }
+  &_header {
+    width: 100%;
+    padding: 9px 0;
+    margin-bottom: 22px;
+    border-bottom: 1px dotted #33cc99;
+  }
 }
 
 .content-select {
@@ -35,16 +32,14 @@
   border: none;
   outline: none;
   cursor: pointer;
-}
-
-.content-select_option {
-  text-transform: none;
-  color: #336699;
-  background: #fff;
-}
-
-.content-select_option:disabled {
-  color: #33cc99;
+  &_option {
+    text-transform: none;
+    color: #336699;
+    background: #fff;
+    &:disabled {
+      color: #33cc99;
+    }
+  }
 }
 
 .content-found_title {
@@ -59,23 +54,19 @@
   display: flex;
   justify-content: space-between;
   width: 44px;
-}
-
-.content-header_buttons__table,
-.content-header_buttons__list {
-  width: 20px;
-  height: 20px;
-  border-radius: 4px;
-  background-color: #336699;
-  cursor: pointer;
-  transition: ease-in-out 0.2s;
-}
-
-.content-header_buttons__table:hover,
-.content-header_buttons__list:hover,
-.content-header_buttons__table.active,
-.content-header_buttons__list.active {
-  background-color: #33cc99;
+  &__table,
+  &__list {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    background-color: #336699;
+    cursor: pointer;
+    transition: ease-in-out 0.2s;
+    &:hover,
+    &.active {
+      background-color: #33cc99;
+    }
+  }
 }
 
 @media (max-width: 1280px) {
@@ -89,10 +80,9 @@
   .content {
     width: calc(100% - 80px);
     margin: 0 40px;
-  }
-
-  .content_header {
-    flex-wrap: wrap;
+    &_header {
+      flex-wrap: wrap;
+    }
   }
 
   .content-found {

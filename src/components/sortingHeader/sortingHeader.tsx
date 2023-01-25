@@ -1,14 +1,17 @@
-import tableProducts from "./icons/table.svg";
-import listProducts from "./icons/list.svg";
-import { IProductItem } from "../../types";
-import useSort from "../../hooks/useSort";
 import { useEffect, useState } from "react";
 
-const SortingHeader = (props: {
-  items: IProductItem[];
-  tableState: boolean;
-  setTableState: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+import useSort from "../../hooks/useSort";
+
+import tableProducts from "./icons/table.svg";
+import listProducts from "./icons/list.svg";
+
+import { ISortingHeader } from "../../types";
+
+const SortingHeader = ({
+  items,
+  tableState,
+  setTableState,
+}: ISortingHeader) => {
   const sortingList: {
     title: string;
     searchURL: string;
@@ -31,25 +34,43 @@ const SortingHeader = (props: {
     },
   ];
 
-  const { setSort } = useSort();
-  const { sort } = useSort();
+  const { setSort, sort } = useSort();
+
   const [sortingValue, setSortingValue] = useState(
     sort.sortBy ? sort.sortBy : ""
   );
   useEffect(() => {
     setSortingValue(sort.sortBy);
-  }, [sort]);  
+  }, [sort]);
+
+  const contentSelectHandler = (evt: { target: { value: any } }) => {
+    setSort((prev) => ({
+      ...prev,
+      sortBy: evt.target.value,
+    }));
+  };
+
+  const tableButtonHandler = () => {
+    setTableState(true);
+    setSort((prev) => ({
+      ...prev,
+      itemsView: "table",
+    }));
+  }
+
+  const listButtonHandler = () => {
+    setTableState(false);
+    setSort((prev) => ({
+      ...prev,
+      itemsView: "rows",
+    }));
+  }
 
   return (
     <div className="container content_header">
       <select
         className="content-select"
-        onChange={(evt) => {
-          setSort((prev) => ({
-            ...prev,
-            sortBy: evt.target.value,
-          }));
-        }}
+        onChange={contentSelectHandler}
         value={sortingValue}
       >
         <>
@@ -69,35 +90,23 @@ const SortingHeader = (props: {
       </select>
       <div className="content-found">
         <span className="content-found_title">Found </span>
-        <span className="content-found_value">{props.items.length}</span>
+        <span className="content-found_value">{items.length}</span>
       </div>
       <div className="content-header_buttons">
         <img
           className={`content-header_buttons__table ${
-            props.tableState ? "active" : ""
+            tableState ? "active" : ""
           }`}
-          onClick={(evt) => {
-            props.setTableState(true);
-            setSort((prev) => ({
-              ...prev,
-              itemsView: 'table'
-            }))
-          }}
+          onClick={tableButtonHandler}
           src={tableProducts}
           alt="Display Table"
           title="Display Table"
         />
         <img
           className={`content-header_buttons__list ${
-            props.tableState ? "" : "active"
+            tableState ? "" : "active"
           }`}
-          onClick={(evt) => {
-            props.setTableState(false);
-            setSort((prev) => ({
-              ...prev,
-              itemsView: 'rows'
-            }))
-          }}
+          onClick={listButtonHandler}
           src={listProducts}
           alt="Display List"
           title="Display List"
