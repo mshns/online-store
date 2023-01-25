@@ -1,8 +1,11 @@
-import "./header.scss";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
+import "./header.scss";
+
 import useSort from "../../hooks/useSort";
 import useCart from "../../hooks/useCart";
-import { useEffect, useState } from "react";
+
 import { ICartItem } from "../../types";
 
 const Header = () => {
@@ -14,16 +17,23 @@ const Header = () => {
     URLLocate.includes("cart") || URLLocate.includes("products")
   );
 
-  const getTotalSum = (itemsList: ICartItem[]) =>
+  const setTotalSum = (itemsList: ICartItem[]) =>
     itemsList.reduce((acc, curr) => acc + curr.item.price * curr.amount, 0);
-  const getTotalItems = (itemsList: ICartItem[]) =>
+  const setTotalItems = (itemsList: ICartItem[]) =>
     itemsList.reduce((acc, curr) => acc + curr.amount, 0);
-  const [totalSum, changeTotalSum] = useState(getTotalSum(cartList));
-  const [totalItems, changeTotalItems] = useState(getTotalItems(cartList));
+  const [totalSum, changeTotalSum] = useState(setTotalSum(cartList));
+  const [totalItems, changeTotalItems] = useState(setTotalItems(cartList));
   useEffect(() => {
-    changeTotalSum(getTotalSum(cartList));
-    changeTotalItems(getTotalItems(cartList));
+    changeTotalSum(setTotalSum(cartList));
+    changeTotalItems(setTotalItems(cartList));
   }, [cartList]);
+
+  const seachInputHandler = (evt: { target: { value: string; }; }) => {
+    setSort((prev) => ({
+      ...prev,
+      search: evt.target.value.toLowerCase(),
+    }));
+  }
 
   return (
     <header className="header">
@@ -56,12 +66,7 @@ const Header = () => {
           className="search-input"
           type="search"
           placeholder="Search..."
-          onChange={(evt) => {
-            setSort((prev) => ({
-              ...prev,
-              search: evt.target.value.toLowerCase(),
-            }));
-          }}
+          onChange={seachInputHandler}
         />
       </form>
       <Link to="/cart" className="cart-link">
