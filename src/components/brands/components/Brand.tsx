@@ -19,28 +19,30 @@ const Brand = ({ brand, items }: { brand: string; items: IProductItem[] }) => {
   const classNameFor: string =
     itemCount > 0 ? "activity_input_class" : "non-active_input_class";
 
+  const brandCheckboxHandler = () => {
+    if (!isChecked) {
+      setSort((prev) => ({
+        ...prev,
+        brand: prev.brand.includes(brand)
+          ? [...prev.brand]
+          : [...prev.brand, brand],
+      }));
+    } else {
+      setSort((prev) => ({
+        ...prev,
+        brand: prev.brand.filter((item) => item !== brand),
+      }));
+    }
+    setChecked(!isChecked);
+  }
+
   return (
     <div className={`container fieldset_item__checkbox ${classNameFor}`}>
       <input
         type="checkbox"
         id={brand}
         checked={isChecked}
-        onChange={(evt) => {
-          if (!isChecked) {
-            setSort((prev) => ({
-              ...prev,
-              brand: prev.brand.includes(brand)
-                ? [...prev.brand]
-                : [...prev.brand, brand],
-            }));
-          } else {
-            setSort((prev) => ({
-              ...prev,
-              brand: prev.brand.filter((item) => item !== brand),
-            }));
-          }
-          setChecked(!isChecked);
-        }}
+        onChange={brandCheckboxHandler}
       />
       <label className={`${itemCount ? "" : "unshow"}`} htmlFor={brand}>
         {brand}

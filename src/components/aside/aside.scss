@@ -5,60 +5,53 @@
   align-items: flex-start;
   width: 25%;
   margin: 0 40px;
-}
-
-.aside_header {
-  width: 100%;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  color: #33cc99;
-  border-bottom: 1px dotted #33cc99;
-}
-
-.aside_title {
-  width: 40%;
-  margin: 0;
-  font-size: 32px;
-  font-weight: 100;
-  text-transform: uppercase;
-  color: #33cc99;
-}
-
-.aside_buttons {
-  width: 170px;
-}
-
-.aside_buttons__reset,
-.aside_buttons__copy {
-  width: 80px;
-  font-family: "Russo One", sans-serif;
-  font-weight: 100;
-  color: #fff;
-  font-size: 16px;
-  text-transform: uppercase;
-  background-color: rgb(51, 204, 153, 0.5);
-  border: none;
-  border-radius: 4px;
-  outline: none;
-  cursor: pointer;
-  transition: ease-in-out 0.2s;
-}
-
-.aside_buttons__reset:hover,
-.aside_buttons__copy:hover {
-  color: #fff;
-  background-color: rgb(51, 102, 153);
-}
-
-.aside_fieldset {
-  flex-direction: column;
-  width: calc(100% - 22px);
-  max-height: 185px;
-  margin: 0;
-  margin-bottom: 20px;
-  padding: 10px;
-  border: 1px dotted rgb(51, 204, 153, 0.5);
-  overflow-y: auto;
+  &_header {
+    width: 100%;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #33cc99;
+    border-bottom: 1px dotted #33cc99;
+  }
+  &_title {
+    width: 40%;
+    margin: 0;
+    font-size: 32px;
+    font-weight: 100;
+    text-transform: uppercase;
+    color: #33cc99;
+  }
+  &_buttons {
+    width: 170px;
+  }
+  &_buttons__reset,
+  &_buttons__copy {
+    width: 80px;
+    font-family: "Russo One", sans-serif;
+    font-weight: 100;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    background-color: rgb(51, 204, 153, 0.5);
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    transition: ease-in-out 0.2s;
+    &:hover {
+      color: #fff;
+      background-color: rgb(51, 102, 153);
+    }
+  }
+  &_fieldset {
+    flex-direction: column;
+    width: calc(100% - 22px);
+    max-height: 185px;
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px dotted rgb(51, 204, 153, 0.5);
+    overflow-y: auto;
+  }
 }
 
 .aside_fieldset::-webkit-scrollbar {
@@ -145,7 +138,6 @@
   background: linear-gradient(#336699, #336699) no-repeat center;
   background-size: 100% 4px;
   pointer-events: none;
-
   &::-webkit-slider-thumb {
     height: 16px;
     width: 16px;

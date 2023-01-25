@@ -1,17 +1,22 @@
 import { useEffect, useState } from "react";
 
-import ProductsList from "../products/itemsBlock";
-import { IProductItem } from "../../types";
 import SortingHeader from "../sortingHeader/sortingHeader";
-import "./sortingBlock.scss";
 import useSort from "../../hooks/useSort";
 
+import "./sortingBlock.scss";
+
+import ProductsList from "../products/itemsBlock";
+
+import { IProductItem } from "../../types";
+
 function SortingBlock(props: { items: IProductItem[] }) {
-  const {sort} = useSort();
-  const [tableState, setTableState] = useState(sort.itemsView === 'table' ? true: false);
+  const { sort } = useSort();
+  const [tableState, setTableState] = useState(
+    sort.itemsView === "table" ? true : false
+  );
   useEffect(() => {
-    setTableState(sort.itemsView === 'table' ? true: false);
-  }, [sort])
+    setTableState(sort.itemsView === "table" ? true : false);
+  }, [sort]);
 
   return (
     <div className="content">

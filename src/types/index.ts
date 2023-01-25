@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface IProductItem {
   id: number;
   title: string;
@@ -34,6 +36,45 @@ export interface IProps {
 
 export interface IProductsList {
   items: IProductItem[];
+}
+
+export interface ICategory {
+  category: string;
+  items: IProductItem[];
+}
+
+export interface IPayment {
+  paymentVisible: boolean;
+  setPaymentVisible: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface ITableItem {
+  item: IProductItem;
+  tableState: boolean;
+}
+
+export interface IBlockItem {
+  items: IProductItem[];
+  tableState: boolean;
+}
+
+export interface ISortingHeader {
+  items: IProductItem[];
+  tableState: boolean;
+  setTableState: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface IChildrenReactNode {
+  children: ReactNode;
+}
+
+export interface IPaymentVisible {
+  setPaymentVisible: React.Dispatch<React.SetStateAction<boolean>>;
+}
+export enum CardIcon {
+  visa = 4,
+  master,
+  union,
 }
 
 export type SortingProps = {

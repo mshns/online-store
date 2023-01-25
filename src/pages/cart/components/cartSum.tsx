@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+
 import useCart from "../../../hooks/useCart";
-import { ICartItem } from "../../../types";
 import UsagePromos from "./usagePromos";
+
+import { ICartItem } from "../../../types";
 
 const CartSumBlock = ({
   setPaymentVisible,
@@ -20,7 +22,7 @@ const CartSumBlock = ({
   const getPromoSum = (sum: number, percent: number) =>
     Math.floor(sum - (sum * percent) / 100);
 
-  const [isPromo, setPromo] = useState(false);
+  const [isPromo, setIsPromo] = useState(false);
 
   const promoCodes: string[] = ["mshns", "erkhan"];
 
@@ -51,7 +53,7 @@ const CartSumBlock = ({
 
   const percentSum: number = usagePromoCodes ? usagePromoCodes.length * 10 : 0;
 
-  const [promoSum, setPromoSum] = useState(getPromoSum(totalSum, percentSum));
+  const [promoSum, setIsPromoSum] = useState(getPromoSum(totalSum, percentSum));
 
   useEffect(() => {
     changeTotalSum(getTotalSum(cartList));
@@ -59,13 +61,39 @@ const CartSumBlock = ({
   }, [cartList]);
 
   useEffect(() => {
-    setPromoSum(getPromoSum(totalSum, percentSum));
+    setIsPromoSum(getPromoSum(totalSum, percentSum));
     if (usagePromoCodes) {
       localStorage.setItem("promos", usagePromoCodes.join(","));
     }
   }, [percentSum, totalSum, usagePromoCodes]);
 
   const isCartEmpty = !cartList.length;
+
+  const promoInputHandler = (event: { target: { value: string } }) => {
+    const promoValue = event.target.value;
+    if (isCorrectPromo(promoValue, promoCodes) && !isUsedPromo(promoValue)) {
+      setIsPromo(true);
+      setCurrentPromo(promoValue);
+    } else {
+      setIsPromo(false);
+      setCurrentPromo(promoValue);
+    }
+  };
+
+  const promoSubmitHandler = (event: { preventDefault: () => void }) => {
+    event.preventDefault();
+    if (isPromo) {
+      setUsagePromoCodes(() => {
+        if (usagePromoCodes) {
+          return [...usagePromoCodes, currentPromo];
+        } else {
+          return [currentPromo];
+        }
+      });
+      setIsPromo(false);
+    }
+    setCurrentPromo("");
+  };
 
   return (
     <section className="cart_sum">
@@ -74,9 +102,11 @@ const CartSumBlock = ({
         <span className="field_title">Products</span>
         <span className="products-count">{totalItems}</span>
       </div>
-      <div className={`cart-sum_field accent ${
+      <div
+        className={`cart-sum_field accent ${
           usagePromoCodes?.length ? "outdated" : ""
-        }`}>
+        }`}
+      >
         <span className="field_title">Total price</span>
         <span className="total-price">${totalSum}</span>
       </div>
@@ -96,38 +126,13 @@ const CartSumBlock = ({
           placeholder="Enter code"
           id="promo-code"
           value={currentPromo}
-          onChange={(evt) => {
-            const promoValue = evt.target.value;
-            if (
-              isCorrectPromo(promoValue, promoCodes) &&
-              !isUsedPromo(promoValue)
-            ) {
-              setPromo(true);
-              setCurrentPromo(promoValue);
-            } else {
-              setPromo(false);
-              setCurrentPromo(promoValue);
-            }
-          }}
+          onChange={promoInputHandler}
         />
         <input
           className={`cart-sum_submit ${isPromo ? "" : "not-active"}`}
           type="submit"
           value="Add"
-          onClick={(evt) => {
-            evt.preventDefault();
-            if (isPromo) {
-              setUsagePromoCodes(() => {
-                if (usagePromoCodes) {
-                  return [...usagePromoCodes, currentPromo];
-                } else {
-                  return [currentPromo];
-                }
-              });
-              setPromo(false);
-            }
-            setCurrentPromo("");
-          }}
+          onClick={promoSubmitHandler}
         />
       </form>
       <span className="cart-sum_promo">Promo codes: mshns, erkhan</span>

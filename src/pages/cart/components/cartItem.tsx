@@ -1,5 +1,7 @@
 import { useState } from "react";
+
 import useCart from "../../../hooks/useCart";
+
 import { ICartItem } from "../../../types";
 
 const CartItem = ({ item }: { item: ICartItem }) => {
@@ -9,6 +11,26 @@ const CartItem = ({ item }: { item: ICartItem }) => {
     (product) => item.item.id === product.item.id
   );
 
+  const removeButtonHandler = () => {
+    if (amount === 1) {
+      setCartList(
+        cartList.filter((product) => product.item.id !== item.item.id)
+      );
+    } else {
+      setAmount(amount - 1);
+      item.amount -= 1;
+      setCartList([...cartList]);
+    }
+  };
+
+  const addButtonHandler = () => {
+    if (amount < item.item.stock) {
+      setAmount(amount + 1);
+      item.amount += 1;
+      setCartList([...cartList]);
+    }
+  };
+
   return (
     <div className="cart-item">
       <span className="cart-item_number">{index + 1}</span>
@@ -16,7 +38,7 @@ const CartItem = ({ item }: { item: ICartItem }) => {
         className="cart-item_image"
         src={item.item.thumbnail}
         alt="Product Name"
-      ></img>
+      />
       <div className="cart-item_info">
         <h3 className="item-info_title">{item.item.title}</h3>
         <p className="item-info_description">{item.item.description}</p>
@@ -34,31 +56,12 @@ const CartItem = ({ item }: { item: ICartItem }) => {
         <div className="item-amount_count">
           <span
             className="amount-count_button__remove"
-            onClick={() => {
-              if (amount === 1) {
-                setCartList(
-                  cartList.filter((product) => product.item.id !== item.item.id)
-                );
-              } else {
-                setAmount(amount - 1);
-                item.amount -= 1;
-                setCartList([...cartList]);
-              }
-            }}
+            onClick={removeButtonHandler}
           >
             remove_circle_outline
           </span>
           <span className="amount-count_value">{amount}</span>
-          <span
-            className="amount-count_button__add"
-            onClick={() => {
-              if (amount < item.item.stock) {
-                setAmount(amount + 1);
-                item.amount += 1;
-                setCartList([...cartList]);
-              }
-            }}
-          >
+          <span className="amount-count_button__add" onClick={addButtonHandler}>
             add_circle_outline
           </span>
         </div>

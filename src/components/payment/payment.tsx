@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+
 import useCart from "../../hooks/useCart";
 
-const Payment = (props: {
-  paymentVisible: boolean;
-  setPaymentVisible: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+import { CardIcon, IPayment } from "../../types";
+
+const Payment = ({ paymentVisible, setPaymentVisible }: IPayment) => {
   const { setCartList } = useCart();
 
   const {
@@ -19,25 +19,25 @@ const Payment = (props: {
   const onSubmit = () => {
     setCartList([]);
     reset();
-    setNotificationState(true);
-    setCardNumberValue("");
+    setNotification(true);
+    setcardNumber("");
     setValidValue("");
     setTimeout(() => {
-      props.setPaymentVisible(false);
+      setPaymentVisible(false);
       navigate("/");
-      setNotificationState(false);
+      setNotification(false);
     }, 3000);
   };
 
-  const [cardNumberValue, setCardNumberValue] = useState("");
+  const [cardNumber, setcardNumber] = useState("");
 
   const inputCardNumber = (value: string) => {
     const cardNumber = value.replace(/[^\d]/g, "").substring(0, 16);
     if (cardNumber) {
       const cardNumberSeparator = cardNumber.match(/.{1,4}/g);
-      cardNumberSeparator && setCardNumberValue(cardNumberSeparator.join(" "));
+      cardNumberSeparator && setcardNumber(cardNumberSeparator.join(" "));
     } else {
-      setCardNumberValue(cardNumber);
+      setcardNumber(cardNumber);
     }
   };
 
@@ -53,15 +53,15 @@ const Payment = (props: {
     }
   };
 
-  const [notificationState, setNotificationState] = useState(false);
+  const [notification, setNotification] = useState(false);
 
   const navigate = useNavigate();
 
   return (
     <div>
-      <div className={`payment-modal ${props.paymentVisible ? "visible" : ""}`}>
+      <div className={`payment-modal ${paymentVisible ? "visible" : ""}`}>
         <form
-          className={`payment ${notificationState ? "hidden" : ""}`}
+          className={`payment ${notification ? "hidden" : ""}`}
           onSubmit={handleSubmit(onSubmit)}
         >
           <h3 className="payment_title">Personal details</h3>
@@ -124,17 +124,7 @@ const Payment = (props: {
             {errors?.paymentEmail && <span>Error!</span>}
           </div>
           <h3 className="payment_title">Payment details</h3>
-          <div
-            className={`payment_card ${
-              cardNumberValue[0] === "4"
-                ? "visa"
-                : cardNumberValue[0] === "5"
-                ? "master"
-                : cardNumberValue[0] === "6"
-                ? "union"
-                : ""
-            }`}
-          >
+          <div className={`payment_card ${CardIcon[Number(cardNumber[0])]}`}>
             <input
               {...register("paymentCardNumber", {
                 pattern: /^\d{4} \d{4} \d{4} \d{4}$/,
@@ -143,7 +133,7 @@ const Payment = (props: {
               className="card_number"
               type="text"
               placeholder="Card number"
-              value={cardNumberValue}
+              value={cardNumber}
               onChange={(evt) => {
                 inputCardNumber(evt.target.value);
               }}
@@ -192,11 +182,7 @@ const Payment = (props: {
           </div>
           <input type="submit" className="payment_button" value="Confirm" />
         </form>
-        <div
-          className={`payment-notification ${
-            notificationState ? "" : "hidden"
-          }`}
-        >
+        <div className={`payment-notification ${notification ? "" : "hidden"}`}>
           <h2 className="notification_title">Thanks for your order!</h2>
           <span className="notice_image ">local_mall</span>
           <h3 className="notification_subtitle">
@@ -205,9 +191,9 @@ const Payment = (props: {
         </div>
       </div>
       <div
-        className={`shadow ${props.paymentVisible ? "visible" : ""}`}
+        className={`shadow ${paymentVisible ? "visible" : ""}`}
         onClick={() => {
-          props.setPaymentVisible(() => false);
+          setPaymentVisible(() => false);
         }}
       ></div>
     </div>

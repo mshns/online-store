@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import useCart from "../../hooks/useCart";
-
-import { IProductItem } from "../../types";
-
 import "./item.scss";
 
-const Item = (props: { item: IProductItem; tableState: boolean }) => {
+import useCart from "../../hooks/useCart";
+
+import { ITableItem, IProductItem } from "../../types";
+
+const Item = ({ item, tableState }: ITableItem) => {
   const { cartList, setCartList } = useCart();
 
   const isAddedToCart = (item: IProductItem): Boolean => {
@@ -16,7 +16,7 @@ const Item = (props: { item: IProductItem; tableState: boolean }) => {
       : false;
   };
 
-  const [isAdded, setAdded] = useState(isAddedToCart(props.item));
+  const [isAdded, setAdded] = useState(isAddedToCart(item));
 
   const buttonText = {
     notAdd: "Add to cart",
@@ -27,39 +27,43 @@ const Item = (props: { item: IProductItem; tableState: boolean }) => {
     localStorage.setItem("cart", JSON.stringify(cartList));
   }, [cartList]);
 
+  const addToCartButtonHandler = () => {
+    if (!isAdded) {
+      setCartList([...cartList, { item: item, amount: 1 }]);
+    } else {
+      setCartList(cartList.filter((product) => product.item.id !== item.id));
+    }
+    setAdded(!isAdded);
+  };
+
   return (
-    <div className={`product ${isAdded ? "active" : ""} ${props.tableState ? "" : "list"}`}>
-      <h3 className={`product_title ${props.tableState ? "" : "list"}`}>
-        {props.item.title}
+    <div
+      className={`product ${isAdded ? "active" : ""} ${
+        tableState ? "" : "list"
+      }`}
+    >
+      <h3 className={`product_title ${tableState ? "" : "list"}`}>
+        {item.title}
       </h3>
       <img
-        className={`product_thumbnail ${props.tableState ? "" : "list"}`}
-        src={props.item.thumbnail}
-        alt={props.item.title}
+        className={`product_thumbnail ${tableState ? "" : "list"}`}
+        src={item.thumbnail}
+        alt={item.title}
       />
-      <h3 className={`product_price ${props.tableState ? "" : "list"}`}>
-        ${props.item.price}
+      <h3 className={`product_price ${tableState ? "" : "list"}`}>
+        ${item.price}
       </h3>
-      <div className={`product_buttons ${props.tableState ? "" : "list"}`}>
+      <div className={`product_buttons ${tableState ? "" : "list"}`}>
         <button
           className={`product_buttons__cart ${isAdded ? "active" : ""} ${
-            props.tableState ? "" : "list"
+            tableState ? "" : "list"
           }`}
-          onClick={() => {
-            if (!isAdded) {
-              setCartList([...cartList, { item: props.item, amount: 1 }]);
-            } else {
-              setCartList(
-                cartList.filter((product) => product.item.id !== props.item.id)
-              );
-            }
-            setAdded(!isAdded);
-          }}
+          onClick={addToCartButtonHandler}
         >
           {isAdded ? buttonText.added : buttonText.notAdd}
         </button>
         <Link
-          to={`/products/${props.item.category}/${props.item.brand}/${props.item.id}`}
+          to={`/products/${item.category}/${item.brand}/${item.id}`}
           className="product_buttons__details"
         >
           Details

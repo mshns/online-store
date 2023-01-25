@@ -1,8 +1,8 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { ISortContext, SortingProps } from "../../types";
+import { IChildrenReactNode, ISortContext, SortingProps } from "../../types";
 
-const SortProvider = ({ children }: { children: ReactNode }) => {
+const SortProvider = ({ children }: IChildrenReactNode) => {
   const sortingProps: SortingProps = {
     brand: [],
     category: [],
