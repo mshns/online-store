@@ -47,3 +47,8 @@ export interface IProps {
 export interface IProductList {
   items: IProductItem[];
 }
+
+export interface ICategory {
+  category: string;
+  items: IProductItem[];
+}
