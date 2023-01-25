@@ -19,6 +19,8 @@ body {
   align-items: center;
 }
 
+// payment
+
 .shadow {
   position: fixed;
   width: 100vw;
@@ -73,9 +75,9 @@ body {
   &_phone,
   &_address,
   &_email,
-  &_number,
-  &_valid,
-  &_cvv {
+  .card_number,
+  .card_valid,
+  .card_cvv {
     font-family: "Russo One", sans-serif;
     font-size: 14px;
     color: #336699;
@@ -93,9 +95,6 @@ body {
     margin-bottom: 10px;
     font-size: 12px;
     color: red;
-  }
-  &_description {
-    color: rgb(51, 102, 153, 0.25);
   }
   &_card {
     display: flex;
@@ -136,6 +135,10 @@ body {
 .card_valid::placeholder,
 .card_cvv::placeholder {
   color: rgb(51, 102, 153, 0.75);
+}
+
+.error_description {
+  color: rgb(51, 102, 153, 0.25);
 }
 
 .payment_card.visa {
@@ -183,7 +186,7 @@ body {
   font-size: 20px;
   font-weight: 100;
   color: #33cc99;
-  border-bottom: 1px dotted #33cc99;
+  border-bottom: 1px dotted #33cc99;;
 }
 
 .notification_subtitle {
