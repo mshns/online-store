@@ -3,17 +3,11 @@ import PriceLabel from "./priceLabel";
 
 import storeItems from "../../../StoreProducts/StoreProducts";
 
-import { IProductList, IProductItem } from "../../../types";
+import getMinMax from "../../../lib/helpers/getMinMax";
 
-const PriceSlider = ({ items }: IProductList) => {
-  const getMinPrice = (itemsList: IProductItem[]): number => {
-    return Math.min(...itemsList.map((item) => item.price));
-  };
+import { IProductsList } from "../../../types";
 
-  const getMaxPrice = (itemsList: IProductItem[]): number => {
-    return Math.max(...itemsList.map((item) => item.price));
-  };
-
+const PriceSlider = ({ items }: IProductsList) => {
   const { sort, setSort } = useSort();
 
   const handleSetMinPrice = (
@@ -51,18 +45,18 @@ const PriceSlider = ({ items }: IProductList) => {
           className="range__lower"
           type="range"
           id="lower"
-          min={getMinPrice(storeItems)}
-          max={getMaxPrice(storeItems)}
-          value={getMinPrice(items)}
+          min={getMinMax("min", "price", storeItems)}
+          max={getMinMax("max", "price", storeItems)}
+          value={getMinMax("min", "price", items)}
           onChange={handleSetMinPrice}
         />
         <input
           className="range__upper"
           type="range"
           id="upper"
-          min={getMinPrice(storeItems)}
-          max={getMaxPrice(storeItems)}
-          value={getMaxPrice(items)}
+          min={getMinMax("min", "price", storeItems)}
+          max={getMinMax("max", "price", storeItems)}
+          value={getMinMax("max", "price", items)}
           onChange={handleSetMaxPrice}
         />
       </div>

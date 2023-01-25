@@ -1,17 +1,37 @@
-import { IProductItem } from "../../../types";
-import storeItems from "../../../StoreProducts/StoreProducts";
 import useSort from "../../../hooks/useSort";
+
 import StockLabel from "./stockLabel";
 
+import getMinMax from "../../../lib/helpers/getMinMax";
+
+import storeItems from "../../../StoreProducts/StoreProducts";
+
+import { IProductItem } from "../../../types";
+
 const StockField = ({ items }: { items: IProductItem[] }) => {
-  const minStock = (itemsList: IProductItem[]): number => {
-    return Math.min(...itemsList.map((item) => item.stock));
-  };
-  const maxStock = (itemsList: IProductItem[]): number => {
-    return Math.max(...itemsList.map((item) => item.stock));
+  const { sort, setSort } = useSort();
+
+  const handlerSetMinStock = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (Number(event.target.value) < sort.maxStock - 10) {
+      setSort((prev) => ({
+        ...prev,
+        minStock: Number(event.target.value),
+      }));
+    } else {
+      event.target.value = (sort.maxStock - 10).toString();
+    }
   };
 
-  const { sort, setSort } = useSort();
+  const handlerSetMaxStock = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (Number(event.target.value) > sort.minStock + 10) {
+      setSort((prev) => ({
+        ...prev,
+        maxStock: Number(event.target.value),
+      }));
+    } else {
+      event.target.value = (sort.minStock + 10).toString();
+    }
+  };
 
   return (
     <fieldset className="aside_fieldset">
@@ -22,37 +42,19 @@ const StockField = ({ items }: { items: IProductItem[] }) => {
           className="range__lower"
           type="range"
           id="lower"
-          min={minStock(storeItems)}
-          max={maxStock(storeItems)}
-          value={minStock(items)}
-          onChange={(evt) => {
-            if (Number(evt.target.value) < sort.maxStock - 10) {
-              setSort((prev) => ({
-                ...prev,
-                minStock: Number(evt.target.value),
-              }));
-            } else {
-              evt.target.value = (sort.maxStock - 10).toString();
-            }
-          }}
+          min={getMinMax("min", "stock", storeItems)}
+          max={getMinMax("max", "stock", storeItems)}
+          value={getMinMax("min", "stock", items)}
+          onChange={handlerSetMinStock}
         />
         <input
           className="range__upper"
           type="range"
           id="upper"
-          min={minStock(storeItems)}
-          max={maxStock(storeItems)}
-          value={maxStock(items)}
-          onChange={(evt) => {
-            if (Number(evt.target.value) > sort.minStock + 10) {
-              setSort((prev) => ({
-                ...prev,
-                maxStock: Number(evt.target.value),
-              }));
-            } else {
-              evt.target.value = (sort.minStock + 10).toString();
-            }
-          }}
+          min={getMinMax("min", "stock", storeItems)}
+          max={getMinMax("max", "stock", storeItems)}
+          value={getMinMax("max", "stock", items)}
+          onChange={handlerSetMaxStock}
         />
       </div>
     </fieldset>
