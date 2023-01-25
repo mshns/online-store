@@ -52,3 +52,14 @@ export interface ICategory {
   category: string;
   items: IProductItem[];
 }
+
+export interface IPayment {
+  paymentVisible: boolean;
+  setPaymentVisible: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export enum CardIcon {
+  visa = 4,
+  master,
+  union,
+}
