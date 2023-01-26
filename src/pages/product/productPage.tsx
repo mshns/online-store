@@ -5,15 +5,12 @@ import storeItems from "../../StoreProducts/StoreProducts";
 import ThumbnailList from "./components/thumbnailList";
 import useCart from "../../hooks/useCart";
 
-import { IProductItem } from "../../types";
+import { IPaymentVisible, IProductItem } from "../../types";
 
 import "./productPage.scss";
+import buttonText from "../../constants/productButtonText";
 
-function ProductPage({
-  setPaymentVisible,
-}: {
-  setPaymentVisible: React.Dispatch<React.SetStateAction<boolean>>;
-}) {
+function ProductPage({ setPaymentVisible }: IPaymentVisible) {
   const { id } = useParams();
 
   const [product] = [...storeItems.filter((item) => item.id === Number(id))];
@@ -28,12 +25,24 @@ function ProductPage({
 
   const [isAdded, setAdded] = useState(isAddedToCart(product));
 
-  const buttonText = {
-    notAdd: "Add to cart",
-    added: "Drop",
+  const navigate = useNavigate();
+
+  const handlerAddToCart = () => {
+    if (!isAdded) {
+      setCartList([...cartList, { item: product, amount: 1 }]);
+    } else {
+      setCartList(cartList.filter((item) => product.id !== item.item.id));
+    }
+    setAdded(!isAdded);
   };
 
-  const navigate = useNavigate();
+  const handlerBuyNow = () => {
+    navigate("/cart");
+    if (!isAdded) {
+      setCartList([...cartList, { item: product, amount: 1 }]);
+    }
+    setPaymentVisible(true);
+  };
 
   return (
     <main className="card">
@@ -52,30 +61,12 @@ function ProductPage({
           </h2>
           <div className="card_buttons">
             <button
-              className={`card-button_cart ${isAdded ? "active" : ""}`}
-              onClick={() => {
-                if (!isAdded) {
-                  setCartList([...cartList, { item: product, amount: 1 }]);
-                } else {
-                  setCartList(
-                    cartList.filter((item) => product.id !== item.item.id)
-                  );
-                }
-                setAdded(!isAdded);
-              }}
+              className={`card-button_cart ${isAdded && "active"}`}
+              onClick={handlerAddToCart}
             >
               {isAdded ? buttonText.added : buttonText.notAdd}
             </button>
-            <button
-              className="card-button_buy"
-              onClick={() => {
-                navigate("/cart");
-                if (!isAdded) {
-                  setCartList([...cartList, { item: product, amount: 1 }]);
-                }
-                setPaymentVisible(true);
-              }}
-            >
+            <button className="card-button_buy" onClick={handlerBuyNow}>
               Buy now
             </button>
           </div>

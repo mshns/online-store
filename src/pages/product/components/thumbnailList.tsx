@@ -11,7 +11,7 @@ const ThumbnailList = ({ product }: { product: IProductItem }) => {
         className="card-image_active"
         src={product.images[imageNumber]}
         alt={product.title}
-      ></img>
+      />
       <div className="thumbnail-list">
         {product.images.map((image, index) => (
           <img
