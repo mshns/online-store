@@ -67,8 +67,6 @@ const CartSumBlock = ({
     }
   }, [percentSum, totalSum, usagePromoCodes]);
 
-  const isCartEmpty = !cartList.length;
-
   const promoInputHandler = (event: { target: { value: string } }) => {
     const promoValue = event.target.value;
     if (isCorrectPromo(promoValue, promoCodes) && !isUsedPromo(promoValue)) {
@@ -146,12 +144,8 @@ const CartSumBlock = ({
         </div>
       </div>
       <button
-        className={`cart-sum_button ${isCartEmpty ? "not-active" : ""}`}
-        onClick={() => {
-          if (!isCartEmpty) {
-            setPaymentVisible(true);
-          }
-        }}
+        className="cart-sum_button"
+        onClick={() => setPaymentVisible(true)}
       >
         Buy now
       </button>
