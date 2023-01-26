@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import useCart from "../../../hooks/useCart";
 import UsagePromos from "./usagePromos";
 
+import promoCodes from "../../../constants/promoCodes";
+
 import { ICartItem } from "../../../types";
 
 const CartSumBlock = ({
@@ -23,8 +25,6 @@ const CartSumBlock = ({
     Math.floor(sum - (sum * percent) / 100);
 
   const [isPromo, setIsPromo] = useState(false);
-
-  const promoCodes: string[] = ["mshns", "erkhan"];
 
   const isCorrectPromo = (promoCode: string, promoList: string[]) => {
     return promoList.some((promo) => promo === promoCode);

@@ -71,6 +71,7 @@ export interface IChildrenReactNode {
 export interface IPaymentVisible {
   setPaymentVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
 export enum CardIcon {
   visa = 4,
   master,
@@ -92,3 +93,8 @@ export type SortingProps = {
 export type mathOperator = "min" | "max";
 
 export type itemKey = "stock" | "price";
+
+export interface IUsagePromos {
+  usagePromoCodes: string[] | null;
+  setUsagePromoCodes: React.Dispatch<React.SetStateAction<string[] | null>>;
+}
