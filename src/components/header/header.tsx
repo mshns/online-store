@@ -6,7 +6,8 @@ import "./Header.scss";
 import useSort from "../../hooks/useSort";
 import useCart from "../../hooks/useCart";
 
-import { ICartItem } from "../../types";
+import setTotalSum from "../../lib/helpers/setTotalSum";
+import setTotalItems from "../../lib/helpers/setTotalItems";
 
 const Header = () => {
   const { sort, setSort } = useSort();
@@ -14,21 +15,18 @@ const Header = () => {
 
   const location = useLocation();
 
-  const setTotalSum = (itemsList: ICartItem[]) =>
-    itemsList.reduce((acc, curr) => acc + curr.item.price * curr.amount, 0);
-  const setTotalItems = (itemsList: ICartItem[]) =>
-    itemsList.reduce((acc, curr) => acc + curr.amount, 0);
   const [totalSum, changeTotalSum] = useState(setTotalSum(cartList));
   const [totalItems, changeTotalItems] = useState(setTotalItems(cartList));
+
   useEffect(() => {
     changeTotalSum(setTotalSum(cartList));
     changeTotalItems(setTotalItems(cartList));
   }, [cartList]);
 
-  const seachInputHandler = (evt: { target: { value: string } }) => {
+  const seachInputHandler = (event: { target: { value: string } }) => {
     setSort((prev) => ({
       ...prev,
-      search: evt.target.value.toLowerCase(),
+      search: event.target.value.toLowerCase(),
     }));
   };
 
