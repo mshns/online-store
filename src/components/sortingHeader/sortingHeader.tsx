@@ -7,6 +7,8 @@ import listProducts from "./icons/list.svg";
 
 import sortingList from "../../constants/sortingList";
 
+import buttonViewText from "../../constants/buttonViewText";
+
 import { ISortingHeader } from "../../types";
 
 const SortingHeader = ({
@@ -79,8 +81,8 @@ const SortingHeader = ({
           }`}
           onClick={tableButtonHandler}
           src={tableProducts}
-          alt="Display Table"
-          title="Display Table"
+          alt={buttonViewText.table}
+          title={buttonViewText.table}
         />
         <img
           className={`content-header_buttons__list ${
@@ -88,8 +90,8 @@ const SortingHeader = ({
           }`}
           onClick={listButtonHandler}
           src={listProducts}
-          alt="Display List"
-          title="Display List"
+          alt={buttonViewText.list}
+          title={buttonViewText.list}
         />
       </div>
     </div>

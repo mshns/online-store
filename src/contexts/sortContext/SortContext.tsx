@@ -1,20 +1,11 @@
 import { createContext, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+
+import sortingProps from "../../constants/sortingProps";
+
 import { IChildrenReactNode, ISortContext, SortingProps } from "../../types";
 
 const SortProvider = ({ children }: IChildrenReactNode) => {
-  const sortingProps: SortingProps = {
-    brand: [],
-    category: [],
-    minPrice: 0,
-    maxPrice: 1800,
-    minStock: 0,
-    maxStock: 150,
-    sortBy: "",
-    search: "",
-    itemsView: "table",
-  };
-
   const [searchParams] = useSearchParams();
 
   const brandsQueryParams = searchParams.get("brand");
