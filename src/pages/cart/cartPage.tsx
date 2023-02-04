@@ -11,8 +11,9 @@ import CartHeader from "./components/cartHeader";
 import EmptyCart from "./components/EmptyCart";
 
 import getVisibleItems from "../../lib/helpers/getVisibleTtems";
+import getPagesAmount from "../../lib/helpers/getPagesAmount";
 
-import { ICartItem, IPaymentVisible } from "../../types";
+import { IPaymentVisible } from "../../types";
 
 const CartPage = ({ setPaymentVisible }: IPaymentVisible) => {
   const { cartList } = useCart();
@@ -35,12 +36,6 @@ const CartPage = ({ setPaymentVisible }: IPaymentVisible) => {
   const [visibilityItems, setVisibilityItems] = useState(
     getVisibleItems(cartList, visibilityValue, page)
   );
-
-  const getPagesAmount = (items: ICartItem[], itemsAmount: number) => {
-    return Math.ceil(items.length / itemsAmount);
-  };
-
-  const pagesAmount = getPagesAmount(cartList, visibilityValue);
 
   const [, setSearchParams] = useSearchParams();
 
@@ -66,8 +61,13 @@ const CartPage = ({ setPaymentVisible }: IPaymentVisible) => {
     const stringifyPaginationParams = JSON.stringify(params);
     localStorage.setItem("cartPaginationParams", stringifyPaginationParams);
     setSearchParams(params);
-
-  }, [cartList, page, setSearchParams, visibilityItems.length, visibilityValue]);
+  }, [
+    cartList,
+    page,
+    setSearchParams,
+    visibilityItems.length,
+    visibilityValue,
+  ]);
 
   return cartList.length ? (
     <main className="cart">
@@ -77,7 +77,7 @@ const CartPage = ({ setPaymentVisible }: IPaymentVisible) => {
           handler={setVisibilityValue}
           setPage={setPage}
           page={page}
-          pagesAmount={pagesAmount}
+          pagesAmount={getPagesAmount(cartList, visibilityValue)}
         />
         <CartList visibilityItems={visibilityItems} />
       </section>

@@ -1,12 +1,10 @@
+import { IPromoElement } from "../../../types";
+
 const PromoElement = ({
   promoCode,
   usagePromoCodes,
   setUsagePromoCodes,
-}: {
-  promoCode: string;
-  usagePromoCodes: string[] | null;
-  setUsagePromoCodes: React.Dispatch<React.SetStateAction<string[] | null>>;
-}) => {
+}: IPromoElement) => {
   const promoItemHandler = () => {
     if (usagePromoCodes) {
       setUsagePromoCodes(usagePromoCodes.filter((item) => item !== promoCode));

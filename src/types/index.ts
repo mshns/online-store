@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { Dispatch, ReactNode, SetStateAction } from "react";
 
 export interface IProductItem {
   id: number;
@@ -107,4 +107,18 @@ export interface IRoute {
 export interface ISortingList {
   title: string;
   searchURL: string;
+}
+
+export interface IPromoElement {
+  promoCode: string;
+  usagePromoCodes: string[] | null;
+  setUsagePromoCodes: React.Dispatch<React.SetStateAction<string[] | null>>;
+}
+
+export interface ICartHeader {
+  visibilityValue: number;
+  handler: Dispatch<SetStateAction<number>>;
+  page: number;
+  pagesAmount: number;
+  setPage: Dispatch<SetStateAction<number>>;
 }

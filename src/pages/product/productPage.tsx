@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-import storeItems from "../../StoreProducts/StoreProducts";
 import ThumbnailList from "./components/thumbnailList";
 import useCart from "../../hooks/useCart";
 
-import { IPaymentVisible, IProductItem } from "../../types";
-
 import "./productPage.scss";
+
 import buttonText from "../../constants/productButtonText";
+import storeItems from "../../StoreProducts/StoreProducts";
+
+import { IPaymentVisible, IProductItem } from "../../types";
 
 function ProductPage({ setPaymentVisible }: IPaymentVisible) {
   const { id } = useParams();

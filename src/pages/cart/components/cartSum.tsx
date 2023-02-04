@@ -4,6 +4,9 @@ import useCart from "../../../hooks/useCart";
 import UsagePromos from "./usagePromos";
 
 import promoCodes from "../../../constants/promoCodes";
+import getPromoSum from "../../../lib/helpers/getPromoSum";
+import isCorrectPromo from "../../../lib/helpers/isCorrectPromo";
+import getPromosFromLocalStorage from "../../../lib/helpers/getPromosFromLocalStorage";
 
 import { ICartItem } from "../../../types";
 
@@ -21,22 +24,7 @@ const CartSumBlock = ({
   const [totalSum, changeTotalSum] = useState(getTotalSum(cartList));
   const [totalItems, changeTotalItems] = useState(getTotalItems(cartList));
 
-  const getPromoSum = (sum: number, percent: number) =>
-    Math.floor(sum - (sum * percent) / 100);
-
   const [isPromo, setIsPromo] = useState(false);
-
-  const isCorrectPromo = (promoCode: string, promoList: string[]) => {
-    return promoList.some((promo) => promo === promoCode);
-  };
-
-  const getPromosFromLocalStorage = () => {
-    if (localStorage.getItem("promos")) {
-      const stringyPromos: string = localStorage.getItem("promos") || "";
-      return stringyPromos.split(",");
-    }
-    return [];
-  };
 
   const [usagePromoCodes, setUsagePromoCodes] = useState<string[] | null>(
     getPromosFromLocalStorage() || null

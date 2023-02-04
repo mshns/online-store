@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import { ICartHeader } from "../../../types";
 
 const CartHeader = ({
   visibilityValue,
@@ -6,13 +6,7 @@ const CartHeader = ({
   page,
   pagesAmount,
   setPage,
-}: {
-  visibilityValue: number;
-  handler: Dispatch<SetStateAction<number>>;
-  page: number;
-  pagesAmount: number;
-  setPage: Dispatch<SetStateAction<number>>;
-}) => {
+}: ICartHeader) => {
   const paginationInputHandler = (event: { target: { value: any } }) => {
     const numberValue = Number(event.target.value);
     if (numberValue > 0) {
