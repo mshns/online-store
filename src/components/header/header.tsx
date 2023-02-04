@@ -8,6 +8,7 @@ import useCart from "../../hooks/useCart";
 
 import setTotalSum from "../../lib/helpers/setTotalSum";
 import setTotalItems from "../../lib/helpers/setTotalItems";
+import resetSort from "../../lib/helpers/resetSort";
 
 const Header = () => {
   const { sort, setSort } = useSort();
@@ -36,19 +37,7 @@ const Header = () => {
         className="logo"
         to="/"
         title="Online Store"
-        onClick={() => {
-          setSort({
-            brand: [],
-            category: [],
-            minPrice: 0,
-            maxPrice: 1800,
-            minStock: 0,
-            maxStock: 150,
-            sortBy: "",
-            search: "",
-            itemsView: "table",
-          });
-        }}
+        onClick={() => resetSort(setSort)}
       >
         Online<span>Store</span>
       </Link>

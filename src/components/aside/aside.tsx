@@ -8,26 +8,14 @@ import StockField from "./components/stock";
 
 import "./aside.scss";
 
+import resetSort from "../../lib/helpers/resetSort";
+
 import { IProps } from "../../types";
 
 const Aside = ({ items, setItems }: IProps) => {
   const { setSort } = useSort();
 
   const [buttonCopyText, setButtonCopyText] = useState("Copy");
-
-  const handleResetSort = () => {
-    setSort({
-      brand: [],
-      category: [],
-      minPrice: 0,
-      maxPrice: 1800,
-      minStock: 0,
-      maxStock: 150,
-      sortBy: "",
-      search: "",
-      itemsView: "table",
-    });
-  };
 
   const handleCopySort = () => {
     const copyedURL = window.location.href;
@@ -43,7 +31,7 @@ const Aside = ({ items, setItems }: IProps) => {
       <div className="container aside_header">
         <h2 className="aside_title">Filters</h2>
         <div className="container aside_buttons">
-          <button className="aside_buttons__reset" onClick={handleResetSort}>
+          <button className="aside_buttons__reset" onClick={() => resetSort(setSort)}>
             Reset
           </button>
           <button className="aside_buttons__copy" onClick={handleCopySort}>
