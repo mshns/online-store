@@ -98,3 +98,8 @@ export interface IUsagePromos {
   usagePromoCodes: string[] | null;
   setUsagePromoCodes: React.Dispatch<React.SetStateAction<string[] | null>>;
 }
+
+export interface IRoute {
+  path: string;
+  element: JSX.Element;
+}
