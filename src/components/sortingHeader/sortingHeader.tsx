@@ -5,6 +5,8 @@ import useSort from "../../hooks/useSort";
 import tableProducts from "./icons/table.svg";
 import listProducts from "./icons/list.svg";
 
+import sortingList from "../../constants/sortingList";
+
 import { ISortingHeader } from "../../types";
 
 const SortingHeader = ({
@@ -12,28 +14,6 @@ const SortingHeader = ({
   tableState,
   setTableState,
 }: ISortingHeader) => {
-  const sortingList: {
-    title: string;
-    searchURL: string;
-  }[] = [
-    {
-      title: "By price (to lower)",
-      searchURL: "priceToLower",
-    },
-    {
-      title: "By price (to higher)",
-      searchURL: "priceToHigher",
-    },
-    {
-      title: "By rating (to lower)",
-      searchURL: "ratingToLower",
-    },
-    {
-      title: "By rating (to higher)",
-      searchURL: "ratingToHigher",
-    },
-  ];
-
   const { setSort, sort } = useSort();
 
   const [sortingValue, setSortingValue] = useState(
@@ -56,7 +36,7 @@ const SortingHeader = ({
       ...prev,
       itemsView: "table",
     }));
-  }
+  };
 
   const listButtonHandler = () => {
     setTableState(false);
@@ -64,7 +44,7 @@ const SortingHeader = ({
       ...prev,
       itemsView: "rows",
     }));
-  }
+  };
 
   return (
     <div className="container content_header">
