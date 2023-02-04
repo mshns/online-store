@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
+import categoryCountAll from "../../../constants/categoryCountAll";
 
 import useSort from "../../../hooks/useSort";
-
-import storeItems from "../../../StoreProducts/StoreProducts";
 
 import { ICategory, SortingProps } from "../../../types";
 
 const Category = ({ category, items }: ICategory) => {
   const { sort, setSort } = useSort();
+
+  const [itemCount, setItemCount] = useState(0);
 
   const isCheckedBySort = (category: string, sortProperty: SortingProps) =>
     sortProperty.category.includes(category);
@@ -15,17 +16,8 @@ const Category = ({ category, items }: ICategory) => {
 
   useEffect(() => {
     setChecked(isCheckedBySort(category, sort));
-  }, [category, sort]);
-
-  const itemCount = items.filter((item) => item.category === category).length;
-
-  const itemCountAll = storeItems.filter(
-    (item) => item.category === category
-  ).length;
-
-  const isNotActiveClass = () => {
-    return itemCount > 0 ? "" : " non-active_input_class";
-  };
+    setItemCount(items.filter((item) => item.category === category).length);
+  }, [category, items, sort]);
 
   const categoryCheckboxHandler = () => {
     if (!isChecked) {
@@ -45,7 +37,11 @@ const Category = ({ category, items }: ICategory) => {
   };
 
   return (
-    <div className={`container fieldset_item__checkbox${isNotActiveClass()}`}>
+    <div
+      className={`container fieldset_item__checkbox${
+        itemCount > 0 ? "" : " non-active_input_class"
+      }`}
+    >
       <input
         type="checkbox"
         id={category}
@@ -56,7 +52,7 @@ const Category = ({ category, items }: ICategory) => {
         {category}
       </label>
       <span className="item-count">
-        ({itemCount}/{itemCountAll})
+        ({itemCount}/{categoryCountAll(category)})
       </span>
     </div>
   );

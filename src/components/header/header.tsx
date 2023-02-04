@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-import "./header.scss";
+import "./Header.scss";
 
 import useSort from "../../hooks/useSort";
 import useCart from "../../hooks/useCart";
@@ -12,10 +12,7 @@ const Header = () => {
   const { sort, setSort } = useSort();
   const { cartList } = useCart();
 
-  const URLLocate = window.location.href;
-  const inMainPage = !(
-    URLLocate.includes("cart") || URLLocate.includes("products")
-  );
+  const location = useLocation();
 
   const setTotalSum = (itemsList: ICartItem[]) =>
     itemsList.reduce((acc, curr) => acc + curr.item.price * curr.amount, 0);
@@ -28,12 +25,12 @@ const Header = () => {
     changeTotalItems(setTotalItems(cartList));
   }, [cartList]);
 
-  const seachInputHandler = (evt: { target: { value: string; }; }) => {
+  const seachInputHandler = (evt: { target: { value: string } }) => {
     setSort((prev) => ({
       ...prev,
       search: evt.target.value.toLowerCase(),
     }));
-  }
+  };
 
   return (
     <header className="header">
@@ -58,7 +55,9 @@ const Header = () => {
         Online<span>Store</span>
       </Link>
       <form
-        className={`header_search ${inMainPage ? "" : "display-none"}`}
+        className={`header_search ${
+          location.pathname !== "/" && "display-none"
+        }`}
         onSubmit={(evt) => evt.preventDefault()}
       >
         <input

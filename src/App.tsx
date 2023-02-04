@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import CartListProvider from "./contexts/cartListContext/CartList";
-import Header from "./components/header/header";
+import Header from "./components/header/Header";
 import AppRoutes from "./components/appRoutes/AppRoutes";
 import Footer from "./components/footer/footer";
 import Payment from "./components/payment/payment";
