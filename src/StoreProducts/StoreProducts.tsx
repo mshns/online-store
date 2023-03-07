@@ -13,11 +13,11 @@ const storeItems: IProductItem[] = [
     brand: "Apple",
     category: "Smartphones",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/1/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/1/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/1/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/1/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/1/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/1/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/1/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/1/3.jpg",
     ],
   },
   {
@@ -32,11 +32,11 @@ const storeItems: IProductItem[] = [
     brand: "Xiaomi",
     category: "Smartphones",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/2/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/2/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/2/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/2/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/2/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/2/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/2/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/2/3.jpg",
     ],
   },
   {
@@ -51,11 +51,11 @@ const storeItems: IProductItem[] = [
     brand: "Realme",
     category: "Smartphones",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/3/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/3/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/3/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/3/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/3/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/3/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/3/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/3/3.jpg",
     ],
   },
   {
@@ -70,11 +70,11 @@ const storeItems: IProductItem[] = [
     brand: "Samsung",
     category: "Smartphones",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/4/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/4/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/4/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/4/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/4/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/4/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/4/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/4/3.jpg",
     ],
   },
   {
@@ -89,11 +89,11 @@ const storeItems: IProductItem[] = [
     brand: "Huawei",
     category: "Smartphones",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/5/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/5/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/5/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/5/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/5/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/5/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/5/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/5/3.jpg",
     ],
   },
   {
@@ -108,11 +108,11 @@ const storeItems: IProductItem[] = [
     brand: "Apple",
     category: "Laptops",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/6/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/6/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/6/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/6/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/6/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/6/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/6/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/6/3.jpg",
     ],
   },
   {
@@ -127,11 +127,11 @@ const storeItems: IProductItem[] = [
     brand: "Samsung",
     category: "Laptops",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/7/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/7/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/7/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/7/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/7/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/7/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/7/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/7/3.jpg",
     ],
   },
   {
@@ -146,11 +146,11 @@ const storeItems: IProductItem[] = [
     brand: "Microsoft",
     category: "Laptops",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/8/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/8/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/8/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/8/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/8/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/8/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/8/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/8/3.jpg",
     ],
   },
   {
@@ -165,11 +165,11 @@ const storeItems: IProductItem[] = [
     brand: "Infinix",
     category: "Laptops",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/9/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/9/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/9/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/9/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/9/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/9/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/9/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/9/3.jpg",
     ],
   },
   {
@@ -184,11 +184,11 @@ const storeItems: IProductItem[] = [
     brand: "HP Pavilion",
     category: "Laptops",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/10/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/10/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/10/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/10/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/10/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/10/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/10/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/10/3.jpg",
     ],
   },
   {
@@ -203,11 +203,11 @@ const storeItems: IProductItem[] = [
     brand: "Xiaomi",
     category: "Smart Watch",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/11/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/11/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/11/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/11/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/11/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/11/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/11/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/11/3.jpg",
     ],
   },
   {
@@ -222,11 +222,11 @@ const storeItems: IProductItem[] = [
     brand: "Apple",
     category: "Smart Watch",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/12/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/12/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/12/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/12/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/12/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/12/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/12/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/12/3.jpg",
     ],
   },
   {
@@ -241,11 +241,11 @@ const storeItems: IProductItem[] = [
     brand: "Realme",
     category: "Smart Watch",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/13/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/13/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/13/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/13/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/13/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/13/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/13/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/13/3.jpg",
     ],
   },
   {
@@ -260,11 +260,11 @@ const storeItems: IProductItem[] = [
     brand: "Huawei",
     category: "Smart Watch",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/14/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/14/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/14/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/14/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/14/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/14/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/14/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/14/3.jpg",
     ],
   },
   {
@@ -279,11 +279,11 @@ const storeItems: IProductItem[] = [
     brand: "Samsung",
     category: "Smart Watch",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/15/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/15/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/15/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/15/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/15/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/15/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/15/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/15/3.jpg",
     ],
   },
   {
@@ -298,11 +298,11 @@ const storeItems: IProductItem[] = [
     brand: "Xiaomi",
     category: "Tablets",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/16/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/16/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/16/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/16/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/16/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/16/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/16/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/16/3.jpg",
     ],
   },
   {
@@ -317,11 +317,11 @@ const storeItems: IProductItem[] = [
     brand: "Lenovo",
     category: "Tablets",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/17/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/17/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/17/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/17/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/17/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/17/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/17/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/17/3.jpg",
     ],
   },
   {
@@ -336,11 +336,11 @@ const storeItems: IProductItem[] = [
     brand: "Samsung",
     category: "Tablets",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/18/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/18/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/18/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/18/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/18/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/18/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/18/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/18/3.jpg",
     ],
   },
   {
@@ -355,11 +355,11 @@ const storeItems: IProductItem[] = [
     brand: "Apple",
     category: "Tablets",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/19/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/19/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/19/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/19/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/19/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/19/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/19/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/19/3.jpg",
     ],
   },
   {
@@ -374,11 +374,11 @@ const storeItems: IProductItem[] = [
     brand: "Realme",
     category: "Tablets",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/20/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/20/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/20/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/20/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/20/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/20/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/20/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/20/3.jpg",
     ],
   },
   {
@@ -393,11 +393,11 @@ const storeItems: IProductItem[] = [
     brand: "TCL",
     category: "Smart TVs",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/21/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/21/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/21/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/21/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/21/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/21/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/21/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/21/3.jpg",
     ],
   },
   {
@@ -412,11 +412,11 @@ const storeItems: IProductItem[] = [
     brand: "Xiaomi",
     category: "Smart TVs",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/22/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/22/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/22/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/22/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/22/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/22/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/22/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/22/3.jpg",
     ],
   },
   {
@@ -431,11 +431,11 @@ const storeItems: IProductItem[] = [
     brand: "LG",
     category: "Smart TVs",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/23/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/23/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/23/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/23/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/23/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/23/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/23/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/23/3.jpg",
     ],
   },
   {
@@ -450,11 +450,11 @@ const storeItems: IProductItem[] = [
     brand: "Polarline",
     category: "Smart TVs",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/24/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/24/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/24/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/24/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/24/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/24/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/24/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/24/3.jpg",
     ],
   },
   {
@@ -469,11 +469,11 @@ const storeItems: IProductItem[] = [
     brand: "Skyworth",
     category: "Smart TVs",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/25/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/25/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/25/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/25/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/25/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/25/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/25/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/25/3.jpg",
     ],
   },
   {
@@ -488,11 +488,11 @@ const storeItems: IProductItem[] = [
     brand: "Baseus",
     category: "Powerbanks",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/26/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/26/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/26/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/26/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/26/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/26/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/26/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/26/3.jpg",
     ],
   },
   {
@@ -507,11 +507,11 @@ const storeItems: IProductItem[] = [
     brand: "Xiaomi",
     category: "Powerbanks",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/27/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/27/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/27/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/27/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/27/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/27/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/27/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/27/3.jpg",
     ],
   },
   {
@@ -526,11 +526,11 @@ const storeItems: IProductItem[] = [
     brand: "Apple",
     category: "Powerbanks",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/28/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/28/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/28/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/28/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/28/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/28/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/28/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/28/3.jpg",
     ],
   },
   {
@@ -545,11 +545,11 @@ const storeItems: IProductItem[] = [
     brand: "Ugreen",
     category: "Powerbanks",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/29/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/29/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/29/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/29/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/29/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/29/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/29/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/29/3.jpg",
     ],
   },
   {
@@ -564,11 +564,11 @@ const storeItems: IProductItem[] = [
     brand: "Remax",
     category: "Powerbanks",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/30/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/30/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/30/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/30/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/30/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/30/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/30/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/30/3.jpg",
     ],
   },
   {
@@ -583,11 +583,11 @@ const storeItems: IProductItem[] = [
     brand: "Xiaomi",
     category: "Headphones",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/31/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/31/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/31/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/31/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/31/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/31/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/31/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/31/3.jpg",
     ],
   },
   {
@@ -602,11 +602,11 @@ const storeItems: IProductItem[] = [
     brand: "Apple",
     category: "Headphones",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/32/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/32/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/32/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/32/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/32/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/32/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/32/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/32/3.jpg",
     ],
   },
   {
@@ -621,11 +621,11 @@ const storeItems: IProductItem[] = [
     brand: "JBL",
     category: "Headphones",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/33/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/33/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/33/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/33/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/33/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/33/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/33/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/33/3.jpg",
     ],
   },
   {
@@ -640,11 +640,11 @@ const storeItems: IProductItem[] = [
     brand: "Sony",
     category: "Headphones",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/34/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/34/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/34/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/34/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/34/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/34/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/34/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/34/3.jpg",
     ],
   },
   {
@@ -659,11 +659,11 @@ const storeItems: IProductItem[] = [
     brand: "A4Tech",
     category: "Headphones",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/35/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/35/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/35/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/35/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/35/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/35/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/35/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/35/3.jpg",
     ],
   },
   {
@@ -678,11 +678,11 @@ const storeItems: IProductItem[] = [
     brand: "SVEN",
     category: "Speakers",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/36/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/36/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/36/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/36/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/36/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/36/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/36/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/36/3.jpg",
     ],
   },
   {
@@ -697,11 +697,11 @@ const storeItems: IProductItem[] = [
     brand: "JBL",
     category: "Speakers",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/37/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/37/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/37/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/37/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/37/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/37/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/37/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/37/3.jpg",
     ],
   },
   {
@@ -716,11 +716,11 @@ const storeItems: IProductItem[] = [
     brand: "Xiaomi",
     category: "Speakers",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/38/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/38/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/38/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/38/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/38/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/38/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/38/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/38/3.jpg",
     ],
   },
   {
@@ -735,11 +735,11 @@ const storeItems: IProductItem[] = [
     brand: "Defender",
     category: "Speakers",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/39/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/39/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/39/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/39/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/39/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/39/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/39/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/39/3.jpg",
     ],
   },
   {
@@ -754,11 +754,11 @@ const storeItems: IProductItem[] = [
     brand: "Sony",
     category: "Speakers",
     thumbnail:
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/40/thumbnail.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/40/thumbnail.jpg",
     images: [
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/40/1.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/40/2.jpg",
-      "https://raw.githubusercontent.com/ErkhanDV/online-store/develop/src/assets/data/40/3.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/40/1.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/40/2.jpg",
+      "https://raw.githubusercontent.com/mshns/online-store/develop/src/assets/data/40/3.jpg",
     ],
   },
 ];

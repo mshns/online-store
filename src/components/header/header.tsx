@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import "./Header.scss";
+import "./header.scss";
 
 import useSort from "../../hooks/useSort";
 import useCart from "../../hooks/useCart";
