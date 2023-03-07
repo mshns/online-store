@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import "./Item.scss";
+import "./item.scss";
 
 import useCart from "../../hooks/useCart";
 

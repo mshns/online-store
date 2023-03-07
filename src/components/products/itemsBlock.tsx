@@ -1,4 +1,4 @@
-import Item from "./Item";
+import Item from "./item";
 
 import { IBlockItem, IProductItem } from "../../types";
 
